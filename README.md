@@ -9,7 +9,12 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 **Table of Contents**
 
 - [react-tododo](#react-tododo)
+  - [License](#license)
 
 <!-- markdown-toc end -->
 
 ---
+
+## License
+
+`react-tododo` is licensed under [MIT](./LICENSE).
