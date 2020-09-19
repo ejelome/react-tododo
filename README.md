@@ -10,6 +10,8 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 
 - [react-tododo](#react-tododo)
   - [Demo](#demo)
+  - [Setup](#setup)
+    - [Install](#install)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -19,6 +21,16 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 ## Demo
 
 See <https://ejelome-react-tododo.netlify.app>.
+
+---
+
+## Setup
+
+### Install
+
+```shell
+$ npm [install|isntall|add|i]
+```
 
 ---
 
