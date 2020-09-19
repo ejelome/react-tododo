@@ -16,6 +16,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
     - [Serve](#serve)
     - [Test](#test)
     - [Build](#build)
+  - [Lessons](#lessons)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -57,6 +58,10 @@ $ npm [test|tst|t]
 ```shell
 $ npm run build
 ```
+
+---
+
+## Lessons
 
 ---
 
