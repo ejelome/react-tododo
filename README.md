@@ -12,6 +12,10 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
   - [Demo](#demo)
   - [Setup](#setup)
     - [Install](#install)
+  - [Usage](#usage)
+    - [Serve](#serve)
+    - [Test](#test)
+    - [Build](#build)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -30,6 +34,28 @@ See <https://ejelome-react-tododo.netlify.app>.
 
 ```shell
 $ npm [install|isntall|add|i]
+```
+
+---
+
+## Usage
+
+### Serve
+
+```shell
+$ npm start
+```
+
+### Test
+
+```shell
+$ npm [test|tst|t]
+```
+
+### Build
+
+```shell
+$ npm run build
 ```
 
 ---
