@@ -23,6 +23,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
     - [1. Processes](#1-processes)
       - [1.1. Milestones](#11-milestones)
       - [1.2. Project boards](#12-project-boards)
+      - [1.3. Issues](#13-issues)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -136,6 +137,24 @@ $ npm run build
 >
 > - The [project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize your work
 > - Use `Templates` as `Automated kanban with reviews` if developing with other developers
+
+#### 1.3. Issues
+
+- 1.3.1. [`github.com/<username>/<repo>/issues`](https://github.com/<username>/<repo>/issues)
+- 1.3.2. Click `New issue` [`github.com/<username>/<repo>/issues/new`](https://github.com/<username>/<repo>/issues/new)
+- 1.3.3. Set fields, e.g.:
+
+  - `Title` as `add-changelog`
+  - `Write` as `Add`CHANGELOG.md``
+  - `Assignees` as `assign yourself`
+  - `Labels` as `documentation`
+  - `Projects` as `Project setup`
+  - `Milestone` as `v0.1.0`
+
+- 1.3.4. Click `Submit new issue`
+
+> **Note:** <br/>
+> The [issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or report bugs.
 
 ---
 
