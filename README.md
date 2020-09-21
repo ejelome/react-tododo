@@ -20,6 +20,8 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
     - [Test](#test)
     - [Build](#build)
   - [Lessons](#lessons)
+    - [1. Processes](#1-processes)
+      - [1.1. Milestones](#11-milestones)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -99,6 +101,23 @@ $ npm run build
 ---
 
 ## Lessons
+
+### 1. Processes
+
+#### 1.1. Milestones
+
+- 1.1.1. Go to [`github.com/<username>/<repo>/milestones`](https://github.com/<username>/<repo>/milestones)
+- 1.1.2. Click `New milestone` ([`github.com/<username>/<repo>/milestones/new`](https://github.com/<username>/<repo>/milestones/new))
+- 1.1.3. Set fields, e.g.:
+
+  - `Title` as `v0.1.0`
+  - `Due date (optional)` as `09/27/2020`
+  - `Description` as `Initial release.`
+
+- 1.1.4. Click `Create milestone`
+
+> **Note:** <br />
+> The [milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of your work.
 
 ---
 
