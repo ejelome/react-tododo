@@ -24,6 +24,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [1.1. Milestones](#11-milestones)
       - [1.2. Project boards](#12-project-boards)
       - [1.3. Issues](#13-issues)
+      - [1.4. Labels](#14-labels)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -155,6 +156,14 @@ $ npm run build
 
 > **Note:** <br/>
 > The [issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or report bugs.
+
+#### 1.4. Labels
+
+- 1.4.1. Go to [`github.com/<username>/<repo>/issues/<n>`](https://github.com/<username>/<repo>/issues/<n>)
+- 1.4.2. Set `Labels` as e.g. `documentation`
+
+> **Note:** <br />
+> The [labels](https://docs.github.com/en/github/managing-your-work-on-github/about-labels) help categorize issues and pull requests.
 
 ---
 
