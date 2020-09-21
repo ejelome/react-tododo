@@ -22,6 +22,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
   - [Lessons](#lessons)
     - [1. Processes](#1-processes)
       - [1.1. Milestones](#11-milestones)
+      - [1.2. Project boards](#12-project-boards)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -118,6 +119,23 @@ $ npm run build
 
 > **Note:** <br />
 > The [milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of your work.
+
+#### 1.2. Project boards
+
+- 1.2.1. Go to [`github.com/<username>/<repo>/projects`](https://github.com/<username>/<repo>/projects)
+- 1.2.2. Click `Create a project` ([`github.com/<username>/<repo>/projects/new`](https://github.com/<username>/<repo>/projects/new))
+- 1.2.3. Set fields, e.g.:
+
+  - `Project board name` as `Project setup`
+  - `Description` as `Setup the project and processes.`
+  - `Project template` as `Automated kanban`
+
+- 1.2.4. Click `Create project`
+
+> **Notes:**
+>
+> - The [project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize your work
+> - Use `Templates` as `Automated kanban with reviews` if developing with other developers
 
 ---
 
