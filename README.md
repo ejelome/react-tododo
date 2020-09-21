@@ -10,6 +10,9 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 
 - [react-tododo](#react-tododo)
   - [Demo](#demo)
+  - [Prerequisites](#prerequisites)
+    - [Optional](#optional)
+      - [simple-import-sort](#simple-import-sort)
   - [Setup](#setup)
     - [Install](#install)
   - [Usage](#usage)
@@ -26,6 +29,40 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 ## Demo
 
 See <https://ejelome-react-tododo.netlify.app>.
+
+---
+
+## Prerequisites
+
+### Optional
+
+#### simple-import-sort
+
+1. Install `eslint-plugin-simple-import-sort`:
+
+   ```shell
+   $ npm i -D eslint-plugin-simple-import-sort
+   ```
+
+2. Update `./.eslintrc` (create one if non-existent):
+
+   ```json
+   {
+     "parser": "babel-eslint",
+     "plugins": ["simple-import-sort"],
+     "rules": {
+       "import/order": "off",
+       "sort-imports": "off",
+       "simple-import-sort/sort": "error"
+     }
+   }
+   ```
+
+3. Sort `./src/*.js` files:
+
+   ```shell
+   $ eslint --fix src/
+   ```
 
 ---
 
