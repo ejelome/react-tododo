@@ -227,7 +227,7 @@ $ npm run build
   - Click `Create`
 
 > **Warning:** <br/>
-> Commits can still be pushed directly to protected branch (e.g. `master`).
+> Commits can still be pushed directly to protected branch.
 
 #### 2.3. Require status checks to pass before merging
 
@@ -243,7 +243,7 @@ $ npm run build
 - 2.3.3. Click `Save changes`
 
 > **Note:** <br/>
-> Status checks prevent pushing commits directly to protected branch (e.g. `master`).
+> Status checks prevent pushing commits directly to protected branch.
 
 ---
 
