@@ -26,6 +26,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [1.3. Issues](#13-issues)
       - [1.4. Labels](#14-labels)
       - [1.5. Pull requests](#15-pull-requests)
+    - [2. Project Repository](#2-project-repository)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -202,6 +203,11 @@ $ npm run build
 >
 > - The [pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review your work with others
 > - You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description
+
+### 2. Project Repository
+
+> **Note:** <br />
+> Project repository for improving security and monitoring.
 
 ---
 
