@@ -172,7 +172,7 @@ $ npm run build
 
   ```shell
   $ \
-  git pull --rebase origin master  # sync latest changes from source branch
+  git pull -r origin master        # sync latest changes from source branch
   git checkout -b add-changelog    # create and switch to a feature branch
   touch CHANGELOG.md               # create a file
   git add CHANGELOG.md             # stage the file
