@@ -25,6 +25,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [1.2. Project boards](#12-project-boards)
       - [1.3. Issues](#13-issues)
       - [1.4. Labels](#14-labels)
+      - [1.5. Pull requests](#15-pull-requests)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -164,6 +165,38 @@ $ npm run build
 
 > **Note:** <br />
 > The [labels](https://docs.github.com/en/github/managing-your-work-on-github/about-labels) help categorize issues and pull requests.
+
+#### 1.5. Pull requests
+
+- 1.5.1. Create a remote branch (e.g. a feature branch):
+
+  ```shell
+  $ \
+  git pull --rebase origin master  # sync latest changes from source branch
+  git checkout -b add-changelog    # create and switch to a feature branch
+  touch CHANGELOG.md               # create a file
+  git add CHANGELOG.md             # stage the file
+  git commit -m 'Add CHANGELOG.md' # record changes
+  git push -u origin add-changelog # send changes to remote repo
+  ```
+
+- 1.5.2. Go to `add-changelog` remote branch ([`github.com/<username>/<repo>/compare/<branch>`](https://github.com/<username>/<repo>/compare/<branch>))
+- 1.5.3. Click `Create pull request`
+- 1.5.4. Set fields, e.g.:
+
+  - `Title` as `add-changelog`
+  - `Write` as `Close #add-changelog` (then select `#<n> add-changelog`)
+  - `Assignees` as `assign yourself`
+  - `Labels` as `documentation`
+  - `Projects` as `Project setup`
+  - `Milestone` as `v0.1.0`
+
+- 1.5.5. Click `Create pull request`
+
+> **Notes:** <br />
+>
+> - The [pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review your work with others
+> - You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description
 
 ---
 
