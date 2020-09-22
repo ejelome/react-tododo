@@ -224,7 +224,8 @@ $ npm run build
 - 2.2.3. Set fields, e.g.:
 
   - `Branch name pattern` as `master`
-  - Click `Create`
+
+- 2.2.4. Click `Create`
 
 > **Warning:** <br/>
 > Commits can still be pushed directly to protected branch.
