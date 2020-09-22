@@ -112,8 +112,7 @@ $ npm run build
 
 ### 1. Project Management
 
-> **Note:** <br />
-> Project setup for working on the project.
+Project setup for working on the project.
 
 #### 1.1. Milestones
 
@@ -209,8 +208,7 @@ $ npm run build
 
 ### 2. Project Repository
 
-> **Note:** <br />
-> Project repository for improving security and monitoring.
+Project repository for improving security and monitoring.
 
 #### 2.1. Automatically delete head branches
 
