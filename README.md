@@ -27,6 +27,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [1.4. Labels](#14-labels)
       - [1.5. Pull requests](#15-pull-requests)
     - [2. Project Repository](#2-project-repository)
+      - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -208,6 +209,11 @@ $ npm run build
 
 > **Note:** <br />
 > Project repository for improving security and monitoring.
+
+#### 2.1. Automatically delete head branches
+
+- 2.1.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
+- 2.1.2. Under `Merge button` ([`#merge-button-settings`](https://github.com/<username>/<repo>/settings#merge-button-settings)), tick `Automatically delete head branches`
 
 ---
 
