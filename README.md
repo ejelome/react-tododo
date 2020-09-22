@@ -193,7 +193,7 @@ $ npm run build
 
 - 1.5.5. Click `Create pull request`
 - 1.5.6. If `All checks have passed`, click `Merge pull request`
-- 1.5.7. Click `Confirm merge`
+- 1.5.7. Click `Confirm merge` (leave the `Merge pull request` as is)
 
 > **Notes:** <br />
 >
