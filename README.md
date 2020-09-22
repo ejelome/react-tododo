@@ -20,7 +20,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
     - [Test](#test)
     - [Build](#build)
   - [Lessons](#lessons)
-    - [1. Processes](#1-processes)
+    - [1. Project Management](#1-project-management)
       - [1.1. Milestones](#11-milestones)
       - [1.2. Project boards](#12-project-boards)
       - [1.3. Issues](#13-issues)
@@ -106,7 +106,10 @@ $ npm run build
 
 ## Lessons
 
-### 1. Processes
+### 1. Project Management
+
+> **Note:** <br />
+> Project setup for working on the project.
 
 #### 1.1. Milestones
 
