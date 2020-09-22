@@ -192,6 +192,7 @@ $ npm run build
   - `Milestone` as `v0.1.0`
 
 - 1.5.5. Click `Create pull request`
+- 1.5.6. If `All checks have passed`, click `Merge pull request`
 
 > **Notes:** <br />
 >
