@@ -28,6 +28,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [1.5. Pull requests](#15-pull-requests)
     - [2. Project Repository](#2-project-repository)
       - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
+      - [2.2. Disable force pushing](#22-disable-force-pushing)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -214,6 +215,18 @@ $ npm run build
 
 - 2.1.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.1.2. Under `Merge button` ([`#merge-button-settings`](https://github.com/<username>/<repo>/settings#merge-button-settings)), tick `Automatically delete head branches`
+
+#### 2.2. Disable force pushing
+
+- 2.2.1. Go to [`github.com/<username>/<repo>/settings/branches`](https://github.com/<username>/<repo>/settings/branches)
+- 2.2.2. Click `Add rule` ([`github.com/<username>/<repo>/settings/branch_protection_rules/new`](https://github.com/<username>/<repo>/settings/branch_protection_rules/new))
+- 2.2.3. Set fields, e.g.:
+
+  - `Branch name pattern` as `master`
+  - Click `Create`
+
+> **Warning:** <br/>
+> Commits can still be pushed directly to protected branch (e.g. `master`).
 
 ---
 
