@@ -29,6 +29,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
     - [2. Project Repository](#2-project-repository)
       - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
       - [2.2. Disable force pushing](#22-disable-force-pushing)
+      - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -227,6 +228,22 @@ $ npm run build
 
 > **Warning:** <br/>
 > Commits can still be pushed directly to protected branch (e.g. `master`).
+
+#### 2.3. Require status checks to pass before merging
+
+- 2.3.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
+- 2.3.2. Set fields, e.g.:
+
+  Under `Protect matching branches`, tick:
+
+  - `Require status checks to pass before merging`
+  - `Require branches to be up to date before merging` (automatically ticked)
+  - `Include administrators`
+
+- 2.3.3. Click `Save changes`
+
+> **Note:** <br/>
+> Status checks prevent pushing commits directly to protected branch (e.g. `master`).
 
 ---
 
