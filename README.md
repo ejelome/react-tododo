@@ -20,12 +20,17 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
     - [Test](#test)
     - [Build](#build)
   - [Lessons](#lessons)
-    - [1. Processes](#1-processes)
+    - [1. Project Management](#1-project-management)
       - [1.1. Milestones](#11-milestones)
       - [1.2. Project boards](#12-project-boards)
       - [1.3. Issues](#13-issues)
       - [1.4. Labels](#14-labels)
       - [1.5. Pull requests](#15-pull-requests)
+    - [2. Project Repository](#2-project-repository)
+      - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
+      - [2.2. Disable force pushing](#22-disable-force-pushing)
+      - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
+      - [2.4. Receive notifications on push events](#24-receive-notifications-on-push-events)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -106,7 +111,9 @@ $ npm run build
 
 ## Lessons
 
-### 1. Processes
+### 1. Project Management
+
+Project setup for working on the project.
 
 #### 1.1. Milestones
 
@@ -199,6 +206,57 @@ $ npm run build
 >
 > - The [pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review your work with others
 > - You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description
+
+### 2. Project Repository
+
+Project repository for improving security and monitoring.
+
+#### 2.1. Automatically delete head branches
+
+- 2.1.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
+- 2.1.2. Under `Merge button` ([`#merge-button-settings`](https://github.com/<username>/<repo>/settings#merge-button-settings)), tick `Automatically delete head branches`
+
+#### 2.2. Disable force pushing
+
+- 2.2.1. Go to [`github.com/<username>/<repo>/settings/branches`](https://github.com/<username>/<repo>/settings/branches)
+- 2.2.2. Click `Add rule` ([`github.com/<username>/<repo>/settings/branch_protection_rules/new`](https://github.com/<username>/<repo>/settings/branch_protection_rules/new))
+- 2.2.3. Set fields, e.g.:
+
+  - `Branch name pattern` as `master`
+
+- 2.2.4. Click `Create`
+
+> **Warning:** <br/>
+> Commits can still be pushed directly to protected branch.
+
+#### 2.3. Require status checks to pass before merging
+
+- 2.3.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
+- 2.3.2. Set fields, e.g.:
+
+  Under `Protect matching branches`, tick:
+
+  - `Require status checks to pass before merging`
+  - `Require branches to be up to date before merging` (automatically ticked)
+  - `Include administrators`
+
+- 2.3.3. Click `Save changes`
+
+> **Note:** <br/>
+> Status checks prevent pushing commits directly to protected branch.
+
+#### 2.4. Receive notifications on push events
+
+- 2.4.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
+- 2.4.2. On left navigation, click `Notification` ([`github.com/<username>/<repo>/settings/notifications`](https://github.com/<username>/<repo>/settings/notifications))
+- 2.4.3. Set fields, e.g.:
+
+  - `Address *` as `username@company.tld`
+
+- 2.4.4. Click `Setup notifications`
+
+> **Note:** <br />
+> Specified email addresses will receive notifications when push events are triggered.
 
 ---
 
