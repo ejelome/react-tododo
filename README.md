@@ -30,6 +30,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
       - [2.2. Disable force pushing](#22-disable-force-pushing)
       - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
+      - [2.4. Receive notifications on push events](#24-receive-notifications-on-push-events)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -243,6 +244,19 @@ Project repository for improving security and monitoring.
 
 > **Note:** <br/>
 > Status checks prevent pushing commits directly to protected branch.
+
+#### 2.4. Receive notifications on push events
+
+- 2.4.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
+- 2.4.2. On left navigation, click `Notification` ([`github.com/<username>/<repo>/settings/notifications`](https://github.com/<username>/<repo>/settings/notifications))
+- 2.4.3. Set fields, e.g.:
+
+  - `Address *` as `username@company.tld`
+
+- 2.4.4. Click `Setup notifications`
+
+> **Note:** <br />
+> Specified email addresses will receive notifications when push events are triggered.
 
 ---
 
