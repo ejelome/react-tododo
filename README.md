@@ -279,7 +279,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install [npm](https://githu
 
 #### 3.4. Text editor
 
-_e.g. [Emacs](https://spacemacs.org), [Vim](https://vim.org) or both ([Spacemacs](https://spacemacs.org))._
+_e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or both ([Spacemacs](https://www.spacemacs.org))._
 
 What [text editor](https://en.wikipedia.org/wiki/Test-driven_development) to use is pretty subjective; _**use what you think is best**_.
 
