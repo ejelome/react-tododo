@@ -32,6 +32,10 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
       - [2.4. Receive notifications on push events](#24-receive-notifications-on-push-events)
     - [3. System dependencies](#3-system-dependencies)
+      - [3.1. git](#31-git)
+      - [3.2. nvm](#32-nvm)
+      - [3.3. npm (CLI)](#33-npm-cli)
+      - [3.4. Text editor](#34-text-editor)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -261,24 +265,23 @@ Project repository for improving security and monitoring.
 
 ### 3. System dependencies
 
-- 3.5.1. [git](https://git-scm.com)
+#### 3.1. git
 
-  _See [Install Git](https://github.com/git-guides/install-git)._
+_See [Install Git](https://github.com/git-guides/install-git) to install [git](https://git-scm.com)._
 
-- 3.5.3. [nvm](https://github.com/nvm-sh/nvm)
+#### 3.2. nvm
 
-  _See [Installing and Updating](https://github.com/nvm-sh/nvm#installing-and-updating)._
+_See [Installing and Updating](https://github.com/nvm-sh/nvm#installing-and-updating) to install [nvm](https://github.com/nvm-sh/nvm) with the [install script](https://github.com/nvm-sh/nvm/blob/v0.35.3/install.sh)._
 
-- 3.5.3. [npm](https://github.com/npm/cli) (CLI)
+#### 3.3. npm (CLI)
 
-  _See `nvm` [Usage](https://github.com/nvm-sh/nvm#usage)._
+_See [Usage](https://github.com/nvm-sh/nvm#usage) to install [npm](https://github.com/npm/cli) CLI via `nvm`._
 
-- 3.5.4. [Text editor](https://en.wikipedia.org/wiki/Test-driven_development)
+#### 3.4. Text editor
 
-  _e.g. [Emacs](https://spacemacs.org), [Vim](https://vim.org) or both ([Spacemacs](https://spacemacs.org))._
+_e.g. [Emacs](https://spacemacs.org), [Vim](https://vim.org) or both ([Spacemacs](https://spacemacs.org))._
 
-> **Note:** <br />
-> Installation varies depending on OS and what text editor to use is pretty subjective; _**use what you think is best**_.
+What [text editor](https://en.wikipedia.org/wiki/Test-driven_development) to use is pretty subjective; _**use what you think is best**_.
 
 ---
 
