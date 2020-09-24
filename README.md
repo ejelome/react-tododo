@@ -265,6 +265,8 @@ Project repository for improving security and monitoring.
 
 ### 3. System dependencies
 
+System dependencies required to develop the project (e.g. an application).
+
 #### 3.1. git
 
 _See [Install Git](https://github.com/git-guides/install-git) to install [git](https://git-scm.com)._
