@@ -31,7 +31,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [2.2. Disable force pushing](#22-disable-force-pushing)
       - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
       - [2.4. Receive notifications on push events](#24-receive-notifications-on-push-events)
-      - [2.5. System dependencies](#25-system-dependencies)
+    - [3. System dependencies](#3-system-dependencies)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -259,23 +259,26 @@ Project repository for improving security and monitoring.
 > **Note:** <br />
 > Specified email addresses will receive notifications when push events are triggered.
 
-#### 2.5. System dependencies
+### 3. System dependencies
 
-- 2.5.1. [git](https://git-scm.com)
+- 3.5.1. [git](https://git-scm.com)
 
   _See [Install Git](https://github.com/git-guides/install-git)._
 
-- 2.5.2. [nvm](https://github.com/nvm-sh/nvm)
+- 3.5.3. [nvm](https://github.com/nvm-sh/nvm)
 
   _See [Installing and Updating](https://github.com/nvm-sh/nvm#installing-and-updating)._
 
-- 2.5.3. [npm](https://github.com/npm/cli) (CLI)
+- 3.5.3. [npm](https://github.com/npm/cli) (CLI)
 
   _See `nvm` [Usage](https://github.com/nvm-sh/nvm#usage)._
 
-- 2.5.4. A [text editor](https://en.wikipedia.org/wiki/Test-driven_development)
+- 3.5.4. [Text editor](https://en.wikipedia.org/wiki/Test-driven_development)
 
   _e.g. [Emacs](https://spacemacs.org), [Vim](https://vim.org) or both ([Spacemacs](https://spacemacs.org))._
+
+> **Note:** <br />
+> Installation varies depending on OS and what text editor to use is pretty subjective; _**use what you think is best**_.
 
 ---
 
