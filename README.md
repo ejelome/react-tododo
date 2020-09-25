@@ -36,6 +36,8 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [3.2. nvm](#32-nvm)
       - [3.3. npm (CLI)](#33-npm-cli)
       - [3.4. Text editor](#34-text-editor)
+    - [4. Project dependencies](#4-project-dependencies)
+      - [4.1. create-react-app](#41-create-react-app)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -285,6 +287,19 @@ _e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or
 
 > **Note:** <br />
 > What [text editor](https://en.wikipedia.org/wiki/Text_editor) to use is pretty subjective; _**use what you think is best**_.
+
+### 4. Project dependencies
+
+#### 4.1. create-react-app
+
+```shell
+$ npx create-react-app <project-directory>
+```
+
+> **Notes:**
+>
+> - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
+> - [create-react-app](https://github.com/facebook/create-react-app) includes four [run-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
 ---
 
