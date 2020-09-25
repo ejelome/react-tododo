@@ -38,6 +38,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [4.2. Prettier](#42-prettier)
       - [4.3. ESLint](#43-eslint)
       - [4.4. import-sort](#44-import-sort)
+      - [4.5. Auto Lint and Formatter](#45-auto-lint-and-formatter)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -355,6 +356,44 @@ $ npx create-react-app <project-directory>
 
 > **Note:** <br />
 > The [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort) sort package imports with `eslint --fix`.
+
+#### 4.5. Auto Lint and Formatter
+
+- 4.5.1. Install:
+
+  ```shell
+  $ npm i -D husky \
+             lint-staged
+  ```
+
+- 4.5.2. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{md,css,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+  ```
+
+- 4.5.3. Run:
+
+  `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`.
+
+> **Notes:**
+>
+> - [husky](https://github.com/typicode/husky) allow using [githooks](https://git-scm.com/docs/githooks) with [npm-run-script](https://docs.npmjs.com/cli-commands/run-script.html)
+> - [lint-staged](https://github.com/okonet/lint-staged) runs linting on staged files
 
 ---
 
