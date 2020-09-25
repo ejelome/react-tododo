@@ -10,9 +10,6 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 
 - [react-tododo](#react-tododo)
   - [Demo](#demo)
-  - [Prerequisites](#prerequisites)
-    - [Optional](#optional)
-      - [simple-import-sort](#simple-import-sort)
   - [Setup](#setup)
     - [Install](#install)
   - [Usage](#usage)
@@ -40,6 +37,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [4.1. create-react-app](#41-create-react-app)
       - [4.2. Prettier](#42-prettier)
       - [4.3. ESLint](#43-eslint)
+      - [4.4. import-sort](#44-import-sort)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -49,40 +47,6 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 ## Demo
 
 See <https://ejelome-react-tododo.netlify.app>.
-
----
-
-## Prerequisites
-
-### Optional
-
-#### simple-import-sort
-
-1. Install `eslint-plugin-simple-import-sort`:
-
-   ```shell
-   $ npm i -D eslint-plugin-simple-import-sort
-   ```
-
-2. Update `./.eslintrc` (create one if non-existent):
-
-   ```json
-   {
-     "parser": "babel-eslint",
-     "plugins": ["simple-import-sort"],
-     "rules": {
-       "import/order": "off",
-       "sort-imports": "off",
-       "simple-import-sort/sort": "error"
-     }
-   }
-   ```
-
-3. Sort `./src/*.js` files:
-
-   ```shell
-   $ eslint --fix src/
-   ```
 
 ---
 
@@ -343,6 +307,54 @@ $ npx create-react-app <project-directory>
 
 > **Note:** <br />
 > The `create-react-app` is shipped with [ESLint](https://eslint.org) and parses with [babel-eslint](https://github.com/babel/babel-eslint).
+
+#### 4.4. import-sort
+
+- 4.4.1. Install:
+
+  ```shell
+  $ npm i -D eslint-plugin-simple-import-sort
+  ```
+
+- 4.4.2. Script (rc):
+
+  `.eslintrc`:
+
+  ```json
+  {
+    "parser": "babel-eslint",
+    "plugins": ["simple-import-sort"],
+    "rules": {
+      "import/order": "off",
+      "sort-imports": "off",
+      "simple-import-sort/sort": "error"
+    }
+  }
+  ```
+
+- 4.4.3. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+    "scripts": {
+      "…"
+      "eslint": "eslint --fix src/"
+    }
+    "…"
+  }
+  ```
+
+- 4.4.4. Run:
+
+  ```shell
+  $ npm run eslint
+  ```
+
+> **Note:** <br />
+> The [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort) sort package imports with `eslint --fix`.
 
 ---
 
