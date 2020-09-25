@@ -39,6 +39,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
     - [4. Project dependencies](#4-project-dependencies)
       - [4.1. create-react-app](#41-create-react-app)
       - [4.2. Prettier](#42-prettier)
+      - [4.3. ESLint](#43-eslint)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -337,6 +338,11 @@ $ npx create-react-app <project-directory>
 >
 > - [Prettier](https://prettier.io) package formats source code with an opinionated but consistent code conventions
 > - `--write` overwrites the files in the specified directory (e.g. `src/`)
+
+#### 4.3. ESLint
+
+> **Note:** <br />
+> The `create-react-app` is shipped with [ESLint](https://eslint.org) and parses with [babel-eslint](https://github.com/babel/babel-eslint).
 
 ---
 
