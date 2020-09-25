@@ -38,6 +38,7 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [3.4. Text editor](#34-text-editor)
     - [4. Project dependencies](#4-project-dependencies)
       - [4.1. create-react-app](#41-create-react-app)
+      - [4.2. Prettier](#42-prettier)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -267,7 +268,7 @@ Project repository for improving security and monitoring.
 
 ### 3. System dependencies
 
-System dependencies required to develop the project (e.g. an application).
+System dependencies required to manage all the projects.
 
 #### 3.1. git
 
@@ -290,6 +291,8 @@ _e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or
 
 ### 4. Project dependencies
 
+Project dependencies required to develop a specific project.
+
 #### 4.1. create-react-app
 
 ```shell
@@ -300,6 +303,40 @@ $ npx create-react-app <project-directory>
 >
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
 > - [create-react-app](https://github.com/facebook/create-react-app) includes four [run-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
+
+#### 4.2. Prettier
+
+- 4.2.1. Install:
+
+  ```shell
+  $ npm i -D prettier
+  ```
+
+- 4.2.2. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+    "scripts": {
+      "…"
+      "format": "prettier --write src/"
+    }
+    "…"
+  }
+  ```
+
+- 4.2.3. Run:
+
+  ```shell
+  $ npm run format
+  ```
+
+> **Notes:**
+>
+> - [Prettier](https://prettier.io) package formats source code with an opinionated but consistent code conventions
+> - `--write` overwrites the files in the specified directory (e.g. `src/`)
 
 ---
 
