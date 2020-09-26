@@ -29,9 +29,9 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
       - [2.4. Receive notifications on push events](#24-receive-notifications-on-push-events)
     - [3. System dependencies](#3-system-dependencies)
-      - [3.1. git](#31-git)
-      - [3.2. nvm](#32-nvm)
-      - [3.3. npm (CLI)](#33-npm-cli)
+      - [3.1. Version control](#31-version-control)
+      - [3.2. Version manager](#32-version-manager)
+      - [3.3. Package manager](#33-package-manager)
       - [3.4. Text editor](#34-text-editor)
     - [4. Project dependencies](#4-project-dependencies)
       - [4.1. Boilerplate](#41-boilerplate)
@@ -183,7 +183,7 @@ $ npm run build
 
 ### 2. Repository settings
 
-> Repository settings to improve to security and monitoring.
+> Repository settings to improve project's security and monitoring.
 
 #### 2.1. Automatically delete head branches
 
@@ -237,26 +237,29 @@ $ npm run build
 
 ### 3. System dependencies
 
-System dependencies required to manage all the projects.
+> Software packages to create and maintain the project.
 
-#### 3.1. git
+#### 3.1. Version control
 
-_See [Install Git](https://github.com/git-guides/install-git) to install [git](https://git-scm.com)._
+> Use [Git](https://git-scm.com)&mdash;a free and open source (distributed) version control system.
 
-#### 3.2. nvm
+_See [Install Git](https://github.com/git-guides/install-git) to install._
 
-_See [Installing and Updating](https://github.com/nvm-sh/nvm#installing-and-updating) to install [nvm](https://github.com/nvm-sh/nvm) with the [install script](https://github.com/nvm-sh/nvm/blob/v0.35.3/install.sh)._
+#### 3.2. Version manager
 
-#### 3.3. npm (CLI)
+> Use [nvm](https://github.com/nvm-sh/nvm)&mdash;a version manager for [Node.js](https://nodejs.org).
 
-_See [Usage](https://github.com/nvm-sh/nvm#usage) to install [npm](https://github.com/npm/cli) CLI via `nvm`._
+_See [Installing and Updating](https://github.com/nvm-sh/nvm#installing-and-updating) to install with [install script](https://github.com/nvm-sh/nvm/blob/v0.35.3/install.sh)._
+
+#### 3.3. Package manager
+
+> Use [npm/cli](https://github.com/npm/cli)&mdash;a package manager for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+
+_See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 #### 3.4. Text editor
 
-_e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or both ([Spacemacs](https://www.spacemacs.org))._
-
-> **Note:** <br />
-> What [text editor](https://en.wikipedia.org/wiki/Text_editor) to use is pretty subjective; _**use what you think is best**_.
+> _Use ** \*any\* ** YOU find best (e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or both&mdash;[Spacemacs](https://www.spacemacs.org))._
 
 ### 4. Project dependencies
 
