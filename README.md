@@ -37,8 +37,8 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [4.1. Boilerplate](#41-boilerplate)
       - [4.2. Code Formatter](#42-code-formatter)
       - [4.3. Linter](#43-linter)
-      - [4.4. Import Sorter](#44-import-sorter)
-      - [4.5. Auto Linter and Code Formatter](#45-auto-linter-and-code-formatter)
+        - [4.3.1. Import Sorter](#431-import-sorter)
+      - [4.3.2. Autoformatter](#432-autoformatter)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -87,9 +87,11 @@ $ npm run build
 
 ### 1. Project management
 
-> Project management helps achieve goals within given constraints.
+> _Project management helps achieve goals within given constraints._
 
 #### 1.1. Milestones
+
+> _[Milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of work._
 
 - 1.1.1. Go to [`github.com/<username>/<repo>/milestones`](https://github.com/<username>/<repo>/milestones)
 - 1.1.2. Click `New milestone` ([`github.com/<username>/<repo>/milestones/new`](https://github.com/<username>/<repo>/milestones/new))
@@ -101,10 +103,9 @@ $ npm run build
 
 - 1.1.4. Click `Create milestone`
 
-> **Note:** <br />
-> The [milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of work.
-
 #### 1.2. Project boards
+
+> _[Project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize work._
 
 - 1.2.1. Go to [`github.com/<username>/<repo>/projects`](https://github.com/<username>/<repo>/projects)
 - 1.2.2. Click `Create a project` ([`github.com/<username>/<repo>/projects/new`](https://github.com/<username>/<repo>/projects/new))
@@ -116,12 +117,12 @@ $ npm run build
 
 - 1.2.4. Click `Create project`
 
-> **Notes:**
->
-> - The [project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize work
-> - Set `Templates` as `Automated kanban with reviews` if developing with other developers
+> **NOTE:** <br />
+> Set `Templates` as `Automated kanban with reviews` if developing with other developers.
 
 #### 1.3. Issues
+
+> _[Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or bug reports._
 
 - 1.3.1. [`github.com/<username>/<repo>/issues`](https://github.com/<username>/<repo>/issues)
 - 1.3.2. Click `New issue` [`github.com/<username>/<repo>/issues/new`](https://github.com/<username>/<repo>/issues/new)
@@ -136,18 +137,16 @@ $ npm run build
 
 - 1.3.4. Click `Submit new issue`
 
-> **Note:** <br />
-> The [issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or bug reports.
-
 #### 1.4. Labels
+
+> _[Labels](https://docs.github.com/en/github/managing-your-work-on-github/about-labels) help categorize issues and pull requests._
 
 - 1.4.1. Go to [`github.com/<username>/<repo>/issues/<n>`](https://github.com/<username>/<repo>/issues/<n>)
 - 1.4.2. Set `Labels` as e.g. `documentation`
 
-> **Note:** <br />
-> The [labels](https://docs.github.com/en/github/managing-your-work-on-github/about-labels) help categorize issues and pull requests.
-
 #### 1.5. Pull requests
+
+> _[Pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review work with others._
 
 - 1.5.1. Create a remote branch (e.g. a feature branch):
 
@@ -176,24 +175,23 @@ $ npm run build
 - 1.5.6. If `All checks have passed`, click `Merge pull request`
 - 1.5.7. Click `Confirm merge` (leave the `Merge pull request` as is)
 
-> **Notes:** <br />
->
-> - The [pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review work with others
-> - You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description
+> **NOTE:** <br />
+> You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description.
 
 ### 2. Repository settings
 
-> Repository settings to improve project's security and monitoring.
+> _Settings to improve project repo's security and monitoring._
 
 #### 2.1. Automatically delete head branches
+
+> _Delete remote branch after merged pull request._
 
 - 2.1.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.1.2. Under `Merge button` ([`#merge-button-settings`](https://github.com/<username>/<repo>/settings#merge-button-settings)), tick `Automatically delete head branches`
 
-> **Note:** <br />
-> Remote branch is automatically deleted after its pull request is merged.
-
 #### 2.2. Disable force pushing
+
+> _Prevent force pushing commits on protected branch._
 
 - 2.2.1. Go to [`github.com/<username>/<repo>/settings/branches`](https://github.com/<username>/<repo>/settings/branches)
 - 2.2.2. Click `Add rule` ([`github.com/<username>/<repo>/settings/branch_protection_rules/new`](https://github.com/<username>/<repo>/settings/branch_protection_rules/new))
@@ -203,10 +201,12 @@ $ npm run build
 
 - 2.2.4. Click `Create`
 
-> **Warning:** <br/>
-> Commits can still be pushed directly on protected branch.
+> **WARNING:** <br />
+> Normal commits can still be pushed directly to protected branch.
 
 #### 2.3. Require status checks to pass before merging
+
+> _Prevent normal commits to be pushed directly to protected branch._
 
 - 2.3.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
 - 2.3.2. Set fields, e.g.:
@@ -219,10 +219,9 @@ $ npm run build
 
 - 2.3.3. Click `Save changes`
 
-> **Note:** <br/>
-> Status checks prevent pushing commits directly to protected branch.
-
 #### 2.4. Receive notifications on push events
+
+> _Receive notifications on email when push events are triggered._
 
 - 2.4.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.4.2. On left navigation, click `Notification` ([`github.com/<username>/<repo>/settings/notifications`](https://github.com/<username>/<repo>/settings/notifications))
@@ -232,98 +231,90 @@ $ npm run build
 
 - 2.4.4. Click `Setup notifications`
 
-> **Note:** <br />
-> Specified email addresses will receive notifications when push events are triggered.
-
 ### 3. System dependencies
 
-> Software packages to create and maintain the project.
+> _Software packages to create and maintain the project._
 
 #### 3.1. Version control
 
-> Use [Git](https://git-scm.com)&mdash;a free and open source (distributed) version control system.
+> _Use [Git](https://git-scm.com)&mdash;a free and open source (distributed) version control system._
 
 _See [Install Git](https://github.com/git-guides/install-git) to install._
 
 #### 3.2. Version manager
 
-> Use [nvm](https://github.com/nvm-sh/nvm)&mdash;a version manager for [Node.js](https://nodejs.org).
+> _Use [nvm](https://github.com/nvm-sh/nvm)&mdash;a version manager for [Node.js](https://nodejs.org)._
 
 _See [Installing and Updating](https://github.com/nvm-sh/nvm#installing-and-updating) to install with [install script](https://github.com/nvm-sh/nvm/blob/v0.35.3/install.sh)._
 
 #### 3.3. Package manager
 
-> Use [npm/cli](https://github.com/npm/cli)&mdash;a package manager for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+> _Use [npm/cli](https://github.com/npm/cli)&mdash;a package manager for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)._
 
 _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 #### 3.4. Text editor
 
-> _Use ** \*any\* ** YOU find best (e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or both&mdash;[Spacemacs](https://www.spacemacs.org))._
+> _Use **\*any\*** YOU find best (e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or both&mdash;[Spacemacs](https://www.spacemacs.org))._
 
 ### 4. Project dependencies
 
-Project dependencies required to develop a specific project.
+> _Software packages to develop the project._
 
 #### 4.1. Boilerplate
 
-```shell
-$ npx create-react-app <project-directory>
-```
+> _Use [create-react-app](https://github.com/facebook/create-react-app)&mdash;an integrated toolchain without build configuration._
 
-> **Notes:**
+- 4.1.1. Generate project:
+
+  ```shell
+  $ npx create-react-app <project-directory>
+  ```
+
+> **NOTES:**
 >
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
-> - [create-react-app](https://github.com/facebook/create-react-app) includes four [run-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
+> - `create-react-app` includes four [run-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
 #### 4.2. Code Formatter
 
-- 4.2.1. Install:
+> _Use [Prettier](https://prettier.io)&mdash;a source code formatter with an opinionated but consistent code conventions._
+
+- 4.2.1. Install and/or run:
 
   ```shell
-  $ npm i -D prettier
+  $ npx prettier --write src/
   ```
 
-- 4.2.2. Script:
-
-  `package.json`:
-
-  ```json
-  {
-    "…"
-    "scripts": {
-      "…"
-      "format": "prettier --write src/"
-    }
-    "…"
-  }
-  ```
-
-- 4.2.3. Run:
-
-  ```shell
-  $ npm run format
-  ```
-
-> **Notes:**
->
-> - [Prettier](https://prettier.io) package formats source code with an opinionated but consistent code conventions
-> - `--write` overwrites the files in the specified directory (e.g. `src/`)
+> **NOTE:** <br />
+> The `--write` parameter modifies the files in the specified directory.
 
 #### 4.3. Linter
 
-> **Note:** <br />
-> The `create-react-app` is shipped with [ESLint](https://eslint.org) and parses with [babel-eslint](https://github.com/babel/babel-eslint).
+> _Use [ESLint](https://eslint.org)&mdash;a static code analyzer to find and fix problems in JavaScript code._
 
-#### 4.4. Import Sorter
+- 4.3.1. Install and/or run:
 
-- 4.4.1. Install:
+  ```shell
+  $ npx eslint --fix src/
+  ```
+
+> **NOTES:**
+>
+> - `--fix` modifies the files in the specified directory
+> - ESLint is shipped with `create-react-app` and parses with [babel-eslint](https://github.com/babel/babel-eslint)
+
+##### 4.3.1. Import Sorter
+
+> Use [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)&mdash;an autofixable import sorter for `eslint --fix`.
+
+- 4.3.1.1. Install:
 
   ```shell
   $ npm i -D eslint-plugin-simple-import-sort
   ```
 
-- 4.4.2. Script (rc):
+- 4.3.1.2. Script (rc):
 
   `.eslintrc`:
 
@@ -339,67 +330,46 @@ $ npx create-react-app <project-directory>
   }
   ```
 
-- 4.4.3. Script:
-
-  `package.json`:
-
-  ```json
-  {
-    "…"
-    "scripts": {
-      "…"
-      "eslint": "eslint --fix src/"
-    }
-    "…"
-  }
-  ```
-
-- 4.4.4. Run:
+- 4.3.1.3. Install and/or run:
 
   ```shell
-  $ npm run eslint
+  $ npx eslint --fix src/
   ```
 
-> **Note:** <br />
-> The [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort) sort package imports with `eslint --fix`.
+#### 4.3.2. Autoformatter
 
-#### 4.5. Auto Linter and Code Formatter
+> _Use [husky](https://github.com/typicode/husky) with [lint-staged](https://github.com/okonet/lint-staged)&mdash;to execute [npm-run-script](https://docs.npmjs.com/cli-commands/run-script.html)s from [githooks](https://git-scm.com/docs/githooks)_.
 
-- 4.5.1. Install:
+- 4.3.2.1. Install:
 
   ```shell
   $ npm i -D husky \
              lint-staged
   ```
 
-- 4.5.2. Script:
+- 4.3.2.2. Script:
 
   `package.json`:
 
   ```json
   {
     "…"
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
+    "husky": {
+      "hooks": {
+        "pre-commit": "lint-staged"
+      }
+    },
+    "lint-staged": {
+      "src/**/*.{md,css,js}": [
+        "eslint --fix",
+        "prettier --write"
+      ]
     }
-  },
-  "lint-staged": {
-    "src/**/*.{md,css,js}": [
-      "eslint --fix",
-      "prettier --write"
-    ]
   }
   ```
 
-- 4.5.3. Run:
-
-  `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`.
-
-> **Notes:**
->
-> - [husky](https://github.com/typicode/husky) allow using [githooks](https://git-scm.com/docs/githooks) with [npm-run-script](https://docs.npmjs.com/cli-commands/run-script.html)
-> - [lint-staged](https://github.com/okonet/lint-staged) runs linting on staged files
+> **NOTE:** <br />
+> `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`.
 
 ---
 
