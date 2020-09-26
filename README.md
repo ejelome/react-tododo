@@ -274,7 +274,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > **NOTES:**
 >
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
-> - `create-react-app` includes four [run-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
+> - `create-react-app` includes four [react-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
 #### 4.2. Linter
 
