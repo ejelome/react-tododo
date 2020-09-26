@@ -361,8 +361,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
     },
     "lint-staged": {
       "src/**/*.{md,css,js}": [
-        "eslint --fix",
-        "prettier --write"
+        "npx eslint --fix",
+        "npx prettier --write"
       ]
     }
   }
