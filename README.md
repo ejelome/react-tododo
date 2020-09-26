@@ -87,7 +87,7 @@ $ npm run build
 
 ### 1. Project Management
 
-Project setup for working on the project.
+> Project management helps achieve goals within given constraints.
 
 #### 1.1. Milestones
 
@@ -102,7 +102,7 @@ Project setup for working on the project.
 - 1.1.4. Click `Create milestone`
 
 > **Note:** <br />
-> The [milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of your work.
+> The [milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of work.
 
 #### 1.2. Project boards
 
@@ -118,8 +118,8 @@ Project setup for working on the project.
 
 > **Notes:**
 >
-> - The [project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize your work
-> - Use `Templates` as `Automated kanban with reviews` if developing with other developers
+> - The [project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize work
+> - Set `Templates` as `Automated kanban with reviews` if developing with other developers
 
 #### 1.3. Issues
 
@@ -136,8 +136,8 @@ Project setup for working on the project.
 
 - 1.3.4. Click `Submit new issue`
 
-> **Note:** <br/>
-> The [issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or report bugs.
+> **Note:** <br />
+> The [issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or bug reports.
 
 #### 1.4. Labels
 
@@ -178,7 +178,7 @@ Project setup for working on the project.
 
 > **Notes:** <br />
 >
-> - The [pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review your work with others
+> - The [pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review work with others
 > - You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description
 
 ### 2. Project Repository
