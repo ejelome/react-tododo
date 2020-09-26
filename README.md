@@ -10,9 +10,6 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 
 - [react-tododo](#react-tododo)
   - [Demo](#demo)
-  - [Prerequisites](#prerequisites)
-    - [Optional](#optional)
-      - [simple-import-sort](#simple-import-sort)
   - [Setup](#setup)
     - [Install](#install)
   - [Usage](#usage)
@@ -36,6 +33,12 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [3.2. nvm](#32-nvm)
       - [3.3. npm (CLI)](#33-npm-cli)
       - [3.4. Text editor](#34-text-editor)
+    - [4. Project dependencies](#4-project-dependencies)
+      - [4.1. Boilerplate](#41-boilerplate)
+      - [4.2. Code Formatter](#42-code-formatter)
+      - [4.3. Linter](#43-linter)
+      - [4.4. Import Sorter](#44-import-sorter)
+      - [4.5. Auto Linter and Code Formatter](#45-auto-linter-and-code-formatter)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -45,40 +48,6 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
 ## Demo
 
 See <https://ejelome-react-tododo.netlify.app>.
-
----
-
-## Prerequisites
-
-### Optional
-
-#### simple-import-sort
-
-1. Install `eslint-plugin-simple-import-sort`:
-
-   ```shell
-   $ npm i -D eslint-plugin-simple-import-sort
-   ```
-
-2. Update `./.eslintrc` (create one if non-existent):
-
-   ```json
-   {
-     "parser": "babel-eslint",
-     "plugins": ["simple-import-sort"],
-     "rules": {
-       "import/order": "off",
-       "sort-imports": "off",
-       "simple-import-sort/sort": "error"
-     }
-   }
-   ```
-
-3. Sort `./src/*.js` files:
-
-   ```shell
-   $ eslint --fix src/
-   ```
 
 ---
 
@@ -265,7 +234,7 @@ Project repository for improving security and monitoring.
 
 ### 3. System dependencies
 
-System dependencies required to develop the project (e.g. an application).
+System dependencies required to manage all the projects.
 
 #### 3.1. git
 
@@ -285,6 +254,146 @@ _e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or
 
 > **Note:** <br />
 > What [text editor](https://en.wikipedia.org/wiki/Text_editor) to use is pretty subjective; _**use what you think is best**_.
+
+### 4. Project dependencies
+
+Project dependencies required to develop a specific project.
+
+#### 4.1. Boilerplate
+
+```shell
+$ npx create-react-app <project-directory>
+```
+
+> **Notes:**
+>
+> - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
+> - [create-react-app](https://github.com/facebook/create-react-app) includes four [run-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
+
+#### 4.2. Code Formatter
+
+- 4.2.1. Install:
+
+  ```shell
+  $ npm i -D prettier
+  ```
+
+- 4.2.2. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+    "scripts": {
+      "…"
+      "format": "prettier --write src/"
+    }
+    "…"
+  }
+  ```
+
+- 4.2.3. Run:
+
+  ```shell
+  $ npm run format
+  ```
+
+> **Notes:**
+>
+> - [Prettier](https://prettier.io) package formats source code with an opinionated but consistent code conventions
+> - `--write` overwrites the files in the specified directory (e.g. `src/`)
+
+#### 4.3. Linter
+
+> **Note:** <br />
+> The `create-react-app` is shipped with [ESLint](https://eslint.org) and parses with [babel-eslint](https://github.com/babel/babel-eslint).
+
+#### 4.4. Import Sorter
+
+- 4.4.1. Install:
+
+  ```shell
+  $ npm i -D eslint-plugin-simple-import-sort
+  ```
+
+- 4.4.2. Script (rc):
+
+  `.eslintrc`:
+
+  ```json
+  {
+    "parser": "babel-eslint",
+    "plugins": ["simple-import-sort"],
+    "rules": {
+      "import/order": "off",
+      "sort-imports": "off",
+      "simple-import-sort/sort": "error"
+    }
+  }
+  ```
+
+- 4.4.3. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+    "scripts": {
+      "…"
+      "eslint": "eslint --fix src/"
+    }
+    "…"
+  }
+  ```
+
+- 4.4.4. Run:
+
+  ```shell
+  $ npm run eslint
+  ```
+
+> **Note:** <br />
+> The [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort) sort package imports with `eslint --fix`.
+
+#### 4.5. Auto Linter and Code Formatter
+
+- 4.5.1. Install:
+
+  ```shell
+  $ npm i -D husky \
+             lint-staged
+  ```
+
+- 4.5.2. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{md,css,js}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  }
+  ```
+
+- 4.5.3. Run:
+
+  `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`.
+
+> **Notes:**
+>
+> - [husky](https://github.com/typicode/husky) allow using [githooks](https://git-scm.com/docs/githooks) with [npm-run-script](https://docs.npmjs.com/cli-commands/run-script.html)
+> - [lint-staged](https://github.com/okonet/lint-staged) runs linting on staged files
 
 ---
 
