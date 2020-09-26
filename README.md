@@ -17,13 +17,13 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
     - [Test](#test)
     - [Build](#build)
   - [Lessons](#lessons)
-    - [1. Project Management](#1-project-management)
+    - [1. Project management](#1-project-management)
       - [1.1. Milestones](#11-milestones)
       - [1.2. Project boards](#12-project-boards)
       - [1.3. Issues](#13-issues)
       - [1.4. Labels](#14-labels)
       - [1.5. Pull requests](#15-pull-requests)
-    - [2. Project Repository](#2-project-repository)
+    - [2. Repository settings](#2-repository-settings)
       - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
       - [2.2. Disable force pushing](#22-disable-force-pushing)
       - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
@@ -85,7 +85,7 @@ $ npm run build
 
 ## Lessons
 
-### 1. Project Management
+### 1. Project management
 
 > Project management helps achieve goals within given constraints.
 
@@ -181,14 +181,17 @@ $ npm run build
 > - The [pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review work with others
 > - You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description
 
-### 2. Project Repository
+### 2. Repository settings
 
-Project repository for improving security and monitoring.
+> Repository settings to improve to security and monitoring.
 
 #### 2.1. Automatically delete head branches
 
 - 2.1.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.1.2. Under `Merge button` ([`#merge-button-settings`](https://github.com/<username>/<repo>/settings#merge-button-settings)), tick `Automatically delete head branches`
+
+> **Note:** <br />
+> Remote branch is automatically deleted after its pull request is merged.
 
 #### 2.2. Disable force pushing
 
@@ -201,7 +204,7 @@ Project repository for improving security and monitoring.
 - 2.2.4. Click `Create`
 
 > **Warning:** <br/>
-> Commits can still be pushed directly to protected branch.
+> Commits can still be pushed directly on protected branch.
 
 #### 2.3. Require status checks to pass before merging
 
