@@ -118,7 +118,7 @@ $ npm run build
 - 1.2.4. Click `Create project`
 
 > **NOTE:** <br />
-> Set `Templates` as `Automated kanban with reviews` if developing with other developers.
+> Set `Templates` as `Automated kanban with reviews` if working with other developers.
 
 #### 1.3. Issues
 
