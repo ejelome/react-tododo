@@ -259,7 +259,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 ### 4. Project dependencies
 
-> _Software packages to develop the project._
+> _[npm](https://npmjs.com) packages to develop the project._
 
 #### 4.1. Boilerplate
 
