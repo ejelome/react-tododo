@@ -35,10 +35,10 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [3.4. Text editor](#34-text-editor)
     - [4. Project dependencies](#4-project-dependencies)
       - [4.1. Boilerplate](#41-boilerplate)
-      - [4.2. Code Formatter](#42-code-formatter)
-      - [4.3. Linter](#43-linter)
-        - [4.3.1. Import Sorter](#431-import-sorter)
-      - [4.3.2. Autoformatter](#432-autoformatter)
+      - [4.2. Linter](#42-linter)
+        - [4.2.1. Import Sorter](#421-import-sorter)
+      - [4.3. Code Formatter](#43-code-formatter)
+        - [4.3.1. Autoformatter](#431-autoformatter)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -276,24 +276,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
 > - `create-react-app` includes four [run-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
-#### 4.2. Code Formatter
-
-> _Use [Prettier](https://prettier.io)&mdash;a source code formatter with an opinionated but consistent code conventions._
-
-- 4.2.1. Install and/or run:
-
-  ```shell
-  $ npx prettier --write src/
-  ```
-
-> **NOTE:** <br />
-> The `--write` parameter modifies the files in the specified directory.
-
-#### 4.3. Linter
+#### 4.2. Linter
 
 > _Use [ESLint](https://eslint.org)&mdash;a static code analyzer to find and fix problems in JavaScript code._
 
-- 4.3.1. Install and/or run:
+- 4.2.1. Install and/or run:
 
   ```shell
   $ npx eslint --fix src/
@@ -304,17 +291,17 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `--fix` modifies the files in the specified directory
 > - ESLint is shipped with `create-react-app` and parses with [babel-eslint](https://github.com/babel/babel-eslint)
 
-##### 4.3.1. Import Sorter
+##### 4.2.1. Import Sorter
 
 > Use [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)&mdash;an autofixable import sorter for `eslint --fix`.
 
-- 4.3.1.1. Install:
+- 4.2.1.1. Install:
 
   ```shell
   $ npm i -D eslint-plugin-simple-import-sort
   ```
 
-- 4.3.1.2. Script (rc):
+- 4.2.1.2. Script (rc):
 
   `.eslintrc`:
 
@@ -330,24 +317,37 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   }
   ```
 
-- 4.3.1.3. Install and/or run:
+- 4.2.1.3. Install and/or run:
 
   ```shell
   $ npx eslint --fix src/
   ```
 
-#### 4.3.2. Autoformatter
+#### 4.3. Code Formatter
+
+> _Use [Prettier](https://prettier.io)&mdash;a source code formatter with an opinionated but consistent code conventions._
+
+- 4.3.1. Install and/or run:
+
+  ```shell
+  $ npx prettier --write src/
+  ```
+
+> **NOTE:** <br />
+> The `--write` parameter modifies the files in the specified directory.
+
+##### 4.3.1. Autoformatter
 
 > _Use [husky](https://github.com/typicode/husky) with [lint-staged](https://github.com/okonet/lint-staged)&mdash;to execute [npm-run-script](https://docs.npmjs.com/cli-commands/run-script.html)s from [githooks](https://git-scm.com/docs/githooks)_.
 
-- 4.3.2.1. Install:
+- 4.3.1.1. Install:
 
   ```shell
   $ npm i -D husky \
              lint-staged
   ```
 
-- 4.3.2.2. Script:
+- 4.3.1.2. Script:
 
   `package.json`:
 
@@ -369,7 +369,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   ```
 
 > **NOTE:** <br />
-> `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`.
+> The `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`.
 
 ---
 
