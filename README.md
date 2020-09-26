@@ -34,11 +34,11 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
       - [3.3. npm (CLI)](#33-npm-cli)
       - [3.4. Text editor](#34-text-editor)
     - [4. Project dependencies](#4-project-dependencies)
-      - [4.1. create-react-app](#41-create-react-app)
-      - [4.2. Prettier](#42-prettier)
-      - [4.3. ESLint](#43-eslint)
-      - [4.4. import-sort](#44-import-sort)
-      - [4.5. Auto Lint and Formatter](#45-auto-lint-and-formatter)
+      - [4.1. Boilerplate](#41-boilerplate)
+      - [4.2. Code Formatter](#42-code-formatter)
+      - [4.3. Linter](#43-linter)
+      - [4.4. Import Sorter](#44-import-sorter)
+      - [4.5. Auto Linter and Code Formatter](#45-auto-linter-and-code-formatter)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -259,7 +259,7 @@ _e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or
 
 Project dependencies required to develop a specific project.
 
-#### 4.1. create-react-app
+#### 4.1. Boilerplate
 
 ```shell
 $ npx create-react-app <project-directory>
@@ -270,7 +270,7 @@ $ npx create-react-app <project-directory>
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
 > - [create-react-app](https://github.com/facebook/create-react-app) includes four [run-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
-#### 4.2. Prettier
+#### 4.2. Code Formatter
 
 - 4.2.1. Install:
 
@@ -304,12 +304,12 @@ $ npx create-react-app <project-directory>
 > - [Prettier](https://prettier.io) package formats source code with an opinionated but consistent code conventions
 > - `--write` overwrites the files in the specified directory (e.g. `src/`)
 
-#### 4.3. ESLint
+#### 4.3. Linter
 
 > **Note:** <br />
 > The `create-react-app` is shipped with [ESLint](https://eslint.org) and parses with [babel-eslint](https://github.com/babel/babel-eslint).
 
-#### 4.4. import-sort
+#### 4.4. Import Sorter
 
 - 4.4.1. Install:
 
@@ -357,7 +357,7 @@ $ npx create-react-app <project-directory>
 > **Note:** <br />
 > The [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort) sort package imports with `eslint --fix`.
 
-#### 4.5. Auto Lint and Formatter
+#### 4.5. Auto Linter and Code Formatter
 
 - 4.5.1. Install:
 
