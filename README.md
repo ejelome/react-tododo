@@ -343,11 +343,23 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 4.3.1.1. Install:
 
   ```shell
-  $ npm i -D husky \
+  $ npm i -D eslint-config-prettier \
+             husky                  \
              lint-staged
   ```
 
-- 4.3.1.2. Script:
+- 4.3.1.2: Script (rc):
+
+  `.eslintrc`:
+
+  ```json
+  {
+    "…"
+    "extends": ["prettier"]
+  }
+  ```
+
+- 4.3.1.3. Script:
 
   `package.json`:
 
@@ -368,8 +380,12 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   }
   ```
 
-> **NOTE:** <br />
-> The `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`.
+> **NOTES:**
+>
+> - `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`
+> - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) turns off all conflicting ESLint rules with Prettier
+> - `prettier` must be put last on `extends` to override other configs
+> - `eslint --fix` should run _before_ `prettier --write` (not _after_)
 
 ---
 
