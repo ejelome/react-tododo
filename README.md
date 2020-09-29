@@ -1,6 +1,6 @@
 # react-tododo
 
-Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](https://reactjs.org) with a todo list
+Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https://reactjs.org) with a todo list
 
 ---
 
@@ -39,6 +39,8 @@ Learn [TDD](https://en.wikipedia.org/wiki/Test-driven_development) in [React](ht
         - [4.2.1. Import Sorter](#421-import-sorter)
       - [4.3. Code Formatter](#43-code-formatter)
         - [4.3.1. Autoformatter](#431-autoformatter)
+    - [5. Test suite](#5-test-suite)
+      - [5.1. End-to-End](#51-end-to-end)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -386,6 +388,103 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) turns off all conflicting ESLint rules with Prettier
 > - `prettier` must be put last on `extends` to override other configs
 > - `eslint --fix` should run _before_ `prettier --write` (not _after_)
+
+### 5. Test suite
+
+#### 5.1. End-to-End
+
+> Use [cypress](https://cypress.io)&mdash;an [End-to-End](https://wikipedia.org/wiki/System_testing) testing framework.
+
+- 5.1.1. Install and/or run:
+
+  ```shell
+  $ npx cypress open
+  ```
+
+- 5.1.2. Remove example files:
+
+  ```shell
+  $ rm -rf cypress/integration/examples/
+  ```
+
+- 5.1.3. Specify `baseUrl`:
+
+  `cypress.json`:
+
+  ```json
+  {
+    "baseUrl": "http://localhost:3000"
+  }
+  ```
+
+- 5.1.4. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
+
+  `cypress/integration/sample_spec.js`:
+
+  ```javascript
+  describe("Smoke test", () => {
+    it("renders learn react link", () => {
+      expect(true).to.equal(false);
+    });
+  });
+  ```
+
+- 5.1.5. Click `sample_spec.js` from test runner's browser:
+
+  _This test should **fail**._
+
+- 5.1.6. Pass the failing test:
+
+  `cypress/integration/sample_spec.js`:
+
+  ```javascript
+  describe("Smoke test", () => {
+    it("renders learn react link", () => {
+      cy
+        // Arrange (required setup)
+        // or Given (initial state):
+        .visit("/")
+
+        // Act (actual behavior)
+        // or When (action taken):
+        .get("a")
+
+        // Assert (expected behavior)
+        // or Then (desired outcome):
+        .contains("Learn React");
+    });
+  });
+  ```
+
+- 5.1.7. The test runner automatically re-runs the test:
+
+  _This test should now **pass**._
+
+- 5.1.8. Refactor the passing test:
+
+  `cypress/integration/sample_spec.js`:
+
+  ```javascript
+  describe("Smoke test", () => {
+    it("renders learn react link", () => {
+      cy.visit("/").get("a").contains("learn react", { matchCase: false });
+    });
+  });
+  ```
+
+- 5.1.9. The test runner automatically re-runs the test:
+
+  _This improved test should still **pass**, but now ignoring case sensitivity._
+
+> **NOTES:**
+>
+> - Cypress requires that the app is also running to run its tests against
+> - `cypress open` opens Cypress' test runner and the open default browser
+> - `baseUrl` is a [global option](https://docs.cypress.io/guides/references/configuration.html#Global) to prefix URL when using [cy.visit()](https://docs.cypress.io/api/commands/visit.html) or [cy.request()](https://docs.cypress.io/api/commands/request.html)
+> - `describe()` and `it()` are [Mocha](https://mochajs.org)'s [BDD](https://mochajs.org/#bdd) interface functions
+> - `expect()` or `should()` are [Chai](https://www.chaijs.com)'s' [BDD](https://www.chaijs.com/api/bdd) style functions
+> - [AAA](https://github.com/testdouble/contributing-tests/wiki/Arrange-Act-Assert) is a testing pattern describing natural phases of tests
+> - [GWT](https://wikipedia.org/wiki/Given-When-Then) is used as an alternative when using [BDD](https://wikipedia.org/wiki/Behavior-driven_development) instead of classical [TDD](https://wikipedia.org/wiki/Test-driven_development)
 
 ---
 
