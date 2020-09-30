@@ -41,6 +41,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
         - [4.3.1. Autoformatter](#431-autoformatter)
     - [5. Test suite](#5-test-suite)
       - [5.1. End-to-End testing](#51-end-to-end-testing)
+      - [5.2. Unit testing](#52-unit-testing)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -490,6 +491,97 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - [AAA](https://github.com/testdouble/contributing-tests/wiki/Arrange-Act-Assert) is a testing pattern describing natural phases of tests
 > - [GWT](https://wikipedia.org/wiki/Given-When-Then) is used as an alternative when using [BDD](https://wikipedia.org/wiki/Behavior-driven_development) instead of classical [TDD](https://wikipedia.org/wiki/Test-driven_development)
 > - The above example used [Red-Green-Refactor](https://www.jamesshore.com/v2/blog/2005/red-green-refactor) as [the TDD cycle](https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html#minute-by-minute-micro-cycle-red-green-refactor)
+
+#### 5.2. Unit testing
+
+> Use [Enzyme](https://enzymejs.github.io/enzyme)&mdash;a JavaScript testing utility for React.
+
+- 5.2.1. Install:
+
+  ```shell
+  $ npm i -D enzyme \
+             enzyme-adapter-react-16
+  ```
+
+- 5.2.2. Setup:
+
+  `src/setupTests.js`:
+
+  ```javascript
+  // …
+  import Enzyme from "enzyme";
+  import Adapter from "enzyme-adapter-react-16";
+
+  Enzyme.configure({ adapter: new Adapter() });
+  ```
+
+- 5.2.3. Create a failing smoke test file:
+
+  `src/App.test.js`:
+
+  ```javascript
+  import React from "react";
+
+  import App from "./App";
+
+  describe("<App />", () => {
+    it("renders without crashing", () => {
+      expect(true).toEqual(false);
+    });
+  });
+  ```
+
+- 5.2.4. Run the test:
+
+  _This test should **fail**._
+
+  ```shell
+  $ npm t
+  ```
+
+- 5.2.5. Pass the failing test:
+
+  `src/App.test.js`:
+
+  ```javascript
+  import { shallow } from "enzyme";
+  // …
+  describe …
+    it …
+      const wrapper = shallow(<App />);
+      expect(wrapper).toEqual({});
+    // …
+  ```
+
+- 5.2.6. The test runner automatically re-runs the test:
+
+  _This test should now **pass**._
+
+- 5.2.7. Refactor the passing test:
+
+  `src/App.test.js`:
+
+  ```javascript
+  // …
+  describe …
+    it …
+      shallow(<App />);
+    // …
+  ```
+
+- 5.2.8. The test runner automatically re-runs the test:
+
+  _This improved test should still **pass**, having the same result from previous test._
+
+> **NOTES:**
+>
+> - Unit testing tests individual units of the application's source code
+> - Unlike end-to-end testing, it verifies application's implementation details not behaviors
+> - Unlike integration testing, it only verifies a very specific part (unit) not multiple parts
+> - Enzyme's [shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html) is suitable to unit testing because it can isolate a component from its children
+> - Enzyme's code examples in documentation uses Mocha, Chai and [Sinon.js](https://sinonjs.org)
+> - `creat-react-app` uses [Jest](https://jestjs.io)'s built-in [expect](https://jestjs.io/docs/en/expect) with [js-dom](https://github.com/testing-library/jest-dom)'s [matchers](https://jestjs.io/docs/en/using-matchers) as an alternative to Chai's assertions
+> - `create-react-app` uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js for creating test [spies](https://wikipedia.org/wiki/Test_double), [stubs](https://wikipedia.org/wiki/Test_stub) and [mocks](https://wikipedia.org/wiki/Mock_object)
 
 ---
 
