@@ -40,7 +40,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [4.3. Code Formatter](#43-code-formatter)
         - [4.3.1. Autoformatter](#431-autoformatter)
     - [5. Test suite](#5-test-suite)
-      - [5.1. End-to-End](#51-end-to-end)
+      - [5.1. End-to-End testing](#51-end-to-end-testing)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -391,7 +391,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 ### 5. Test suite
 
-#### 5.1. End-to-End
+#### 5.1. End-to-End testing
 
 > Use [Cypress](https://cypress.io)&mdash;an End-to-End testing framework.
 
@@ -478,7 +478,9 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > **NOTES:**
 >
-> - End-to-End (E2E) tests the flows of the app from users' point of view
+> - End-to-End (E2E) testing tests the flow of the application from users' point of view
+> - Unlike unit testing, it verifies application's behaviors not implementation details
+> - Unlike integration testing, it verifies the behavior as a whole not some parts of it
 > - Cypress requires that the app is also running to run its tests against
 > - `cypress open` opens Cypress' test runner and the open default browser
 > - `baseUrl` is a [global option](https://docs.cypress.io/guides/references/configuration.html#Global) to prefix URL when using [cy.visit()](https://docs.cypress.io/api/commands/visit.html) or [cy.request()](https://docs.cypress.io/api/commands/request.html)
