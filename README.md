@@ -478,6 +478,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > **NOTES:**
 >
+> - End-to-End (E2E) tests the flows of the app from users' point of view
 > - Cypress requires that the app is also running to run its tests against
 > - `cypress open` opens Cypress' test runner and the open default browser
 > - `baseUrl` is a [global option](https://docs.cypress.io/guides/references/configuration.html#Global) to prefix URL when using [cy.visit()](https://docs.cypress.io/api/commands/visit.html) or [cy.request()](https://docs.cypress.io/api/commands/request.html)
