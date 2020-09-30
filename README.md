@@ -484,6 +484,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `baseUrl` is a [global option](https://docs.cypress.io/guides/references/configuration.html#Global) to prefix URL when using [cy.visit()](https://docs.cypress.io/api/commands/visit.html) or [cy.request()](https://docs.cypress.io/api/commands/request.html)
 > - `describe()` and `it()` are [Mocha](https://mochajs.org)'s [BDD](https://mochajs.org/#bdd) interface functions
 > - `expect()` or `should()` are [Chai](https://www.chaijs.com)'s' [BDD](https://www.chaijs.com/api/bdd) style functions
+> - [cy.visit()](https://docs.cypress.io/api/commands/visit.html), [cy.get()](https://docs.cypress.io/api/commands/get.html) and [cy.contains()](https://docs.cypress.io/api/commands/contains.html) have [default assertions](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Default-Assertions)
 > - [AAA](https://github.com/testdouble/contributing-tests/wiki/Arrange-Act-Assert) is a testing pattern describing natural phases of tests
 > - [GWT](https://wikipedia.org/wiki/Given-When-Then) is used as an alternative when using [BDD](https://wikipedia.org/wiki/Behavior-driven_development) instead of classical [TDD](https://wikipedia.org/wiki/Test-driven_development)
 > - The above example used [Red-Green-Refactor](https://www.jamesshore.com/v2/blog/2005/red-green-refactor) as [the TDD cycle](https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html#minute-by-minute-micro-cycle-red-green-refactor)
