@@ -393,7 +393,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 #### 5.1. End-to-End
 
-> Use [cypress](https://cypress.io)&mdash;an End-to-End testing framework.
+> Use [Cypress](https://cypress.io)&mdash;an End-to-End testing framework.
 
 - 5.1.1. Install and/or run:
 
