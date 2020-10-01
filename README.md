@@ -42,6 +42,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [5. Test suite](#5-test-suite)
       - [5.1. End-to-End testing](#51-end-to-end-testing)
       - [5.2. Unit testing](#52-unit-testing)
+      - [5.3. Integration testing](#53-integration-testing)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -582,6 +583,89 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - Enzyme's code examples in documentation uses Mocha, Chai and [Sinon.js](https://sinonjs.org)
 > - `creat-react-app` uses [Jest](https://jestjs.io)'s built-in [expect](https://jestjs.io/docs/en/expect) with [js-dom](https://github.com/testing-library/jest-dom)'s [matchers](https://jestjs.io/docs/en/using-matchers) as an alternative to Chai's assertions
 > - `create-react-app` uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js to create [test doubles](https://wikipedia.org/wiki/Test_double) (spies, stubs and mocks, etc.)
+
+#### 5.3. Integration testing
+
+> Use [react-testing-library](https://github.com/testing-library/react-testing-library)&mdash;a set of React DOM testing utilities.
+
+- 5.3.1. Create a failing smoke test file:
+
+  `src/App.spec.js`:
+
+  ```javascript
+  import { render } from "@testing-library/react";
+  import React from "react";
+
+  import App from "./App";
+
+  test("<App /> renders learn react link", () => {
+    expect(true).toEqual(false);
+  });
+  ```
+
+- 5.3.2. Run the test:
+
+  _This test should **fail**._
+
+  ```shell
+  $ npm t
+  ```
+
+- 5.3.3. Pass the failing test:
+
+  `src/App.spec.js`:
+
+  ```javascript
+  import { render } from "@testing-library/react";
+  import React from "react";
+
+  import App from "./App";
+
+  test("<App /> renders learn react link", () => {
+    const { getByText } = render(<App />);
+    expect(getByText("Learn React", { exact: false })).toBeInTheDocument();
+  });
+  ```
+
+- 5.3.4. The test runner automatically re-runs the test:
+
+  _This test should now **pass**._
+
+- 5.3.5. Refactor the passing test:
+
+  `src/App.spec.js`:
+
+  ```javascript
+  // …
+  test …
+    // …
+    const linkElement = getByText(/learn react/i);
+    expect(linkElement).toBeInTheDocument();
+  // …
+  ```
+
+- 5.3.6. The test runner automatically re-runs the test:
+
+  _This improved test should still **pass**, with bit of cleaner code, e.g.:_
+
+  - Assign found element by `getBy` to `linkElement`
+  - Replace input string with regular expression
+  - Replace `exact` with `i` from regular expression
+  - `linkElement` to `expect` instead of putting them all of them at once
+
+> **NOTES:**
+>
+> - Integration testing tests multiple units of the application's code _as a group_
+> - Unlike end-to-end testing, it verifies application's implementation details and not behaviors
+> - Unlike unit testing, it verifies, _together_, parts (units) and not only a very specific part
+> - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) tests React components on how users might use them
+> - Unlike traditional integration testing, RTL focuses on behaviors not implementation details
+> - By default, `@testing-library/react` is shipped with `create-react-app`
+> - RTL uses Jest's built-in `expect` and `jest-dom`'s to assert the DOM state
+> - [user-event](https://github.com/testing-library/user-event) can be used to replace the [dom-testing-library](https://github.com/testing-library/dom-testing-library)'s built-in [fire-event](https://testing-library.com/docs/dom-testing-library/api-events#fireevent)
+> - `.spec.js` suffix is one of Jest's required [filename convention](https://create-react-app.dev/docs/running-tests#filename-conventions) to locate test files
+> - We use `.spec.js` here _subjectively_ to distinguish it from unit tests (e.g. `.test.js`)
+> - `getByText` is a combination of [getBy](https://testing-library.com/docs/dom-testing-library/api-queries#getby) and [ByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext) of [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro) [queries](https://testing-library.com/docs/dom-testing-library/api-queries) API
 
 ---
 
