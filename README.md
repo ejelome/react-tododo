@@ -581,7 +581,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - Enzyme's [shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html) is suitable to unit testing because it can isolate a component from its children
 > - Enzyme's code examples in documentation uses Mocha, Chai and [Sinon.js](https://sinonjs.org)
 > - `creat-react-app` uses [Jest](https://jestjs.io)'s built-in [expect](https://jestjs.io/docs/en/expect) with [js-dom](https://github.com/testing-library/jest-dom)'s [matchers](https://jestjs.io/docs/en/using-matchers) as an alternative to Chai's assertions
-> - `create-react-app` uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js for creating test [spies](https://wikipedia.org/wiki/Test_double), [stubs](https://wikipedia.org/wiki/Test_stub) and [mocks](https://wikipedia.org/wiki/Mock_object)
+> - `create-react-app` uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js to create [test doubles](https://en.wikipedia.org/wiki/Test_double) (spies, stubs and mocks, etc.)
 
 ---
 
