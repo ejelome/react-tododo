@@ -480,8 +480,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > **NOTES:**
 >
 > - End-to-End (E2E) testing tests the flow of the application from users' point of view
-> - Unlike unit testing, it verifies application's behaviors not implementation details
-> - Unlike integration testing, it verifies the behavior as a whole not some parts of it
+> - Unlike unit testing, it verifies application's behaviors and not implementation details
+> - Unlike integration testing, it verifies the behavior as a whole and not only parts of it
 > - Cypress requires that the app is also running to run its tests against
 > - `cypress open` opens Cypress' test runner and the open default browser
 > - `baseUrl` is a [global option](https://docs.cypress.io/guides/references/configuration.html#Global) to prefix URL when using [cy.visit()](https://docs.cypress.io/api/commands/visit.html) or [cy.request()](https://docs.cypress.io/api/commands/request.html)
@@ -576,8 +576,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > **NOTES:**
 >
 > - Unit testing tests individual units of the application's source code
-> - Unlike end-to-end testing, it verifies application's implementation details not behaviors
-> - Unlike integration testing, it only verifies a very specific part (unit) not multiple parts
+> - Unlike end-to-end testing, it verifies application's implementation details and not behaviors
+> - Unlike integration testing, it only verifies a very specific part (unit) and not multiple parts
 > - Enzyme's [shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html) is suitable to unit testing because it can isolate a component from its children
 > - Enzyme's code examples in documentation uses Mocha, Chai and [Sinon.js](https://sinonjs.org)
 > - `creat-react-app` uses [Jest](https://jestjs.io)'s built-in [expect](https://jestjs.io/docs/en/expect) with [js-dom](https://github.com/testing-library/jest-dom)'s [matchers](https://jestjs.io/docs/en/using-matchers) as an alternative to Chai's assertions
