@@ -43,6 +43,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [5.1. End-to-End testing](#51-end-to-end-testing)
       - [5.2. Unit testing](#52-unit-testing)
       - [5.3. Integration testing](#53-integration-testing)
+      - [5.4. Code coverage](#54-code-coverage)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -278,7 +279,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > **NOTES:**
 >
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
-> - `create-react-app` includes four [react-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
+> - CRA includes four [react-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
 #### 4.2. Linter
 
@@ -293,7 +294,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > **NOTES:**
 >
 > - `--fix` modifies the files in the specified directory
-> - ESLint is shipped with `create-react-app` and parses with [babel-eslint](https://github.com/babel/babel-eslint)
+> - ESLint is shipped with CRA and parses with [babel-eslint](https://github.com/babel/babel-eslint)
 
 ##### 4.2.1. Import Sorter
 
@@ -582,7 +583,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - Enzyme's [shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html) is suitable to unit testing because it can isolate a component from its children
 > - Enzyme's code examples in documentation uses Mocha, Chai and [Sinon.js](https://sinonjs.org)
 > - `creat-react-app` uses [Jest](https://jestjs.io)'s built-in [expect](https://jestjs.io/docs/en/expect) with [js-dom](https://github.com/testing-library/jest-dom)'s [matchers](https://jestjs.io/docs/en/using-matchers) as an alternative to Chai's assertions
-> - `create-react-app` uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js to create [test doubles](https://wikipedia.org/wiki/Test_double) (spies, stubs and mocks, etc.)
+> - CRA uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js to create [test doubles](https://wikipedia.org/wiki/Test_double) (spies, stubs and mocks, etc.)
 
 #### 5.3. Integration testing
 
@@ -660,12 +661,57 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - Unlike unit testing, it verifies, _together_, parts (units) and not only a very specific part
 > - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) tests React components on how users might use them
 > - Unlike traditional integration testing, RTL focuses on behaviors not implementation details
-> - By default, `@testing-library/react` is shipped with `create-react-app`
+> - By default, `@testing-library/react` is shipped with Create React App
 > - RTL uses Jest's built-in `expect` and `jest-dom`'s to assert the DOM state
 > - [user-event](https://github.com/testing-library/user-event) can be used to replace the [dom-testing-library](https://github.com/testing-library/dom-testing-library)'s built-in [fire-event](https://testing-library.com/docs/dom-testing-library/api-events#fireevent)
 > - `.spec.js` suffix is one of Jest's required [filename convention](https://create-react-app.dev/docs/running-tests#filename-conventions) to locate test files
 > - We use `.spec.js` here _subjectively_ to distinguish it from unit tests (e.g. `.test.js`)
 > - `getByText` is a combination of [getBy](https://testing-library.com/docs/dom-testing-library/api-queries#getby) and [ByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext) of [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro) [queries](https://testing-library.com/docs/dom-testing-library/api-queries) API
+
+#### 5.4. Code coverage
+
+- 5.4.1. Setup (RC):
+
+  `package.json`:
+
+  ```json
+  {
+    "jest": {
+      "coveragePathIgnorePatterns": [
+        "<rootDir>/src/index.js",
+        "<rootDir>/src/serviceWorker.js"
+      ],
+      "coverageThreshold": {
+        "global": {
+          "branches": 100,
+          "functions": 100,
+          "lines": 100,
+          "statements": 100
+        }
+      }
+    }
+  }
+  ```
+
+- 5.4.2. Run:
+
+  ```shell
+  $ npm test -- --coverage --watchAll
+  ```
+
+---
+
+> **NOTES:**
+>
+> - Code coverage measures the degree to which the source code of the application are executed
+> - High code coverage (usually in percentage) suggests a lower chance of having undetected bugs
+> - Create React App uses [Jest](https://jestjs.io)'s built-in [--coverage](https://jestjs.io/docs/en/cli#--coverageboolean) parameter to collect and report covered test
+> - Ignored source code (`src/(index|serviceWorker).js`) from coverage with [coveragePathIgnorePatterns](https://jestjs.io/docs/en/configuration#coveragepathignorepatterns-arraystring)
+> - By default, [coverageReporters](https://jestjs.io/docs/en/configuration#coveragereporters-arraystring--string-options) uses `["text"]` which displays a detailed summary of coverage
+> - The [coverageThreshold](https://jestjs.io/docs/en/configuration#coveragethreshold-object) sets the minimum coverage threshold (in `%`) and returns `0` as [exit code](https://tldp.org/LDP/abs/html/exitcodes.html) if unmet
+> - The `--` tells the CLI that it is an argument of `test` and not `npm` (see **Guideline 10** of [USG](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02))
+> - There seems to be a bug currently when running coverage normally&mdash;use `--watchAll` as temporary fix
+> - Use `--watchAll=false` when using code coverage with CI/CD (e.g. [GitHub Actions](https://github.com/features/actions))
 
 ---
 
