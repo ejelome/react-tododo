@@ -278,7 +278,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > **NOTES:**
 >
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
-> - `create-react-app` includes four [react-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
+> - CRA includes four [react-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
 #### 4.2. Linter
 
@@ -293,7 +293,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > **NOTES:**
 >
 > - `--fix` modifies the files in the specified directory
-> - ESLint is shipped with `create-react-app` and parses with [babel-eslint](https://github.com/babel/babel-eslint)
+> - ESLint is shipped with CRA and parses with [babel-eslint](https://github.com/babel/babel-eslint)
 
 ##### 4.2.1. Import Sorter
 
@@ -582,7 +582,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - Enzyme's [shallow](https://enzymejs.github.io/enzyme/docs/api/shallow.html) is suitable to unit testing because it can isolate a component from its children
 > - Enzyme's code examples in documentation uses Mocha, Chai and [Sinon.js](https://sinonjs.org)
 > - `creat-react-app` uses [Jest](https://jestjs.io)'s built-in [expect](https://jestjs.io/docs/en/expect) with [js-dom](https://github.com/testing-library/jest-dom)'s [matchers](https://jestjs.io/docs/en/using-matchers) as an alternative to Chai's assertions
-> - `create-react-app` uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js to create [test doubles](https://wikipedia.org/wiki/Test_double) (spies, stubs and mocks, etc.)
+> - CRA uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js to create [test doubles](https://wikipedia.org/wiki/Test_double) (spies, stubs and mocks, etc.)
 
 #### 5.3. Integration testing
 
@@ -660,7 +660,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - Unlike unit testing, it verifies, _together_, parts (units) and not only a very specific part
 > - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) tests React components on how users might use them
 > - Unlike traditional integration testing, RTL focuses on behaviors not implementation details
-> - By default, `@testing-library/react` is shipped with `create-react-app`
+> - By default, `@testing-library/react` is shipped with Create React App
 > - RTL uses Jest's built-in `expect` and `jest-dom`'s to assert the DOM state
 > - [user-event](https://github.com/testing-library/user-event) can be used to replace the [dom-testing-library](https://github.com/testing-library/dom-testing-library)'s built-in [fire-event](https://testing-library.com/docs/dom-testing-library/api-events#fireevent)
 > - `.spec.js` suffix is one of Jest's required [filename convention](https://create-react-app.dev/docs/running-tests#filename-conventions) to locate test files
