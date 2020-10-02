@@ -670,7 +670,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 #### 5.4. Code coverage
 
-- 5.4.1. Setup (RC):
+- 5.4.1. Setup:
 
   `package.json`:
 
