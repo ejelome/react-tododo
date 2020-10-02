@@ -705,13 +705,13 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 >
 > - Code coverage measures the degree to which the source code of the application are executed
 > - High code coverage (usually in percentage) suggests a lower chance of having undetected bugs
-> - Create React App uses [Jest](https://jestjs.io)'s built-in [--coverage](https://jestjs.io/docs/en/cli#--coverageboolean) parameter to collect and report covered test
-> - Ignored source code (`src/(index|serviceWorker).js`) from coverage with [coveragePathIgnorePatterns](https://jestjs.io/docs/en/configuration#coveragepathignorepatterns-arraystring)
+> - Create React App uses [Jest](https://jestjs.io)'s built-in [--coverage](https://jestjs.io/docs/en/cli#--coverageboolean) parameter to collect and report covered source code
+> - Ignore source code (`src/(index|serviceWorker).js`) from coverage with [coveragePathIgnorePatterns](https://jestjs.io/docs/en/configuration#coveragepathignorepatterns-arraystring)
 > - By default, [coverageReporters](https://jestjs.io/docs/en/configuration#coveragereporters-arraystring--string-options) uses `["text"]` which displays a detailed summary of coverage
-> - The [coverageThreshold](https://jestjs.io/docs/en/configuration#coveragethreshold-object) sets the minimum coverage threshold (in `%`) and returns `0` as [exit code](https://tldp.org/LDP/abs/html/exitcodes.html) if unmet
-> - The `--` tells the CLI that it is an argument of `test` and not `npm` (see **Guideline 10** of [USG](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02))
-> - There seems to be a bug currently when running coverage normally&mdash;use `--watchAll` as temporary fix
-> - Use `--watchAll=false` when using code coverage with CI/CD (e.g. [GitHub Actions](https://github.com/features/actions))
+> - The [coverageThreshold](https://jestjs.io/docs/en/configuration#coveragethreshold-object) sets the minimum coverage threshold (in `%`) and returns `1` as [exit code](https://tldp.org/LDP/abs/html/exitcodes.html) if unmet
+> - `--` tells CLI that it is an argument of `test` (not `npm`) (see **Guideline 10** from [Utility Syntax Guidelines](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02))
+> - There is a bug currently when running with `--coverage` normally&mdash;use `--watchAll` as a temporary fix
+> - Use `--watchAll=false` (disable test watcher) when using on CI/CD platforms (e.g. [GitHub Actions](https://github.com/features/actions))
 
 ---
 
