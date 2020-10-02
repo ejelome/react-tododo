@@ -43,6 +43,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [5.1. End-to-End testing](#51-end-to-end-testing)
       - [5.2. Unit testing](#52-unit-testing)
       - [5.3. Integration testing](#53-integration-testing)
+      - [5.4. Code coverage](#54-code-coverage)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -666,6 +667,51 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `.spec.js` suffix is one of Jest's required [filename convention](https://create-react-app.dev/docs/running-tests#filename-conventions) to locate test files
 > - We use `.spec.js` here _subjectively_ to distinguish it from unit tests (e.g. `.test.js`)
 > - `getByText` is a combination of [getBy](https://testing-library.com/docs/dom-testing-library/api-queries#getby) and [ByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext) of [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro) [queries](https://testing-library.com/docs/dom-testing-library/api-queries) API
+
+#### 5.4. Code coverage
+
+- 5.4.1. Setup (RC):
+
+  `package.json`:
+
+  ```json
+  {
+    "jest": {
+      "coveragePathIgnorePatterns": [
+        "<rootDir>/src/index.js",
+        "<rootDir>/src/serviceWorker.js"
+      ],
+      "coverageThreshold": {
+        "global": {
+          "branches": 100,
+          "functions": 100,
+          "lines": 100,
+          "statements": 100
+        }
+      }
+    }
+  }
+  ```
+
+- 5.4.2. Run:
+
+  ```shell
+  $ npm test -- --coverage --watchAll
+  ```
+
+---
+
+> **NOTES:**
+>
+> - Code coverage measures the degree to which the source code of the application are executed
+> - High code coverage (usually in percentage) suggests a lower chance of having undetected bugs
+> - Create React App uses [Jest](https://jestjs.io)'s built-in [--coverage](https://jestjs.io/docs/en/cli#--coverageboolean) parameter to collect and report covered test
+> - Ignored source code (`src/(index|serviceWorker).js`) from coverage with [coveragePathIgnorePatterns](https://jestjs.io/docs/en/configuration#coveragepathignorepatterns-arraystring)
+> - By default, [coverageReporters](https://jestjs.io/docs/en/configuration#coveragereporters-arraystring--string-options) uses `["text"]` which displays a detailed summary of coverage
+> - The [coverageThreshold](https://jestjs.io/docs/en/configuration#coveragethreshold-object) sets the minimum coverage threshold (in `%`) and returns `0` as [exit code](https://tldp.org/LDP/abs/html/exitcodes.html) if unmet
+> - The `--` tells the CLI that it is an argument of `test` and not `npm` (see **Guideline 10** of [USG](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02))
+> - There seems to be a bug currently when running coverage normally&mdash;use `--watchAll` as temporary fix
+> - Use `--watchAll=false` when using code coverage with CI/CD (e.g. [GitHub Actions](https://github.com/features/actions))
 
 ---
 
