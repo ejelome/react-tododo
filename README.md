@@ -44,6 +44,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [5.2. Unit testing](#52-unit-testing)
       - [5.3. Integration testing](#53-integration-testing)
       - [5.4. Code coverage](#54-code-coverage)
+  - [References](#references)
   - [License](#license)
 
 <!-- markdown-toc end -->
@@ -712,6 +713,12 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `--` tells CLI that it is an argument of `test` (not `npm`) (see **Guideline 10** from [Utility Syntax Guidelines](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02))
 > - There is a bug currently when running with `--coverage` normally&mdash;use `--watchAll` as a temporary fix
 > - Use `--watchAll=false` (disable test watcher) when using on CI/CD platforms (e.g. [GitHub Actions](https://github.com/features/actions))
+
+---
+
+## References
+
+- [Learn TDD in React](https://learntdd.in/react): [Outside-In Frontend Development](https://outsidein.dev)
 
 ---
 
