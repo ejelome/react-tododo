@@ -393,7 +393,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
       }
     },
     "lint-staged": {
-      "src/**/*.{md,css,js}": [
+      "src/**/*.{md,css,js,json}": [
         "eslint --fix",
         "prettier -w"
       ]
@@ -403,7 +403,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > **NOTES:**
 >
-> - `lint-staged` runs `eslint --fix` and `prettier -w` on `"src/**/*.{md,css,js}"` on `pre-commit`
+> - `lint-staged` runs `eslint --fix` and `prettier -w` on `"src/**/*.{md,css,js,json}"` on `pre-commit`
 > - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) turns off all conflicting ESLint rules with Prettier
 > - `prettier` must be put last on `extends` to override other configs
 > - `eslint --fix` should run _before_ `prettier -w` and not _after_
