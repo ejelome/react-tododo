@@ -299,7 +299,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 ##### 4.2.1. Import Sorter
 
-> Use [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)&mdash;an autofixable import sorter for `eslint --fix`.
+> _Use [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)&mdash;an autofixable import sorter for `eslint --fix`._
 
 - 4.2.1.1. Install:
 
@@ -395,9 +395,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 ### 5. Test suite
 
+> _Test suite helps validate specific behaviors of the application through tests._
+
 #### 5.1. End-to-End testing
 
-> Use [Cypress](https://cypress.io)&mdash;an End-to-End testing framework.
+> _Use [Cypress](https://cypress.io)&mdash;an End-to-End testing framework._
 
 - 5.1.1. Install and/or run:
 
@@ -497,7 +499,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 #### 5.2. Unit testing
 
-> Use [Enzyme](https://enzymejs.github.io/enzyme)&mdash;a JavaScript testing utility for React.
+> _Use [Enzyme](https://enzymejs.github.io/enzyme)&mdash;a JavaScript testing utility for React._
 
 - 5.2.1. Install:
 
@@ -588,7 +590,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 #### 5.3. Integration testing
 
-> Use [react-testing-library](https://github.com/testing-library/react-testing-library)&mdash;a set of React DOM testing utilities.
+> _Use [react-testing-library](https://github.com/testing-library/react-testing-library)&mdash;a set of React DOM testing utilities._
 
 - 5.3.1. Create a failing smoke test file:
 
@@ -671,6 +673,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 #### 5.4. Code coverage
 
+> _Code coverage helps measure the degree to which the source code of the application are executed._
+
 - 5.4.1. Setup:
 
   `package.json`:
@@ -704,7 +708,6 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > **NOTES:**
 >
-> - Code coverage measures the degree to which the source code of the application are executed
 > - High code coverage (usually in percentage) suggests a lower chance of having undetected bugs
 > - Create React App uses [Jest](https://jestjs.io)'s built-in [--coverage](https://jestjs.io/docs/en/cli#--coverageboolean) parameter to collect and report covered source code
 > - Ignore source code (`src/(index|serviceWorker).js`) from coverage with [coveragePathIgnorePatterns](https://jestjs.io/docs/en/configuration#coveragepathignorepatterns-arraystring)
