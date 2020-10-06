@@ -48,9 +48,11 @@
     }
   },
   "lint-staged": {
+    "src/**/*.js": [
+      "./node_modules/.bin/eslint --fix"
+    ],
     "src/**/*.{md,css,js,json}": [
-      "eslint --fix",
-      "prettier -w"
+      "./node_modules/.bin/prettier -w"
     ]
   },
   "jest": {

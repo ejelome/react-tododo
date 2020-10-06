@@ -7,8 +7,8 @@ jobs:
         env:
           DEFAULT_BRANCH: master
       - run: npm i
-      - run: eslint src/**/*.{md,css,js,json}
-      - run: prettier -c src/**/*.{md,css,js,json}
+      - run: ./node_modules/.bin/eslint src/**/*.js
+      - run: ./node_modules/.bin/prettier -c src/**/*.{md,css,js,json}
       - run: npm test -- --coverage --watchAll=false
       - uses: cypress-io/github-action@v2
         with:
