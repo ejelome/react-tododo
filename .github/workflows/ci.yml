@@ -1,0 +1,16 @@
+on: push
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        env:
+          DEFAULT_BRANCH: master
+      - run: npm i
+      - run: eslint src/**/*.{md,css,js,json}
+      - run: prettier -c src/**/*.{md,css,js,json}
+      - run: npm test -- --coverage --watchAll=false
+      - uses: cypress-io/github-action@v2
+        with:
+          start: npm start
+          wait-on: "http://localhost:3000"
