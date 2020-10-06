@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/483d6193-559e-4670-8734-22f63fc36109/deploy-status)](https://app.netlify.com/sites/ejelome-pfinder/deploys)
+
 # react-tododo
 
 Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https://reactjs.org) with a todo list
@@ -45,7 +47,8 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [5.3. Integration testing](#53-integration-testing)
       - [5.4. Code coverage](#54-code-coverage)
     - [6. Automation](#6-automation)
-      - [6.1. CI / CD](#61-ci--cd)
+      - [6.1. CI](#61-ci)
+      - [6.2. CD](#62-cd)
   - [References](#references)
   - [License](#license)
 
@@ -734,7 +737,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Automation helps test, build and deploy the application automatically from development to production._
 
-#### 6.1. CI / CD
+#### 6.1. CI
 
 > _Use [GitHub Actions](https://github.com/features/actions)&mdash;a workflow automation tool._
 
@@ -791,11 +794,46 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > **NOTES:**
 >
+> - CI (or Continuous Integration) automates the processes of quality control, tests and build of application
 > - `pre-push` hook ensures all tests pass with minimum required coverage before pushing to remote repo
 > - The workflow runs (using `ci.yml` configuration) whenever a push event is triggered on remote repo
 > - `env.DEFAULT_BRANCH` with value of `master` is specified since we use the [changed branch name](https://github.com/github/renaming)
 > - `name` is optional but `jobs` key name is required (`tests`)
 > - `eslint` is included in GitHub Actions out of the box
+
+#### 6.2. CD
+
+> _Use [Netlify](https://netlify.com)&mdash;a platform for automating modern web projects._
+
+- 6.2.1. Setup Netlify
+
+  - 6.2.1.1. Log in to [Netlify](https://app.netlify.com) (or sign up if not registered)
+  - 6.2.1.2. Select sites from the list (or click `New site from Git` and connect to a repo)
+  - 6.2.1.3. Go to `Site Settings` > `Build & deploy` then click `Edit settings`
+  - 6.2.1.4. Under `Build settings`, set fields, e.g.:
+
+    - `Build command` as `npm run build`
+    - `Publish directory` as `build/`
+
+  - 6.2.1.5. Click `Save`
+
+- 6.2.2. Update `Require status checks to pass before merging`:
+
+  - 6.2.2.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
+  - 6.2.2.2 Set fields, e.g.:
+
+    Under `Protect matching branches`, tick:
+
+    - `netlify/<Site name>/deploy-preview`
+
+  - 6.1.3.3. Click `Save changes`
+
+> **NOTES:**
+>
+> - CD (or Continuous Delivery) speeds up the process of releasing the application, though manually
+> - CD (or Continuous Deployment) fully automates Continuous Delivery without needing manual intervention
+> - The application is only built then deployed if all the CI pipeline requirements were fully met
+> - On Netlify, `Activate builds` is Continuous Deployment while `Stop builds` is Continuous Delivery
 
 ---
 
