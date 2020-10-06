@@ -769,8 +769,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
           env:
             DEFAULT_BRANCH: master
         - run: npm i
-        - run: ./node_modules/.bin/eslint src/**/*.js
-        - run: ./node_modules/.bin/prettier -c src/**/*.{md,css,js,json}
+        - run: ./node_modules/.bin/eslint src/
+        - run: ./node_modules/.bin/prettier -c src/
         - run: npm test -- --coverage --watchAll=false
         - uses: cypress-io/github-action@v2
           with:
