@@ -46,7 +46,7 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{md,css,js}": [
+    "src/**/*.{md,css,js,json}": [
       "eslint --fix",
       "prettier -w"
     ]
