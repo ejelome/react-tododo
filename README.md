@@ -44,6 +44,8 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [5.2. Unit testing](#52-unit-testing)
       - [5.3. Integration testing](#53-integration-testing)
       - [5.4. Code coverage](#54-code-coverage)
+    - [6. Automation](#6-automation)
+      - [6.1. CI / CD](#61-ci--cd)
   - [References](#references)
   - [License](#license)
 
@@ -731,6 +733,62 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `--` tells CLI that it is an argument of `test` (not `npm`) (see **Guideline 10** from [Utility Syntax Guidelines](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02))
 > - There is a bug currently when running with `--coverage` normally&mdash;use `--watchAll` as a temporary fix
 > - Use `--watchAll=false` (disable test watcher) when using on CI/CD platforms (e.g. [GitHub Actions](https://github.com/features/actions))
+
+### 6. Automation
+
+> _Automation helps test, build and deploy the application automatically from development to production._
+
+#### 6.1. CI / CD
+
+> _Use [GitHub Actions](https://github.com/features/actions)&mdash;a workflow automation tool._
+
+- 6.1.1. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+    "husky": {
+      "hooks": {
+        "…"
+        "pre-push": "npm test -- --coverage --watchAll=false"
+      }
+    },
+    "…"
+  }
+  ```
+
+- 6.1.2. Workflow file:
+
+  `.github/workflows/ci.yml`:
+
+  ```yaml
+  on: push
+  jobs:
+    tests:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v2
+          env:
+            DEFAULT_BRANCH: master
+        - run: npm i
+        - run: eslint src/**/*.{md,css,js,json}
+        - run: prettier -c src/**/*.{md,css,js,json}
+        - run: npm test -- --coverage --watchAll=false
+        - uses: cypress-io/github-action@v2
+          with:
+            start: npm start
+            wait-on: "http://localhost:3000"
+  ```
+
+> **NOTES:**
+>
+> - `pre-push` hook ensures all tests pass with minimum required coverage before pushing to remote repo
+> - The workflow runs (using `ci.yml` configuration) whenever a push event is triggered on remote repo
+> - `env.DEFAULT_BRANCH` with value of `master` is specified since we use the [changed branch name](https://github.com/github/renaming)
+> - `name` is optional but `jobs` key name is required (`tests`)
+> - `eslint` is included in GitHub Actions out of the box
 
 ---
 
