@@ -333,14 +333,22 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Use [Prettier](https://prettier.io)&mdash;a source code formatter with an opinionated but consistent code conventions._
 
-- 4.3.1. Install and/or run:
+- 4.3.1. Install:
 
   ```shell
-  $ npx prettier --write src/
+  $ npm i -D prettier
   ```
 
-> **NOTE:** <br />
-> The `--write` parameter modifies the files in the specified directory.
+- 4.3.2. Run:
+
+  ```shell
+  $ prettier -[w|c] <glob>
+  ```
+
+> **NOTES:**
+>
+> - `-w` (or `--write`) modifies the files matched from `<glob>` pattern
+> - `-c` (or `--check`) checks if the files matched from `<glob>` pattern are formatted
 
 ##### 4.3.1. Autoformatter
 
@@ -380,7 +388,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
     "lint-staged": {
       "src/**/*.{md,css,js}": [
         "npx eslint --fix",
-        "npx prettier --write"
+        "prettier -w"
       ]
     }
   }
@@ -388,10 +396,10 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > **NOTES:**
 >
-> - `lint-staged` runs `eslint --fix` and `prettier --write` on `"src/**/*.{md,css,js}"` on `pre-commit`
+> - `lint-staged` runs `eslint --fix` and `prettier -w` on `"src/**/*.{md,css,js}"` on `pre-commit`
 > - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) turns off all conflicting ESLint rules with Prettier
 > - `prettier` must be put last on `extends` to override other configs
-> - `eslint --fix` should run _before_ `prettier --write` (not _after_)
+> - `eslint --fix` should run _before_ `prettier -w` and not _after_
 
 ### 5. Test suite
 
