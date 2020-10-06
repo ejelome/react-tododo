@@ -286,15 +286,22 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Use [ESLint](https://eslint.org)&mdash;a static code analyzer to find and fix problems in JavaScript code._
 
-- 4.2.1. Install and/or run:
+- 4.2.1. Install (global):
 
   ```shell
-  $ npx eslint --fix src/
+  $ npm i -g eslint
+  ```
+
+- 4.2.2. Run:
+
+  ```shell
+  $ eslint [--fix] <glob>
   ```
 
 > **NOTES:**
 >
-> - `--fix` modifies the files in the specified directory
+> - `--fix` modifies the files matched from `<glob>` pattern
+> - Without `--fix` only lints the files matched from `<glob>` pattern
 > - ESLint is shipped with CRA and parses with [babel-eslint](https://github.com/babel/babel-eslint)
 
 ##### 4.2.1. Import Sorter
@@ -326,7 +333,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 4.2.1.3. Install and/or run:
 
   ```shell
-  $ npx eslint --fix src/
+  $ eslint --fix <glob>
   ```
 
 #### 4.3. Code Formatter
@@ -387,7 +394,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
     },
     "lint-staged": {
       "src/**/*.{md,css,js}": [
-        "npx eslint --fix",
+        "eslint --fix",
         "prettier -w"
       ]
     }
@@ -409,10 +416,10 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Use [Cypress](https://cypress.io)&mdash;an End-to-End testing framework._
 
-- 5.1.1. Install and/or run:
+- 5.1.1. Install:
 
   ```shell
-  $ npx cypress open
+  $ npm i -D cypress
   ```
 
 - 5.1.2. Remove example files:
