@@ -333,14 +333,22 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Use [Prettier](https://prettier.io)&mdash;a source code formatter with an opinionated but consistent code conventions._
 
-- 4.3.1. Install and/or run:
+- 4.3.1. Install:
 
   ```shell
-  $ npx prettier -w src/
+  $ npm i -D prettier
   ```
 
-> **NOTE:** <br />
-> The `-w` (or `--write`) parameter modifies the files in the specified directory.
+- 4.3.2. Run:
+
+  ```shell
+  $ prettier -[w|c] <glob>
+  ```
+
+> **NOTES:**
+>
+> - `-w` (or `--write`) modifies the files matched from `<glob>` pattern
+> - `-c` (or `--check`) checks if the files matched from `<glob>` pattern are formatted
 
 ##### 4.3.1. Autoformatter
 
@@ -380,7 +388,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
     "lint-staged": {
       "src/**/*.{md,css,js}": [
         "npx eslint --fix",
-        "npx prettier -w"
+        "prettier -w"
       ]
     }
   }
