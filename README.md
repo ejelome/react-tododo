@@ -738,7 +738,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Use [GitHub Actions](https://github.com/features/actions)&mdash;a workflow automation tool._
 
-- 6.1.2. Script:
+- 6.1.1. Script:
 
   `package.json`:
 
@@ -755,7 +755,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   }
   ```
 
-- 6.1.3. Workflow file:
+- 6.1.2. Workflow file:
 
   `.github/workflows/ci.yml`:
 
@@ -777,6 +777,17 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
             start: npm start
             wait-on: "http://localhost:3000"
   ```
+
+- 6.1.3. Update `Require status checks to pass before merging`:
+
+  - 6.1.3.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
+  - 6.1.3.2 Set fields, e.g.:
+
+    Under `Protect matching branches`, tick:
+
+    - `tests`
+
+  - 6.1.3.3. Click `Save changes`
 
 > **NOTES:**
 >
