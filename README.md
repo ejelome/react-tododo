@@ -288,16 +288,10 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Use [ESLint](https://eslint.org)&mdash;a static code analyzer to find and fix problems in JavaScript code._
 
-- 4.2.1. Install (global):
+- 4.2.1. Run:
 
   ```shell
-  $ npm i -g eslint
-  ```
-
-- 4.2.2. Run:
-
-  ```shell
-  $ eslint [--fix] <glob>
+  $ ./node_modules/.bin/eslint [--fix] <glob>
   ```
 
 > **NOTES:**
@@ -335,7 +329,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 4.2.1.3. Install and/or run:
 
   ```shell
-  $ eslint --fix <glob>
+  $ ./node_modules/.bin/eslint --fix <glob>
   ```
 
 #### 4.3. Code Formatter
@@ -351,7 +345,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 4.3.2. Run:
 
   ```shell
-  $ prettier -[w|c] <glob>
+  $ ./node_modules/.bin/prettier -[w|c] <glob>
   ```
 
 > **NOTES:**
@@ -395,9 +389,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
       }
     },
     "lint-staged": {
+      "src/**/*.js": [
+        "./node_modules/.bin/eslint --fix"
+      ],
       "src/**/*.{md,css,js,json}": [
-        "eslint --fix",
-        "prettier -w"
+        "./node_modules/.bin/prettier -w"
       ]
     }
   }
@@ -405,10 +401,10 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > **NOTES:**
 >
-> - `lint-staged` runs `eslint --fix` and `prettier -w` on `"src/**/*.{md,css,js,json}"` on `pre-commit`
+> - `lint-staged` runs `eslint` and `prettier` on `"src/"` files on a `pre-commit` event
 > - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) turns off all conflicting ESLint rules with Prettier
 > - `prettier` must be put last on `extends` to override other configs
-> - `eslint --fix` should run _before_ `prettier -w` and not _after_
+> - `eslint` should run _before_ `prettier` and not _after_
 
 ### 5. Test suite
 
@@ -773,14 +769,25 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
           env:
             DEFAULT_BRANCH: master
         - run: npm i
-        - run: eslint src/**/*.{md,css,js,json}
-        - run: prettier -c src/**/*.{md,css,js,json}
+        - run: ./node_modules/.bin/eslint src/
+        - run: ./node_modules/.bin/prettier -c src/
         - run: npm test -- --coverage --watchAll=false
         - uses: cypress-io/github-action@v2
           with:
             start: npm start
             wait-on: "http://localhost:3000"
   ```
+
+- 6.1.3. Update `Require status checks to pass before merging`:
+
+  - 6.1.3.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
+  - 6.1.3.2 Set fields, e.g.:
+
+    Under `Protect matching branches`, tick:
+
+    - `tests`
+
+  - 6.1.3.3. Click `Save changes`
 
 > **NOTES:**
 >
