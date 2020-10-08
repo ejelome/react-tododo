@@ -48,15 +48,15 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "npm t -- --coverage --watchAll=false"
+      "pre-push": "npm run coverage"
     }
   },
   "lint-staged": {
     "src/**/*.js": [
-      "./node_modules/.bin/eslint --fix"
+      "npm run lint -- --fix"
     ],
     "src/**/*.{md,css,js,json}": [
-      "./node_modules/.bin/prettier -w"
+      "npm run format -- -w"
     ]
   },
   "jest": {
