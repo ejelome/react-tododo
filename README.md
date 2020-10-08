@@ -763,7 +763,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   `.github/workflows/ci.yml`:
 
   ```yaml
-  on: push
+  on: pull_request
   jobs:
     tests:
       runs-on: ubuntu-latest
@@ -796,7 +796,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 >
 > - CI (or Continuous Integration) automates the processes of quality control, tests and build of application
 > - `pre-push` hook ensures all tests pass with minimum required coverage before pushing to remote repo
-> - The workflow runs (using `ci.yml` configuration) whenever a push event is triggered on remote repo
+> - The workflow runs (using `ci.yml` configuration) whenever a pull request event is triggered on remote repo
 > - `env.DEFAULT_BRANCH` with value of `master` is specified since we use the [changed branch name](https://github.com/github/renaming)
 > - `name` is optional but `jobs` key name is required (`tests`)
 > - `eslint` is included in GitHub Actions out of the box
