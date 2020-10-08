@@ -473,7 +473,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
         // Assert (expected behavior)
         // or Then (desired outcome):
-        .contains("Learn React");
+        .contains("learn react", { matchCase: false });
     });
   });
   ```
@@ -489,14 +489,16 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   ```javascript
   describe("Smoke test", () => {
     it("renders learn react link", () => {
-      cy.visit("/").get("a").contains("learn react", { matchCase: false });
+      cy.visit("/")
+        .get("a")
+        .contains(/learn react/i);
     });
   });
   ```
 
 - 5.1.9. The test runner automatically re-runs the test:
 
-  _This improved test should still **pass**, but now ignoring case sensitivity._
+  _This improved test should still **pass**, but with a more succint case insensitivity check with RegExp._
 
 > **NOTES:**
 >
