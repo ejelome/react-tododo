@@ -14,6 +14,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "format": "prettier",
+    "lint": "eslint",
+    "coverage": "npm t -- --coverage --watchAll=false",
+    "e2e": "cypress",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

@@ -16,7 +16,13 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [Install](#install)
   - [Usage](#usage)
     - [Serve](#serve)
+    - [Quality](#quality)
+      - [Format](#format)
+      - [Lint](#lint)
     - [Test](#test)
+      - [Unit and Integration](#unit-and-integration)
+      - [End-to-End](#end-to-end)
+      - [Coverage](#coverage)
     - [Build](#build)
   - [Lessons](#lessons)
     - [1. Project management](#1-project-management)
@@ -80,10 +86,41 @@ $ npm [install|isntall|add|i]
 $ npm start
 ```
 
+### Quality
+
+#### Format
+
+```shell
+$ npm run format -- -[w|c] <glob>
+```
+
+#### Lint
+
+```shell
+$ npm run lint -- --[fix|fix-dry-run] <glob>
+```
+
 ### Test
+
+#### Unit and Integration
 
 ```shell
 $ npm [test|tst|t]
+```
+
+#### End-to-End
+
+```shell
+$ npm run e2e -- [run -s <glob>|open]
+```
+
+> **NOTE:** <br />
+> Server must be running (see [serve](#serve)).
+
+#### Coverage
+
+```shell
+$ npm run coverage  -- [--coverageReporters=[text|text-summary]]
 ```
 
 ### Build
