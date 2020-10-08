@@ -7,9 +7,9 @@ jobs:
         env:
           DEFAULT_BRANCH: master
       - run: npm i
-      - run: ./node_modules/.bin/eslint src/
-      - run: ./node_modules/.bin/prettier -c src/
-      - run: npm test -- --coverage --watchAll=false
+      - run: npm run lint -- --fix src/
+      - run: npm run format -- -c src/
+      - run: npm run coverage
       - uses: cypress-io/github-action@v2
         with:
           start: npm start

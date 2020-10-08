@@ -120,7 +120,7 @@ $ npm run e2e -- [run -s <glob>|open]
 #### Coverage
 
 ```shell
-$ npm run coverage  -- [--coverageReporters=[text|text-summary]]
+$ npm run coverage
 ```
 
 ### Build
@@ -328,16 +328,31 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Use [ESLint](https://eslint.org)&mdash;a static code analyzer to find and fix problems in JavaScript code._
 
-- 4.2.1. Run:
+- 4.2.1. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+    "scripts": {
+      "…"
+      "lint": "eslint",
+      "…"
+    }
+  }
+  ```
+
+- 4.2.2. Run:
 
   ```shell
-  $ ./node_modules/.bin/eslint [--fix] <glob>
+  $ npm run lint -- --[fix|fix-dry-run] <glob>
   ```
 
 > **NOTES:**
 >
 > - `--fix` modifies the files matched from `<glob>` pattern
-> - Without `--fix` only lints the files matched from `<glob>` pattern
+> - `--fix-dry-run` does `--fix` without modifying the files
 > - ESLint is shipped with CRA and parses with [babel-eslint](https://github.com/babel/babel-eslint)
 
 ##### 4.2.1. Import Sorter
@@ -366,10 +381,10 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   }
   ```
 
-- 4.2.1.3. Install and/or run:
+- 4.2.1.3. Run:
 
   ```shell
-  $ ./node_modules/.bin/eslint --fix <glob>
+  $ npm run lint -- --fix <glob>
   ```
 
 #### 4.3. Code Formatter
@@ -382,16 +397,31 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   $ npm i -D prettier
   ```
 
-- 4.3.2. Run:
+- 4.3.2. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+    "scripts": {
+      "…"
+      "format": "prettier",
+      "…"
+    }
+  }
+  ```
+
+- 4.3.3. Run:
 
   ```shell
-  $ ./node_modules/.bin/prettier -[w|c] <glob>
+  $ npm run format -- -[w|c] <glob>
   ```
 
 > **NOTES:**
 >
 > - `-w` (or `--write`) modifies the files matched from `<glob>` pattern
-> - `-c` (or `--check`) checks if the files matched from `<glob>` pattern are formatted
+> - `-c` (or `--check`) does `-w` (or `--write`) without modifying the files
 
 ##### 4.3.1. Autoformatter
 
@@ -430,10 +460,10 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
     },
     "lint-staged": {
       "src/**/*.js": [
-        "./node_modules/.bin/eslint --fix"
+        "npm run lint -- --fix"
       ],
       "src/**/*.{md,css,js,json}": [
-        "./node_modules/.bin/prettier -w"
+        "npm run format -- -w"
       ]
     }
   }
@@ -460,13 +490,28 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   $ npm i -D cypress
   ```
 
-- 5.1.2. Remove example files:
+- 5.1.2. Script:
+
+  `package.json`:
+
+  ```json
+  {
+    "…"
+    "scripts": {
+      "…"
+      "e2e": "cypress",
+      "…"
+    }
+  }
+  ```
+
+- 5.1.3. Remove example files:
 
   ```shell
   $ rm -rf cypress/integration/examples/
   ```
 
-- 5.1.3. Specify `baseUrl`:
+- 5.1.4. Specify `baseUrl`:
 
   `cypress.json`:
 
@@ -476,23 +521,23 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   }
   ```
 
-- 5.1.4. Start server:
+- 5.1.5. Start server:
 
   ```shell
   $ npm start
   ```
 
-- 5.1.5. Start test runner:
+- 5.1.6. Start test runner:
 
   Open a new terminal tab, then do:
 
   ```shell
-  $ ./node_modules/.bin/cypress open
+  $ npm run e2e -- open
   ```
 
   _This will open Cypress' test runner window._
 
-- 5.1.6. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
+- 5.1.7. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
 
   `cypress/integration/sample_spec.js`:
 
@@ -504,11 +549,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   });
   ```
 
-- 5.1.7. Click `sample_spec.js` from test runner's window:
+- 5.1.8. Click `sample_spec.js` from test runner's window:
 
   _This test should **fail**._
 
-- 5.1.8. Pass the failing test:
+- 5.1.9. Pass the failing test:
 
   `cypress/integration/sample_spec.js`:
 
@@ -531,11 +576,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   });
   ```
 
-- 5.1.9. The test runner automatically re-runs the test:
+- 5.1.10. The test runner automatically re-runs the test:
 
   _This test should now **pass**._
 
-- 5.1.10. Refactor the passing test:
+- 5.1.11. Refactor the passing test:
 
   `cypress/integration/sample_spec.js`:
 
@@ -549,7 +594,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   });
   ```
 
-- 5.1.11. The test runner automatically re-runs the test:
+- 5.1.12. The test runner automatically re-runs the test:
 
   _This improved test should still **pass**, but with a more succinct case insensitivity check with RegExp._
 
@@ -559,7 +604,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - Unlike unit testing, it verifies application's behaviors and not implementation details
 > - Unlike integration testing, it verifies the behavior as a whole and not only parts of it
 > - Cypress requires that the app is also running to run its tests against
-> - `./node_modules/.bin/cypress open` opens Cypress' test runner then runs the default browser
+> - `open` opens Cypress' test runner GUI then runs the default browser
+> - Use `run` with `-s` (or `--spec`) to run specific test with CLI test runner once
 > - `baseUrl` is a [global option](https://docs.cypress.io/guides/references/configuration.html#Global) to prefix URL when using [cy.visit()](https://docs.cypress.io/api/commands/visit.html) or [cy.request()](https://docs.cypress.io/api/commands/request.html)
 > - `describe()` and `it()` are [Mocha](https://mochajs.org)'s [BDD](https://mochajs.org/#bdd) interface functions
 > - `expect()` or `should()` are [Chai](https://www.chaijs.com)'s' [BDD](https://www.chaijs.com/api/bdd) style functions
@@ -772,7 +818,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 5.4.2. Run:
 
   ```shell
-  $ npm test -- --coverage --watchAll
+  $ npm run coverage
   ```
 
 ---
@@ -806,7 +852,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
     "husky": {
       "hooks": {
         "…"
-        "pre-push": "npm test -- --coverage --watchAll=false"
+        "pre-push": "npm run coverage"
       }
     },
     "…"
@@ -827,9 +873,9 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
           env:
             DEFAULT_BRANCH: master
         - run: npm i
-        - run: ./node_modules/.bin/eslint src/
-        - run: ./node_modules/.bin/prettier -c src/
-        - run: npm test -- --coverage --watchAll=false
+        - run: npm run lint -- --fix src/
+        - run: npm run format -- -c src/
+        - run: npm run coverage
         - uses: cypress-io/github-action@v2
           with:
             start: npm start
