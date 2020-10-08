@@ -439,7 +439,23 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   }
   ```
 
-- 5.1.4. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
+- 5.1.4. Start server:
+
+  ```shell
+  $ npm start
+  ```
+
+- 5.1.5. Start test runner:
+
+  Open a new terminal tab, then do:
+
+  ```shell
+  $ ./node_modules/.bin/cypress open
+  ```
+
+  _This will open Cypress' test runner window._
+
+- 5.1.6. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
 
   `cypress/integration/sample_spec.js`:
 
@@ -451,11 +467,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   });
   ```
 
-- 5.1.5. Click `sample_spec.js` from test runner's browser:
+- 5.1.7. Click `sample_spec.js` from test runner's window:
 
   _This test should **fail**._
 
-- 5.1.6. Pass the failing test:
+- 5.1.8. Pass the failing test:
 
   `cypress/integration/sample_spec.js`:
 
@@ -478,11 +494,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   });
   ```
 
-- 5.1.7. The test runner automatically re-runs the test:
+- 5.1.9. The test runner automatically re-runs the test:
 
   _This test should now **pass**._
 
-- 5.1.8. Refactor the passing test:
+- 5.1.10. Refactor the passing test:
 
   `cypress/integration/sample_spec.js`:
 
@@ -496,9 +512,9 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   });
   ```
 
-- 5.1.9. The test runner automatically re-runs the test:
+- 5.1.11. The test runner automatically re-runs the test:
 
-  _This improved test should still **pass**, but with a more succint case insensitivity check with RegExp._
+  _This improved test should still **pass**, but with a more succinct case insensitivity check with RegExp._
 
 > **NOTES:**
 >
@@ -506,7 +522,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - Unlike unit testing, it verifies application's behaviors and not implementation details
 > - Unlike integration testing, it verifies the behavior as a whole and not only parts of it
 > - Cypress requires that the app is also running to run its tests against
-> - `cypress open` opens Cypress' test runner and the open default browser
+> - `./node_modules/.bin/cypress open` opens Cypress' test runner then runs the default browser
 > - `baseUrl` is a [global option](https://docs.cypress.io/guides/references/configuration.html#Global) to prefix URL when using [cy.visit()](https://docs.cypress.io/api/commands/visit.html) or [cy.request()](https://docs.cypress.io/api/commands/request.html)
 > - `describe()` and `it()` are [Mocha](https://mochajs.org)'s [BDD](https://mochajs.org/#bdd) interface functions
 > - `expect()` or `should()` are [Chai](https://www.chaijs.com)'s' [BDD](https://www.chaijs.com/api/bdd) style functions
