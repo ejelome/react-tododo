@@ -938,7 +938,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
     - `netlify/<Site name>/deploy-preview`
 
-  - 6.1.3.3. Click `Save changes`
+  - 6.2.2.3. Click `Save changes`
 
 > **NOTES:**
 >
@@ -1194,7 +1194,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
       // …
   ```
 
-- 5.1.12. The test runner automatically re-runs the test:
+- 8.3.4. The test runner automatically re-runs the test:
 
   _This improved test should still **pass**, but with a more succinct case insensitivity check with RegExp._
 
@@ -1210,7 +1210,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 10.1. Re-run all unit and integration tests:
 
   - 10.1.1. Go to the test runner terminal
-  - 10.1.2. Press `a` to run all test suites
+  - 10.1.2. Press `a` to re-run all test suites
 
 - 10.2. Re-run all e2e tests:
 
@@ -1232,7 +1232,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
         // …
   ```
 
-- 10.4. Re-run all tests
+- 10.4. Re-run all tests:
 
   _There should be no more failing tests._
 
