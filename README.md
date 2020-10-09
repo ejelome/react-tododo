@@ -62,6 +62,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [8. Inside-Out TDD](#8-inside-out-tdd)
       - [8.1. Unit](#81-unit)
       - [8.2. Integration](#82-integration)
+      - [8.3. E2E](#83-e2e)
   - [References](#references)
   - [License](#license)
 
@@ -1170,6 +1171,24 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   // …
   const App = () => <TodoList />;
   // …
+  ```
+
+#### 8.3. E2E
+
+- 8.3.1. Go back to Cypress' test runner window
+
+- 8.3.2. The first assertion should now pass
+
+- 8.3.3. Refactor the e2e test file:
+
+  `cypress/integration/todos/list_spec.js`:
+
+  ```javascript
+  describe …
+    it …
+      // …
+      cy.get("h1").contains(/my todos/i);
+      // …
   ```
 
 ---
