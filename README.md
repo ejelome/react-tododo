@@ -63,6 +63,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [8.1. Unit](#81-unit)
       - [8.2. Integration](#82-integration)
       - [8.3. E2E](#83-e2e)
+    - [9. Repeat](#9-repeat)
   - [References](#references)
   - [License](#license)
 
@@ -1190,6 +1191,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
       cy.get("h1").contains(/my todos/i);
       // …
   ```
+
+### 9. Repeat
+
+- 9.1. Use Outside-In TDD when starting a new feature
+- 9.2. Use Inside-Out TDD to complete that feature
 
 ---
 
