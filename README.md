@@ -58,6 +58,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [7. Outside-In TDD](#7-outside-in-tdd)
       - [7.1. Outside-In](#71-outside-in)
         - [7.1.1. E2E](#711-e2e)
+        - [7.1.2. Integration](#712-integration)
   - [References](#references)
   - [License](#license)
 
@@ -984,6 +985,34 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 7.1.1.4. Click `list_spec.js` under `todos` from test runner's window:
 
   _This test will **fail** since it's checking a page not yet implemented._
+
+##### 7.1.2. Integration
+
+- 7.1.2.1. Start test runner (if it's not running):
+
+  ```shell
+  $ npm t
+  ```
+
+- 7.1.2.2. Create a failing test:
+
+  `src/__tests__/integration/todos/list.spec.js`:
+
+  ```javascript
+  import { render } from "@testing-library/react";
+  import React from "react";
+
+  import App from "../../../App";
+
+  test("<App /> displays todo list", () => {
+    const { getByText } = render(<App />);
+    expect(getByText("my todos", { exact: false })).toBeInTheDocument();
+  });
+  ```
+
+- 7.1.2.3. The test runner automatically re-runs the test:
+
+  _This test will **fail** since it's checking a content not yet implemented._
 
 ---
 
