@@ -64,6 +64,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [8.2. Integration](#82-integration)
       - [8.3. E2E](#83-e2e)
     - [9. Repeat](#9-repeat)
+    - [10. Regression testing](#10-regression-testing)
   - [References](#references)
   - [License](#license)
 
@@ -1192,10 +1193,50 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
       // …
   ```
 
+- 5.1.12. The test runner automatically re-runs the test:
+
+  _This improved test should still **pass**, but with a more succinct case insensitivity check with RegExp._
+
 ### 9. Repeat
 
 - 9.1. Use Outside-In TDD when starting a new feature
 - 9.2. Use Inside-Out TDD to complete that feature
+
+### 10. Regression testing
+
+> _Regression testing ensures that the application still works as expected after a newly implemented change._
+
+- 10.1. Re-run all unit and integration tests:
+
+  - 10.1.1. Go to the test runner terminal
+  - 10.1.2. Press `a` to run all test suites
+
+- 10.2. Re-run all e2e tests:
+
+  - 10.2.1. Go to the test runner window
+  - 10.2.2. Click `Run all specs`
+
+- 10.3. Fix any possible failing test(s):
+
+  _`sample_spec.js` will fail since the text isn't wrapped anymore to an `a` tag but `li`._
+
+  `cypress/integration/sample_spec.js`:
+
+  ```javascript
+  describe …
+    it …
+      // …
+      cy.visit …
+        .get("li")
+        // …
+  ```
+
+- 10.4. Re-run all tests
+
+  _There should be no more failing tests._
+
+> **NOTE:** <br />
+> Regression test is done after the newly implemented feature has been fully tested.
 
 ---
 
@@ -1208,7 +1249,3 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 ## License
 
 `react-tododo` is licensed under [MIT](./LICENSE).
-
-```
-
-```
