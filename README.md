@@ -59,6 +59,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [7.1. Outside-In](#71-outside-in)
         - [7.1.1. E2E](#711-e2e)
         - [7.1.2. Integration](#712-integration)
+        - [7.1.3. Unit](#713-unit)
   - [References](#references)
   - [License](#license)
 
@@ -1013,6 +1014,32 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 7.1.2.3. The test runner automatically re-runs the test:
 
   _This test will **fail** since it's checking a content not yet implemented._
+
+##### 7.1.3. Unit
+
+- 7.1.2.1. Start test runner (if it's not running):
+
+  ```shell
+  $ npm t
+  ```
+
+- 7.1.2.2. Create a failing test:
+
+  `src/components/TodoList.test.js`:
+
+  ```javascript
+  import { shallow } from "enzyme";
+  import React from "react";
+
+  import TodoList from "./TodoList";
+
+  describe("<TodoList />", () => {
+    it("renders without crashing", () => {
+      const wrapper = shallow(<TodoList />);
+      expect(wrapper).toEqual({});
+    });
+  });
+  ```
 
 ---
 
