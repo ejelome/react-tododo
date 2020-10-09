@@ -1,3 +1,4 @@
+![.github/workflows/ci.yml](https://github.com/ejelome/react-tododo/workflows/.github/workflows/ci.yml/badge.svg)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/3c4ebbf7-e9f5-4415-bd4e-f75a20a1a8f4/deploy-status)](https://app.netlify.com/sites/ejelome-react-tododo/deploys)
 
 # react-tododo
