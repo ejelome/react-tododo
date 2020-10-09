@@ -5,7 +5,6 @@ import TodoList from "./TodoList";
 
 describe("<TodoList />", () => {
   it("renders without crashing", () => {
-    const wrapper = shallow(<TodoList />);
-    expect(wrapper).toEqual({});
+    shallow(<TodoList />);
   });
 });
