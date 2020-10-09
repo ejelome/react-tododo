@@ -341,9 +341,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 4.2.1. Script:
 
-  `package.json`:
-
   ```json
+  // file: package.json
   {
     "…"
     "scripts": {
@@ -378,9 +377,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 4.2.1.2. Script (rc):
 
-  `.eslintrc`:
-
   ```json
+  // file: .eslintrc
   {
     "parser": "babel-eslint",
     "plugins": ["simple-import-sort"],
@@ -410,9 +408,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 4.3.2. Script:
 
-  `package.json`:
-
   ```json
+  // file: package.json
   {
     "…"
     "scripts": {
@@ -448,9 +445,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 4.3.1.2: Script (rc):
 
-  `.eslintrc`:
-
   ```json
+  // file: .eslintrc
   {
     "…"
     "extends": ["prettier"]
@@ -459,9 +455,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 4.3.1.3. Script:
 
-  `package.json`:
-
   ```json
+  // file: package.json
   {
     "…"
     "husky": {
@@ -503,9 +498,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.1.2. Script:
 
-  `package.json`:
-
   ```json
+  // file: package.json
   {
     "…"
     "scripts": {
@@ -524,9 +518,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.1.4. Specify `baseUrl`:
 
-  `cypress.json`:
-
   ```json
+  // file: cypress.json
   {
     "baseUrl": "http://localhost:3000"
   }
@@ -550,9 +543,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.1.7. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
 
-  `cypress/integration/sample_spec.js`:
-
   ```javascript
+  // file: cypress/integration/sample_spec.js
   describe("Smoke test", () => {
     it("renders learn react link", () => {
       expect(true).to.equal(false);
@@ -566,9 +558,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.1.9. Pass the failing test:
 
-  `cypress/integration/sample_spec.js`:
-
   ```javascript
+  // file: cypress/integration/sample_spec.js
   describe("Smoke test", () => {
     it("renders learn react link", () => {
       cy
@@ -593,9 +584,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.1.11. Refactor the passing test:
 
-  `cypress/integration/sample_spec.js`:
-
   ```javascript
+  // file: cypress/integration/sample_spec.js
   describe("Smoke test", () => {
     it("renders learn react link", () => {
       cy.visit("/")
@@ -638,9 +628,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.2.2. Setup:
 
-  `src/setupTests.js`:
-
   ```javascript
+  // file: src/setupTests.js
   // …
   import Enzyme from "enzyme";
   import Adapter from "enzyme-adapter-react-16";
@@ -650,9 +639,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.2.3. Create a failing smoke test file:
 
-  `src/App.test.js`:
-
   ```javascript
+  // file: src/App.test.js
   import React from "react";
 
   import App from "./App";
@@ -674,9 +662,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.2.5. Pass the failing test:
 
-  `src/App.test.js`:
-
   ```javascript
+  // file: src/App.test.js
   import { shallow } from "enzyme";
   // …
   describe …
@@ -692,9 +679,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.2.7. Refactor the passing test:
 
-  `src/App.test.js`:
-
   ```javascript
+  // file: src/App.test.js
   // …
   describe …
     it …
@@ -722,9 +708,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.3.1. Create a failing smoke test file:
 
-  `src/App.spec.js`:
-
   ```javascript
+  // file: src/App.spec.js
   import { render } from "@testing-library/react";
   import React from "react";
 
@@ -745,9 +730,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.3.3. Pass the failing test:
 
-  `src/App.spec.js`:
-
   ```javascript
+  // file: src/App.spec.js
   import { render } from "@testing-library/react";
   import React from "react";
 
@@ -765,9 +749,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.3.5. Refactor the passing test:
 
-  `src/App.spec.js`:
-
   ```javascript
+  // file: src/App.spec.js
   // …
   test …
     // …
@@ -805,9 +788,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.4.1. Setup:
 
-  `package.json`:
-
   ```json
+  // file: package.json
   {
     "jest": {
       "coveragePathIgnorePatterns": [
@@ -855,9 +837,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 6.1.1. Script:
 
-  `package.json`:
-
   ```json
+  // file: package.json
   {
     "…"
     "husky": {
@@ -872,9 +853,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 6.1.2. Workflow file:
 
-  `.github/workflows/ci.yml`:
-
   ```yaml
+  // file: .github/workflows/ci.yml
   on: pull_request
   jobs:
     tests:
@@ -1001,9 +981,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 7.2.2. Create a failing integration test:
 
-  `src/__tests__/integration/todos/list.spec.js`:
-
   ```javascript
+  // file: src/__tests__/integration/todos/list.spec.js
   import { render } from "@testing-library/react";
   import React from "react";
 
@@ -1029,9 +1008,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 7.3.2. Create a failing unit test:
 
-  `src/components/TodoList.test.js`:
-
   ```javascript
+  // file: src/components/TodoList.test.js
   import { shallow } from "enzyme";
   import React from "react";
 
@@ -1053,9 +1031,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.1.1. Pass the failing unit test:
 
-  `src/components/TodoList.js`:
-
   ```javascript
+  // file: src/components/TodoList.js
   import React from "react";
 
   const TodoList = () => <div></div>;
@@ -1065,9 +1042,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.1.2. Refactor the passing unit test:
 
-  `src/components/TodoList.test.js`:
-
   ```javascript
+  // file: src/components/TodoList.test.js
   // …
   describe …
     it …
@@ -1077,9 +1053,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.1.3. Refactor the tested unit:
 
-  `src/components/TodoList.js`:
-
   ```javascript
+  // file: src/components/TodoList.js
   // …
   … TodoList … => <div />;
   // …
@@ -1089,9 +1064,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.2.1. Pass the failing integration test:
 
-  `src/components/TodoList.test.js`:
-
   ```javascript
+  // file: src/components/TodoList.test.js
   // …
   describe …
     it("displays the title", () => {
@@ -1101,17 +1075,15 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   // …
   ```
 
-  `src/components/TodoList.js`:
-
   ```javascript
+  // file: src/components/TodoList.js
   // …
   … TodoList … => <h1>My todos</h1>;
   // …
   ```
 
-  `src/App.js`:
-
   ```javascript
+  // file: src/App.js
   import React from "react";
 
   import TodoList from "./components/TodoList";
@@ -1125,9 +1097,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.2.2. Refactor the passing unit test:
 
-  `src/components/TodoList.test.js`:
-
   ```javascript
+  // file: src/components/TodoList.test.js
   // …
   describe …
     it("displays the title", () => {
@@ -1141,9 +1112,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.2.3. Refactor the tested unit:
 
-  `src/components/TodoList.js`:
-
   ```javascript
+  // file: src/components/TodoList.js
   // …
   const TodoList = ({ title }) => <h1>{title}</h1>;
 
@@ -1155,9 +1125,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.2.4. Refactor the passing integration test:
 
-  `src/__tests__/integration/todos/list.spec.js`:
-
   ```javascript
+  // file: src/__tests__/integration/todos/list.spec.js
   // …
   test …
     // …
@@ -1168,9 +1137,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.2.5. Refactor the tested integration units:
 
-  `src/App.js`:
-
   ```javascript
+  // file: src/App.js
   // …
   const App = () => <TodoList />;
   // …
@@ -1184,9 +1152,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.3.3. Refactor the e2e test file:
 
-  `cypress/integration/todos/list_spec.js`:
-
   ```javascript
+  // file: cypress/integration/todos/list_spec.js
   describe …
     it …
       // …
@@ -1221,9 +1188,8 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
   _`sample_spec.js` will fail since the text isn't wrapped anymore to an `a` tag but `li`._
 
-  `cypress/integration/sample_spec.js`:
-
   ```javascript
+  // file: cypress/integration/sample_spec.js
   describe …
     it …
       // …
