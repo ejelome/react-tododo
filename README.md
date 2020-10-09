@@ -56,10 +56,11 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [6.1. CI](#61-ci)
       - [6.2. CD](#62-cd)
     - [7. Outside-In TDD](#7-outside-in-tdd)
-      - [7.1. Outside-In](#71-outside-in)
-        - [7.1.1. E2E](#711-e2e)
-        - [7.1.2. Integration](#712-integration)
-        - [7.1.3. Unit](#713-unit)
+      - [7.1. E2E](#71-e2e)
+      - [7.2. Integration](#72-integration)
+      - [7.3. Unit](#73-unit)
+    - [8. Inside-Out TDD](#8-inside-out-tdd)
+      - [8.1. Unit](#81-unit)
   - [References](#references)
   - [License](#license)
 
@@ -945,19 +946,17 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 > _Outside-In TDD helps focus on primary stakeholders by providing complete but only necessary parts of a feature._
 
-#### 7.1. Outside-In
+**Example: List todos**
 
-> _**Example: List todos**_
+#### 7.1. E2E
 
-##### 7.1.1. E2E
-
-- 7.1.1.1. Start server (if it's not running):
+- 7.1.1. Start server (if it's not running):
 
   ```shell
   $ npm start
   ```
 
-- 7.1.1.2. Start test runner:
+- 7.1.2. Start test runner:
 
   Open a new terminal tab, then do:
 
@@ -967,7 +966,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
   _This will open Cypress' test runner window._
 
-- 7.1.1.3. Create a failing test:
+- 7.1.3. Create a failing test:
 
   `cypress/integration/todos/list_spec.js`;
 
@@ -983,19 +982,19 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   });
   ```
 
-- 7.1.1.4. Click `list_spec.js` under `todos` from test runner's window:
+- 7.1.4. Click `list_spec.js` under `todos` from test runner's window:
 
   _This test will **fail** since it's checking a page not yet implemented._
 
-##### 7.1.2. Integration
+#### 7.2. Integration
 
-- 7.1.2.1. Start test runner (if it's not running):
+- 7.2.1. Start test runner (if it's not running):
 
   ```shell
   $ npm t
   ```
 
-- 7.1.2.2. Create a failing test:
+- 7.2.2. Create a failing test:
 
   `src/__tests__/integration/todos/list.spec.js`:
 
@@ -1011,19 +1010,19 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   });
   ```
 
-- 7.1.2.3. The test runner automatically re-runs the test:
+- 7.2.3. The test runner automatically re-runs the test:
 
   _This test will **fail** since it's checking a content not yet implemented._
 
-##### 7.1.3. Unit
+#### 7.3. Unit
 
-- 7.1.2.1. Start test runner (if it's not running):
+- 7.3.1. Start test runner (if it's not running):
 
   ```shell
   $ npm t
   ```
 
-- 7.1.2.2. Create a failing test:
+- 7.3.2. Create a failing test:
 
   `src/components/TodoList.test.js`:
 
@@ -1039,6 +1038,46 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
       expect(wrapper).toEqual({});
     });
   });
+  ```
+
+### 8. Inside-Out TDD
+
+> _Inside-Out aims to satisfy each of the requirements of E2E tests from the ground up._
+
+#### 8.1. Unit
+
+- 8.1.1. Pass the failing test:
+
+  `src/components/TodoList.js`:
+
+  ```javascript
+  import React from "react";
+
+  const TodoList = () => <div></div>;
+
+  export default TodoList;
+  ```
+
+- 8.1.2. Refactor the tested unit:
+
+  `src/components/TodoList.js`:
+
+  ```javascript
+  // …
+  … TodoList … => <div />;
+  // …
+  ```
+
+- 8.1.3. Refactor the passing test:
+
+  `src/components/TodoList.test.js`:
+
+  ```javascript
+  // …
+  describe …
+    it …
+      shallow(<TodoList />);
+    // …
   ```
 
 ---
