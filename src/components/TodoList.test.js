@@ -14,4 +14,12 @@ describe("<TodoList />", () => {
     const text = wrapper.find(tag).text();
     expect(text).toBe(title);
   });
+
+  it("displays the list item", () => {
+    const [tag, listItems] = ["li", ["Learn React"]];
+    const listItem = listItems[0];
+    const wrapper = shallow(<TodoList listItems={listItems} />);
+    const text = wrapper.find(tag).text();
+    expect(text).toBe(listItem);
+  });
 });
