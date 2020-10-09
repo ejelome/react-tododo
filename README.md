@@ -709,11 +709,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 5.3.1. Create a failing smoke test file:
 
   ```javascript
-  // file: src/App.spec.js
+  // file: src/__tests__/integration/app.spec.js
   import { render } from "@testing-library/react";
   import React from "react";
 
-  import App from "./App";
+  import App from "../../App";
 
   test("<App /> renders learn react link", () => {
     expect(true).toEqual(false);
@@ -731,11 +731,11 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 5.3.3. Pass the failing test:
 
   ```javascript
-  // file: src/App.spec.js
+  // file: src/__tests__/integration/app.spec.js
   import { render } from "@testing-library/react";
   import React from "react";
 
-  import App from "./App";
+  import App from "../../App";
 
   test("<App /> renders learn react link", () => {
     const { getByText } = render(<App />);
@@ -750,7 +750,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 - 5.3.5. Refactor the passing test:
 
   ```javascript
-  // file: src/App.spec.js
+  // file: src/__tests__/integration/app.spec.js
   // …
   test …
     // …
