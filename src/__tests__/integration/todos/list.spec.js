@@ -5,5 +5,6 @@ import App from "../../../App";
 
 test("<App /> displays todo list", () => {
   const { getByText } = render(<App />);
-  expect(getByText("my todos", { exact: false })).toBeInTheDocument();
+  const title = getByText(/my todos/i);
+  expect(title).toBeInTheDocument();
 });
