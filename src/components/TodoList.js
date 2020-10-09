@@ -1,5 +1,9 @@
 import React from "react";
 
-const TodoList = () => <h1>My todos</h1>;
+const TodoList = ({ title }) => <h1>{title}</h1>;
+
+TodoList.defaultProps = {
+  title: "My todos",
+};
 
 export default TodoList;
