@@ -55,6 +55,9 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [6. Automation](#6-automation)
       - [6.1. CI](#61-ci)
       - [6.2. CD](#62-cd)
+    - [7. Outside-In TDD](#7-outside-in-tdd)
+      - [7.1. Outside-In](#71-outside-in)
+        - [7.1.1. E2E](#711-e2e)
   - [References](#references)
   - [License](#license)
 
@@ -935,6 +938,52 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - CD (or Continuous Deployment) fully automates Continuous Delivery without needing manual intervention
 > - The application is only built then deployed if all the CI pipeline requirements were fully met
 > - On Netlify, `Activate builds` is Continuous Deployment while `Stop builds` is Continuous Delivery
+
+### 7. Outside-In TDD
+
+> _Outside-In TDD helps focus on primary stakeholders by providing complete but only necessary parts of a feature._
+
+#### 7.1. Outside-In
+
+> _**Example: List todos**_
+
+##### 7.1.1. E2E
+
+- 7.1.1.1. Start server (if it's not running):
+
+  ```shell
+  $ npm start
+  ```
+
+- 7.1.1.2. Start test runner:
+
+  Open a new terminal tab, then do:
+
+  ```shell
+  $ npm run e2e -- open
+  ```
+
+  _This will open Cypress' test runner window._
+
+- 7.1.1.3. Create a failing test:
+
+  `cypress/integration/todos/list_spec.js`;
+
+  ```javascript
+  describe("Todo list", () => {
+    it("display todo list", () => {
+      cy.visit("/");
+
+      cy.get("h1").contains("my todos", { matchCase: false });
+
+      cy.get("li").contains("learn react", { matchCase: false });
+    });
+  });
+  ```
+
+- 7.1.1.4. Click `list_spec.js` under `todos` from test runner's window:
+
+  _This test will **fail** since it's checking a page not yet implemented._
 
 ---
 
