@@ -55,6 +55,16 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [6. Automation](#6-automation)
       - [6.1. CI](#61-ci)
       - [6.2. CD](#62-cd)
+    - [7. Outside-In TDD](#7-outside-in-tdd)
+      - [7.1. E2E](#71-e2e)
+      - [7.2. Integration](#72-integration)
+      - [7.3. Unit](#73-unit)
+    - [8. Inside-Out TDD](#8-inside-out-tdd)
+      - [8.1. Unit](#81-unit)
+      - [8.2. Integration](#82-integration)
+      - [8.3. E2E](#83-e2e)
+    - [9. Repeat](#9-repeat)
+    - [10. Regression testing](#10-regression-testing)
   - [References](#references)
   - [License](#license)
 
@@ -935,6 +945,298 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - CD (or Continuous Deployment) fully automates Continuous Delivery without needing manual intervention
 > - The application is only built then deployed if all the CI pipeline requirements were fully met
 > - On Netlify, `Activate builds` is Continuous Deployment while `Stop builds` is Continuous Delivery
+
+### 7. Outside-In TDD
+
+> _Outside-In TDD helps focus on primary stakeholders by providing complete but only necessary parts of a feature._
+
+**Example: List todos**
+
+#### 7.1. E2E
+
+- 7.1.1. Start server (if it's not running):
+
+  ```shell
+  $ npm start
+  ```
+
+- 7.1.2. Start test runner:
+
+  Open a new terminal tab, then do:
+
+  ```shell
+  $ npm run e2e -- open
+  ```
+
+  _This will open Cypress' test runner window._
+
+- 7.1.3. Create a failing e2e test:
+
+  `cypress/integration/todos/list_spec.js`;
+
+  ```javascript
+  describe("Todo list", () => {
+    it("display todo list", () => {
+      cy.visit("/");
+
+      cy.get("h1").contains("my todos", { matchCase: false });
+
+      cy.get("li").contains("learn react", { matchCase: false });
+    });
+  });
+  ```
+
+- 7.1.4. Click `list_spec.js` under `todos` from test runner's window:
+
+  _This test will **fail** since it's checking a page not yet implemented._
+
+#### 7.2. Integration
+
+- 7.2.1. Start test runner (if it's not running):
+
+  ```shell
+  $ npm t
+  ```
+
+- 7.2.2. Create a failing integration test:
+
+  `src/__tests__/integration/todos/list.spec.js`:
+
+  ```javascript
+  import { render } from "@testing-library/react";
+  import React from "react";
+
+  import App from "../../../App";
+
+  test("<App /> displays todo list", () => {
+    const { getByText } = render(<App />);
+    expect(getByText("my todos", { exact: false })).toBeInTheDocument();
+  });
+  ```
+
+- 7.2.3. The test runner automatically re-runs the test:
+
+  _This test will **fail** since it's checking a content not yet implemented._
+
+#### 7.3. Unit
+
+- 7.3.1. Start test runner (if it's not running):
+
+  ```shell
+  $ npm t
+  ```
+
+- 7.3.2. Create a failing unit test:
+
+  `src/components/TodoList.test.js`:
+
+  ```javascript
+  import { shallow } from "enzyme";
+  import React from "react";
+
+  import TodoList from "./TodoList";
+
+  describe("<TodoList />", () => {
+    it("renders without crashing", () => {
+      const wrapper = shallow(<TodoList />);
+      expect(wrapper).toEqual({});
+    });
+  });
+  ```
+
+### 8. Inside-Out TDD
+
+> _Inside-Out aims to satisfy each of the requirements of E2E tests from the ground up._
+
+#### 8.1. Unit
+
+- 8.1.1. Pass the failing unit test:
+
+  `src/components/TodoList.js`:
+
+  ```javascript
+  import React from "react";
+
+  const TodoList = () => <div></div>;
+
+  export default TodoList;
+  ```
+
+- 8.1.2. Refactor the passing unit test:
+
+  `src/components/TodoList.test.js`:
+
+  ```javascript
+  // …
+  describe …
+    it …
+      shallow(<TodoList />);
+    // …
+  ```
+
+- 8.1.3. Refactor the tested unit:
+
+  `src/components/TodoList.js`:
+
+  ```javascript
+  // …
+  … TodoList … => <div />;
+  // …
+  ```
+
+#### 8.2. Integration
+
+- 8.2.1. Pass the failing integration test:
+
+  `src/components/TodoList.test.js`:
+
+  ```javascript
+  // …
+  describe …
+    it("displays the title", () => {
+      const wrapper = shallow(<TodoList />);
+      expect(wrapper.find("h1").text().toLowerCase()).toBe("my todos");
+    });
+  // …
+  ```
+
+  `src/components/TodoList.js`:
+
+  ```javascript
+  // …
+  … TodoList … => <h1>My todos</h1>;
+  // …
+  ```
+
+  `src/App.js`:
+
+  ```javascript
+  import React from "react";
+
+  import TodoList from "./components/TodoList";
+
+  function App() {
+    return <TodoList />;
+  }
+
+  export default App;
+  ```
+
+- 8.2.2. Refactor the passing unit test:
+
+  `src/components/TodoList.test.js`:
+
+  ```javascript
+  // …
+  describe …
+    it("displays the title", () => {
+      const [tag, title] = ["h1", "My todos"];
+      const wrapper = shallow(<TodoList title={title} />);
+      const text = wrapper.find(tag).text();
+      expect(text).toBe(title);
+    });
+  // …
+  ```
+
+- 8.2.3. Refactor the tested unit:
+
+  `src/components/TodoList.js`:
+
+  ```javascript
+  // …
+  const TodoList = ({ title }) => <h1>{title}</h1>;
+
+  TodoList.defaultProps = {
+    title: "My todos",
+  };
+  // …
+  ```
+
+- 8.2.4. Refactor the passing integration test:
+
+  `src/__tests__/integration/todos/list.spec.js`:
+
+  ```javascript
+  // …
+  test …
+    // …
+    const title = getByText(/my todos/i);
+    expect(title).toBeInTheDocument();
+  });
+  ```
+
+- 8.2.5. Refactor the tested integration units:
+
+  `src/App.js`:
+
+  ```javascript
+  // …
+  const App = () => <TodoList />;
+  // …
+  ```
+
+#### 8.3. E2E
+
+- 8.3.1. Go back to Cypress' test runner window
+
+- 8.3.2. The first assertion should now pass
+
+- 8.3.3. Refactor the e2e test file:
+
+  `cypress/integration/todos/list_spec.js`:
+
+  ```javascript
+  describe …
+    it …
+      // …
+      cy.get("h1").contains(/my todos/i);
+      // …
+  ```
+
+- 5.1.12. The test runner automatically re-runs the test:
+
+  _This improved test should still **pass**, but with a more succinct case insensitivity check with RegExp._
+
+### 9. Repeat
+
+- 9.1. Use Outside-In TDD when starting a new feature
+- 9.2. Use Inside-Out TDD to complete that feature
+
+### 10. Regression testing
+
+> _Regression testing ensures that the application still works as expected after a newly implemented change._
+
+- 10.1. Re-run all unit and integration tests:
+
+  - 10.1.1. Go to the test runner terminal
+  - 10.1.2. Press `a` to run all test suites
+
+- 10.2. Re-run all e2e tests:
+
+  - 10.2.1. Go to the test runner window
+  - 10.2.2. Click `Run all specs`
+
+- 10.3. Fix any possible failing test(s):
+
+  _`sample_spec.js` will fail since the text isn't wrapped anymore to an `a` tag but `li`._
+
+  `cypress/integration/sample_spec.js`:
+
+  ```javascript
+  describe …
+    it …
+      // …
+      cy.visit …
+        .get("li")
+        // …
+  ```
+
+- 10.4. Re-run all tests
+
+  _There should be no more failing tests._
+
+> **NOTE:** <br />
+> Regression test is done after the newly implemented feature has been fully tested.
 
 ---
 
