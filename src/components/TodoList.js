@@ -1,5 +1,5 @@
 import React from "react";
 
-const TodoList = () => <div></div>;
+const TodoList = () => <div />;
 
 export default TodoList;
