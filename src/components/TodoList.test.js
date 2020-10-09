@@ -9,7 +9,9 @@ describe("<TodoList />", () => {
   });
 
   it("displays the title", () => {
-    const wrapper = shallow(<TodoList />);
-    expect(wrapper.find("h1").text().toLowerCase()).toBe("my todos");
+    const [tag, title] = ["h1", "My todos"];
+    const wrapper = shallow(<TodoList title={title} />);
+    const text = wrapper.find(tag).text();
+    expect(text).toBe(title);
   });
 });
