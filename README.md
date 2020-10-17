@@ -844,7 +844,7 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
     "husky": {
       "hooks": {
         "…"
-        "pre-push": "npm run coverage"
+        "pre-push": "npm run e2e -- run && npm run coverage"
       }
     },
     "…"
