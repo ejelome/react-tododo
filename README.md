@@ -28,10 +28,6 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
   - [Lessons](#lessons)
     - [1. Project management](#1-project-management)
     - [2. Repository settings](#2-repository-settings)
-      - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
-      - [2.2. Disable force pushing](#22-disable-force-pushing)
-      - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
-      - [2.4. Receive notifications on push events](#24-receive-notifications-on-push-events)
     - [3. System dependencies](#3-system-dependencies)
     - [4. Project dependencies](#4-project-dependencies)
       - [4.1. Boilerplate](#41-boilerplate)
@@ -249,24 +245,20 @@ $ npm run build
 
 > _Settings to improve project repo's security and monitoring._
 
-#### 2.1. Automatically delete head branches
+<details>
+  <summary>2.1. Automatically delete head branches</summary>
 
 > _Delete remote branch after merged pull request._
-
-<details>
-  <summary>Steps</summary>
 
 - 2.1.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.1.2. Under `Merge button` ([`#merge-button-settings`](https://github.com/<username>/<repo>/settings#merge-button-settings)), tick `Automatically delete head branches`
 
 </details>
 
-#### 2.2. Disable force pushing
+<details>
+  <summary>2.2. Disable force pushing</summary>
 
 > _Prevent force pushing commits on protected branch._
-
-<details>
-  <summary>Steps</summary>
 
 - 2.2.1. Go to [`github.com/<username>/<repo>/settings/branches`](https://github.com/<username>/<repo>/settings/branches)
 - 2.2.2. Click `Add rule` ([`github.com/<username>/<repo>/settings/branch_protection_rules/new`](https://github.com/<username>/<repo>/settings/branch_protection_rules/new))
@@ -276,17 +268,13 @@ $ npm run build
 
 - 2.2.4. Click `Create`
 
-</details>
-
 > **WARNING:** <br />
 > Normal commits can still be pushed directly to protected branch.
 
-#### 2.3. Require status checks to pass before merging
-
-> _Prevent normal commits to be pushed directly to protected branch._
+</details>
 
 <details>
-  <summary>Steps</summary>
+  <summary>2.3. Require status checks to pass before merging</summary>
 
 - 2.3.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
 - 2.3.2. Set fields, e.g.:
@@ -294,19 +282,19 @@ $ npm run build
   Under `Protect matching branches`, tick:
 
   - `Require status checks to pass before merging`
-  - `Require branches to be up to date before merging` (automatically ticked)
+  - `Require branches to be up to date before merging`
   - `Include administrators`
 
 - 2.3.3. Click `Save changes`
 
+> _Prevent normal commits to be pushed directly to protected branch._
+
 </details>
 
-#### 2.4. Receive notifications on push events
+<details>
+  <summary>2.4. Receive notifications on push events</summary>
 
 > _Receive notifications on email when push events are triggered._
-
-<details>
-  <summary>Steps</summary>
 
 - 2.4.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.4.2. On left navigation, click `Notification` ([`github.com/<username>/<repo>/settings/notifications`](https://github.com/<username>/<repo>/settings/notifications))
