@@ -38,10 +38,6 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
       - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
       - [2.4. Receive notifications on push events](#24-receive-notifications-on-push-events)
     - [3. System dependencies](#3-system-dependencies)
-      - [3.1. Version control](#31-version-control)
-      - [3.2. Version manager](#32-version-manager)
-      - [3.3. Package manager](#33-package-manager)
-      - [3.4. Text editor](#34-text-editor)
     - [4. Project dependencies](#4-project-dependencies)
       - [4.1. Boilerplate](#41-boilerplate)
       - [4.2. Linter](#42-linter)
@@ -339,27 +335,12 @@ $ npm run build
 
 > _Software packages to create and maintain the project._
 
-#### 3.1. Version control
-
-> _Use [Git](https://git-scm.com)&mdash;a free and open source (distributed) version control system._
-
-_See [Install Git](https://github.com/git-guides/install-git) to install._
-
-#### 3.2. Version manager
-
-> _Use [nvm](https://github.com/nvm-sh/nvm)&mdash;a version manager for [Node.js](https://nodejs.org)._
-
-_See [Installing and Updating](https://github.com/nvm-sh/nvm#installing-and-updating) to install with [install script](https://github.com/nvm-sh/nvm/blob/v0.35.3/install.sh)._
-
-#### 3.3. Package manager
-
-> _Use [npm/cli](https://github.com/npm/cli)&mdash;a package manager for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)._
-
-_See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
-
-#### 3.4. Text editor
-
-> _Use **\*any\*** YOU find best (e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or both&mdash;[Spacemacs](https://www.spacemacs.org))._
+| #   | Name                     | Category        | Description                                                  | Reference                 |
+| :-- | :----------------------- | :-------------- | :----------------------------------------------------------- | :------------------------ |
+| 3.1 | [Git]                    | Version control | A free and open source (distributed) version control system. | [Install Git]             |
+| 3.2 | [nvm]                    | Version manager | A version manager for [Node.js].                             | [Installing and Updating] |
+| 3.3 | [npm/cli]                | Package manager | A package manager for [JavaScript].                          | [Usage]                   |
+| 3.4 | [Emacs], [Vim] or [both] | Text editor     | Or **\*any\*** YOU find best (e.g. [VSC])                    |                           |
 
 ### 4. Project dependencies
 
@@ -1261,3 +1242,16 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 ## License
 
 `react-tododo` is licensed under [MIT](./LICENSE).
+
+[git]: https://git-scm.com
+[nvm]: https://github.com/nvm-sh/nvm
+[npm/cli]: https://github.com/npm/cli
+[emacs]: https://www.gnu.org/software/emacs
+[vim]: https://www.vim.org
+[both]: https://www.spacemacs.org
+[node.js]: https://nodejs.org
+[javascript]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[vsc]: https://code.visualstudio.com
+[install git]: https://github.com/git-guides/install-git
+[installing and updating]: https://github.com/nvm-sh/nvm#installing-and-updating
+[usage]: https://github.com/nvm-sh/nvm#usage
