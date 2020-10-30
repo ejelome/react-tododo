@@ -270,12 +270,20 @@ $ npm run build
 
 > _Delete remote branch after merged pull request._
 
+<details>
+  <summary>Steps</summary>
+
 - 2.1.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.1.2. Under `Merge button` ([`#merge-button-settings`](https://github.com/<username>/<repo>/settings#merge-button-settings)), tick `Automatically delete head branches`
+
+</details>
 
 #### 2.2. Disable force pushing
 
 > _Prevent force pushing commits on protected branch._
+
+<details>
+  <summary>Steps</summary>
 
 - 2.2.1. Go to [`github.com/<username>/<repo>/settings/branches`](https://github.com/<username>/<repo>/settings/branches)
 - 2.2.2. Click `Add rule` ([`github.com/<username>/<repo>/settings/branch_protection_rules/new`](https://github.com/<username>/<repo>/settings/branch_protection_rules/new))
@@ -285,12 +293,17 @@ $ npm run build
 
 - 2.2.4. Click `Create`
 
+</details>
+
 > **WARNING:** <br />
 > Normal commits can still be pushed directly to protected branch.
 
 #### 2.3. Require status checks to pass before merging
 
 > _Prevent normal commits to be pushed directly to protected branch._
+
+<details>
+  <summary>Steps</summary>
 
 - 2.3.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
 - 2.3.2. Set fields, e.g.:
@@ -303,9 +316,14 @@ $ npm run build
 
 - 2.3.3. Click `Save changes`
 
+</details>
+
 #### 2.4. Receive notifications on push events
 
 > _Receive notifications on email when push events are triggered._
+
+<details>
+  <summary>Steps</summary>
 
 - 2.4.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.4.2. On left navigation, click `Notification` ([`github.com/<username>/<repo>/settings/notifications`](https://github.com/<username>/<repo>/settings/notifications))
@@ -314,6 +332,8 @@ $ npm run build
   - `Address *` as `username@company.tld`
 
 - 2.4.4. Click `Setup notifications`
+
+</details>
 
 ### 3. System dependencies
 
