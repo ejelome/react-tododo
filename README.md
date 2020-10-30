@@ -152,6 +152,9 @@ $ npm run build
 
 > _[Milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of work._
 
+<details>
+  <summary>Steps</summary>
+
 - 1.1.1. Go to [`github.com/<username>/<repo>/milestones`](https://github.com/<username>/<repo>/milestones)
 - 1.1.2. Click `New milestone` ([`github.com/<username>/<repo>/milestones/new`](https://github.com/<username>/<repo>/milestones/new))
 - 1.1.3. Set fields, e.g.:
@@ -162,9 +165,14 @@ $ npm run build
 
 - 1.1.4. Click `Create milestone`
 
+</details>
+
 #### 1.2. Project boards
 
 > _[Project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize work._
+
+<details>
+  <summary>Steps</summary>
 
 - 1.2.1. Go to [`github.com/<username>/<repo>/projects`](https://github.com/<username>/<repo>/projects)
 - 1.2.2. Click `Create a project` ([`github.com/<username>/<repo>/projects/new`](https://github.com/<username>/<repo>/projects/new))
@@ -176,12 +184,17 @@ $ npm run build
 
 - 1.2.4. Click `Create project`
 
+</details>
+
 > **NOTE:** <br />
 > Set `Templates` as `Automated kanban with reviews` if working with other developers.
 
 #### 1.3. Issues
 
 > _[Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or bug reports._
+
+<details>
+  <summary>Steps</summary>
 
 - 1.3.1. [`github.com/<username>/<repo>/issues`](https://github.com/<username>/<repo>/issues)
 - 1.3.2. Click `New issue` [`github.com/<username>/<repo>/issues/new`](https://github.com/<username>/<repo>/issues/new)
@@ -196,16 +209,26 @@ $ npm run build
 
 - 1.3.4. Click `Submit new issue`
 
+</details>
+
 #### 1.4. Labels
 
 > _[Labels](https://docs.github.com/en/github/managing-your-work-on-github/about-labels) help categorize issues and pull requests._
 
+<details>
+  <summary>Steps</summary>
+
 - 1.4.1. Go to [`github.com/<username>/<repo>/issues/<n>`](https://github.com/<username>/<repo>/issues/<n>)
 - 1.4.2. Set `Labels` as e.g. `documentation`
+
+</details>
 
 #### 1.5. Pull requests
 
 > _[Pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review work with others._
+
+<details>
+  <summary>Steps</summary>
 
 - 1.5.1. Create a remote branch (e.g. a feature branch):
 
@@ -233,6 +256,8 @@ $ npm run build
 - 1.5.5. Click `Create pull request`
 - 1.5.6. If `All checks have passed`, click `Merge pull request`
 - 1.5.7. Click `Confirm merge` (leave the `Merge pull request` as is)
+
+</details>
 
 > **NOTE:** <br />
 > You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description.
