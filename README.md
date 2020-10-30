@@ -30,11 +30,6 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [2. Repository settings](#2-repository-settings)
     - [3. System dependencies](#3-system-dependencies)
     - [4. Project dependencies](#4-project-dependencies)
-      - [4.1. Boilerplate](#41-boilerplate)
-      - [4.2. Linter](#42-linter)
-        - [4.2.1. Import Sorter](#421-import-sorter)
-      - [4.3. Code Formatter](#43-code-formatter)
-        - [4.3.1. Autoformatter](#431-autoformatter)
     - [5. Test suite](#5-test-suite)
       - [5.1. End-to-End testing](#51-end-to-end-testing)
       - [5.2. Unit testing](#52-unit-testing)
@@ -321,7 +316,8 @@ $ npm run build
 
 > _[npm](https://npmjs.com) packages to develop the project._
 
-#### 4.1. Boilerplate
+<details>
+  <summary>4.1. Boilerplate</summary>
 
 > _Use [create-react-app](https://github.com/facebook/create-react-app)&mdash;an integrated toolchain without build configuration._
 
@@ -336,7 +332,10 @@ $ npm run build
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
 > - CRA includes four [react-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
-#### 4.2. Linter
+</details>
+
+<details>
+  <summary>4.2. Linter</summary>
 
 > _Use [ESLint](https://eslint.org)&mdash;a static code analyzer to find and fix problems in JavaScript code._
 
@@ -366,17 +365,20 @@ $ npm run build
 > - `--fix-dry-run` does `--fix` without modifying the files
 > - ESLint is shipped with CRA and parses with [babel-eslint](https://github.com/babel/babel-eslint)
 
-##### 4.2.1. Import Sorter
+</details>
+
+<details>
+  <summary>4.3. Import Sorter</summary>
 
 > _Use [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)&mdash;an autofixable import sorter for `eslint --fix`._
 
-- 4.2.1.1. Install:
+- 4.3.1.1. Install:
 
   ```shell
   $ npm i -D eslint-plugin-simple-import-sort
   ```
 
-- 4.2.1.2. Script (rc):
+- 4.3.1.2. Script (rc):
 
   ```json
   // file: .eslintrc
@@ -391,23 +393,26 @@ $ npm run build
   }
   ```
 
-- 4.2.1.3. Run:
+- 4.3.1.3. Run:
 
   ```shell
   $ npm run lint -- --fix <glob>
   ```
 
-#### 4.3. Code Formatter
+</details>
+
+<details>
+  <summary>4.4. Code Formatter</summary>
 
 > _Use [Prettier](https://prettier.io)&mdash;a source code formatter with an opinionated but consistent code conventions._
 
-- 4.3.1. Install:
+- 4.4.1. Install:
 
   ```shell
   $ npm i -D prettier
   ```
 
-- 4.3.2. Script:
+- 4.4.2. Script:
 
   ```json
   // file: package.json
@@ -421,7 +426,7 @@ $ npm run build
   }
   ```
 
-- 4.3.3. Run:
+- 4.4.3. Run:
 
   ```shell
   $ npm run format -- -[w|c] <glob>
@@ -432,11 +437,14 @@ $ npm run build
 > - `-w` (or `--write`) modifies the files matched from `<glob>` pattern
 > - `-c` (or `--check`) does `-w` (or `--write`) without modifying the files
 
-##### 4.3.1. Autoformatter
+</details>
+
+<details>
+  <summary>4.5. Autoformatter</summary>
 
 > _Use [husky](https://github.com/typicode/husky) with [lint-staged](https://github.com/okonet/lint-staged)&mdash;to execute [npm-run-script](https://docs.npmjs.com/cli-commands/run-script.html)s from [githooks](https://git-scm.com/docs/githooks)_.
 
-- 4.3.1.1. Install:
+- 4.5.1.1. Install:
 
   ```shell
   $ npm i -D eslint-config-prettier \
@@ -444,7 +452,7 @@ $ npm run build
              lint-staged
   ```
 
-- 4.3.1.2: Script (rc):
+- 4.5.1.2: Script (rc):
 
   ```json
   // file: .eslintrc
@@ -454,7 +462,7 @@ $ npm run build
   }
   ```
 
-- 4.3.1.3. Script:
+- 4.5.1.3. Script:
 
   ```json
   // file: package.json
@@ -482,6 +490,8 @@ $ npm run build
 > - [eslint-config-prettier](https://github.com/prettier/eslint-config-prettier) turns off all conflicting ESLint rules with Prettier
 > - `prettier` must be put last on `extends` to override other configs
 > - `eslint` should run _before_ `prettier` and not _after_
+
+</details>
 
 ### 5. Test suite
 
