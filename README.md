@@ -27,11 +27,6 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [Build](#build)
   - [Lessons](#lessons)
     - [1. Project management](#1-project-management)
-      - [1.1. Milestones](#11-milestones)
-      - [1.2. Project boards](#12-project-boards)
-      - [1.3. Issues](#13-issues)
-      - [1.4. Labels](#14-labels)
-      - [1.5. Pull requests](#15-pull-requests)
     - [2. Repository settings](#2-repository-settings)
       - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
       - [2.2. Disable force pushing](#22-disable-force-pushing)
@@ -144,12 +139,12 @@ $ npm run build
 
 > _Project management helps achieve goals within given constraints._
 
-#### 1.1. Milestones
-
-> _[Milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of work._
+####
 
 <details>
-  <summary>Steps</summary>
+  <summary>1.1. Milestones</summary>
+
+> _[Milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of work._
 
 - 1.1.1. Go to [`github.com/<username>/<repo>/milestones`](https://github.com/<username>/<repo>/milestones)
 - 1.1.2. Click `New milestone` ([`github.com/<username>/<repo>/milestones/new`](https://github.com/<username>/<repo>/milestones/new))
@@ -163,12 +158,10 @@ $ npm run build
 
 </details>
 
-#### 1.2. Project boards
+<details>
+  <summary>1.2. Project boards</summary>
 
 > _[Project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize work._
-
-<details>
-  <summary>Steps</summary>
 
 - 1.2.1. Go to [`github.com/<username>/<repo>/projects`](https://github.com/<username>/<repo>/projects)
 - 1.2.2. Click `Create a project` ([`github.com/<username>/<repo>/projects/new`](https://github.com/<username>/<repo>/projects/new))
@@ -180,17 +173,15 @@ $ npm run build
 
 - 1.2.4. Click `Create project`
 
-</details>
-
 > **NOTE:** <br />
 > Set `Templates` as `Automated kanban with reviews` if working with other developers.
 
-#### 1.3. Issues
-
-> _[Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or bug reports._
+</details>
 
 <details>
-  <summary>Steps</summary>
+  <summary>1.3. Issues</summary>
+
+> _[Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or bug reports._
 
 - 1.3.1. [`github.com/<username>/<repo>/issues`](https://github.com/<username>/<repo>/issues)
 - 1.3.2. Click `New issue` [`github.com/<username>/<repo>/issues/new`](https://github.com/<username>/<repo>/issues/new)
@@ -207,24 +198,20 @@ $ npm run build
 
 </details>
 
-#### 1.4. Labels
+<details>
+  <summary>1.4. Labels</summary>
 
 > _[Labels](https://docs.github.com/en/github/managing-your-work-on-github/about-labels) help categorize issues and pull requests._
-
-<details>
-  <summary>Steps</summary>
 
 - 1.4.1. Go to [`github.com/<username>/<repo>/issues/<n>`](https://github.com/<username>/<repo>/issues/<n>)
 - 1.4.2. Set `Labels` as e.g. `documentation`
 
 </details>
 
-#### 1.5. Pull requests
+<details>
+  <summary>1.5. Pull requests</summary>
 
 > _[Pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review work with others._
-
-<details>
-  <summary>Steps</summary>
 
 - 1.5.1. Create a remote branch (e.g. a feature branch):
 
@@ -253,10 +240,10 @@ $ npm run build
 - 1.5.6. If `All checks have passed`, click `Merge pull request`
 - 1.5.7. Click `Confirm merge` (leave the `Merge pull request` as is)
 
-</details>
-
 > **NOTE:** <br />
 > You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description.
+
+</details>
 
 ### 2. Repository settings
 
