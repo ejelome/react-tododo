@@ -18,8 +18,8 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
   - [Usage](#usage)
     - [Serve](#serve)
     - [Quality](#quality)
-      - [Format](#format)
       - [Lint](#lint)
+      - [Format](#format)
     - [Test](#test)
       - [Unit and Integration](#unit-and-integration)
       - [End-to-End](#end-to-end)
@@ -81,16 +81,16 @@ $ npm start
 
 ### Quality
 
-#### Format
-
-```shell
-$ npm run format -- -[w|c] <glob>
-```
-
 #### Lint
 
 ```shell
 $ npm run lint -- --[fix|fix-dry-run] <glob>
+```
+
+#### Format
+
+```shell
+$ npm run format -- -[w|c] <glob>
 ```
 
 ### Test
@@ -341,17 +341,45 @@ $ npm run build
 
 - 4.2.1. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "scripts": {
-      "…"
-      "lint": "eslint",
-      "…"
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,31 +1,32 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+  +    "lint": "eslint",
+       "test": "react-scripts test",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/package.json)
 
 - 4.2.2. Run:
 
@@ -378,22 +406,71 @@ $ npm run build
   $ npm i -D eslint-plugin-simple-import-sort
   ```
 
-- 4.3.1.2. Script (rc):
+- 4.3.1.2. Script:
 
-  ```json
-  // file: .eslintrc
-  {
-    "parser": "babel-eslint",
-    "plugins": ["simple-import-sort"],
-    "rules": {
-      "import/order": "off",
-      "sort-imports": "off",
-      "simple-import-sort/sort": "error"
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,32 +1,35 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "test": "react-scripts test",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+  +  },
+  +  "devDependencies": {
+  +    "eslint-plugin-simple-import-sort": "^5.0.3"
+     }
+   }
   ```
 
-- 4.3.1.3. Run:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/package.json)
+
+- 4.3.1.3. Script (rc):
+
+  ```diff
+  --- .eslintrc
+  +++ .eslintrc
+  @@ -0,0 +1,9 @@
+  +{
+  +    "parser": "babel-eslint",
+  +    "plugins": ["simple-import-sort"],
+  +    "rules": {
+  +        "import/order": "off",
+  +        "sort-imports": "off",
+  +        "simple-import-sort/sort": "error"
+  +    }
+  +}
+  ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/src/.eslintrc)
+
+- 4.3.1.4. Run:
 
   ```shell
   $ npm run lint -- --fix <glob>
@@ -414,17 +491,51 @@ $ npm run build
 
 - 4.4.2. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "scripts": {
-      "…"
-      "format": "prettier",
-      "…"
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,35 +1,37 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+  +    "format": "prettier",
+       "test": "react-scripts test",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+  -    "eslint-plugin-simple-import-sort": "^5.0.3"
+  +    "eslint-plugin-simple-import-sort": "^5.0.3",
+  +    "prettier": "^2.1.2"
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/package.json)
 
 - 4.4.3. Run:
 
@@ -454,35 +565,82 @@ $ npm run build
 
 - 4.5.1.2: Script (rc):
 
-  ```json
-  // file: .eslintrc
-  {
-    "…"
-    "extends": ["prettier"]
-  }
+  ```diff
+  --- .eslintrc
+  +++ .eslintrc
+  @@ -1,9 +1,10 @@
+   {
+  +  "extends": ["prettier"],
+     "parser": "babel-eslint",
+     "plugins": ["simple-import-sort"],
+     "rules": {
+       "import/order": "off",
+       "sort-imports": "off",
+       "simple-import-sort/sort": "error"
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/src/.eslintrc)
 
 - 4.5.1.3. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "husky": {
-      "hooks": {
-        "pre-commit": "lint-staged"
-      }
-    },
-    "lint-staged": {
-      "src/**/*.js": [
-        "npm run lint -- --fix"
-      ],
-      "src/**/*.{md,css,js,json}": [
-        "npm run format -- -w"
-      ]
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,37 +1,49 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+  +    "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+  +    "husky": "^4.3.0",
+  +    "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+  +  },
+  +  "husky": {
+  +    "hooks": {
+  +      "pre-commit": "lint-staged"
+  +    }
+  +  },
+  +  "lint-staged": {
+  +    "src/**/*.js": ["npm run lint -- --fix"],
+  +    "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/package.json)
 
 > **NOTES:**
 >
