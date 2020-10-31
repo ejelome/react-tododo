@@ -32,7 +32,6 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [4. Project dependencies](#4-project-dependencies)
     - [5. Test suite](#5-test-suite)
     - [6. Automation](#6-automation)
-      - [6.1. CI](#61-ci)
       - [6.2. CD](#62-cd)
     - [7. Outside-In TDD](#7-outside-in-tdd)
       - [7.1. E2E](#71-e2e)
@@ -1232,47 +1231,115 @@ $ npm run build
 
 > _Automation helps test, build and deploy the application automatically from development to production._
 
-#### 6.1. CI
+<details>
+  <summary>6.1. CI</summary>
 
 > _Use [GitHub Actions](https://github.com/features/actions)&mdash;a workflow automation tool._
 
 - 6.1.1. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "husky": {
-      "hooks": {
-        "…"
-        "pre-push": "npm run e2e -- run && npm run coverage"
-      }
-    },
-    "…"
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,67 +1,68 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+       "e2e": "cypress",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+       "cypress": "^5.5.0",
+       "enzyme": "^3.11.0",
+       "enzyme-adapter-react-16": "^1.15.5",
+       "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+       "husky": "^4.3.0",
+       "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+     },
+     "husky": {
+       "hooks": {
+  -      "pre-commit": "lint-staged"
+  +      "pre-commit": "lint-staged",
+  +      "pre-push": "npm run e2e -- run && npm run coverage"
+       }
+     },
+     "lint-staged": {
+       "src/**/*.js": ["npm run lint -- --fix"],
+       "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+     },
+     "jest": {
+       "coveragePathIgnorePatterns": [
+         "<rootDir>/src/index.js",
+         "<rootDir>/src/serviceWorker.js"
+       ],
+       "coverageThreshold": {
+         "global": {
+           "branches": 100,
+           "functions": 100,
+           "lines": 100,
+           "statements": 100
+         }
+       }
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-6-2idv0?file=/package.json)
 
 - 6.1.2. Workflow file:
 
-  ```yaml
-  // file: .github/workflows/ci.yml
-  on: pull_request
-  jobs:
-    tests:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-          env:
-            DEFAULT_BRANCH: master
-        - run: npm i
-        - run: npm run lint -- --fix src/
-        - run: npm run format -- -c src/
-        - run: npm run coverage
-        - uses: cypress-io/github-action@v2
-          with:
-            start: npm start
-            wait-on: "http://localhost:3000"
+  ```diff
+  --- .github/workflows/ci.yml
+  +++ .github/workflows/ci.yml
+  @@ -0,0 +1,16 @@
+  +on: pull_request
+  +  jobs:
+  +    tests:
+  +      runs-on: ubuntu-latest
+  +      steps:
+  +        - uses: actions/checkout@v2
+  +          env:
+  +            DEFAULT_BRANCH: master
+  +        - run: npm i
+  +        - run: npm run lint -- --fix src/
+  +        - run: npm run format -- -c src/
+  +        - run: npm run coverage
+  +        - uses: cypress-io/github-action@v2
+  +          with:
+  +            start: npm start
+  +            wait-on: "http://localhost:3000"
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-6-2idv0?file=/.github/workflows/ci.yml)
 
 - 6.1.3. Update `Require status checks to pass before merging`:
 
@@ -1294,7 +1361,10 @@ $ npm run build
 > - `name` is optional but `jobs` key name is required (`tests`)
 > - `eslint` is included in GitHub Actions out of the box
 
-#### 6.2. CD
+</details>
+
+<details>
+  <summary>6.2. CD</summary>
 
 > _Use [Netlify](https://netlify.com)&mdash;a platform for automating modern web projects._
 
@@ -1327,6 +1397,8 @@ $ npm run build
 > - CD (or Continuous Deployment) fully automates Continuous Delivery without needing manual intervention
 > - The application is only built then deployed if all the CI pipeline requirements were fully met
 > - On Netlify, `Activate builds` is Continuous Deployment while `Stop builds` is Continuous Delivery
+
+</details>
 
 ### 7. Outside-In TDD
 
