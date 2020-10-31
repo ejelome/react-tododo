@@ -1131,7 +1131,7 @@ $ npm run build
   ```diff
   --- package.json
   +++ package.json
-  @@ -1,53 +1,67 @@
+  @@ -1,53 +1,68 @@
    {
      "name": "react-tododo",
      "version": "0.1.0",
@@ -1151,6 +1151,7 @@ $ npm run build
        "lint": "eslint",
        "format": "prettier",
        "test": "react-scripts test",
+  +    "coverage": "npm t -- --coverage --watchAll=false",
        "e2e": "cypress",
        "eject": "react-scripts eject"
      },
@@ -1238,7 +1239,7 @@ $ npm run build
   ```diff
   --- package.json
   +++ package.json
-  @@ -1,67 +1,68 @@
+  @@ -1,68 +1,69 @@
    {
      "name": "react-tododo",
      "version": "0.1.0",
@@ -1258,6 +1259,7 @@ $ npm run build
        "lint": "eslint",
        "format": "prettier",
        "test": "react-scripts test",
+       "coverage": "npm t -- --coverage --watchAll=false",
        "e2e": "cypress",
        "eject": "react-scripts eject"
      },
