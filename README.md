@@ -34,8 +34,8 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [6. Automation](#6-automation)
     - [7. Outside-In TDD](#7-outside-in-tdd)
     - [8. Inside-Out TDD](#8-inside-out-tdd)
-    - [9. Mindset and repetition](#9-mindset-and-repetition)
-    - [10. Regression testing](#10-regression-testing)
+    - [9. Regression testing](#9-regression-testing)
+    - [10. Mindset and repetition](#10-mindset-and-repetition)
   - [References](#references)
   - [License](#license)
 
@@ -1707,32 +1707,23 @@ $ npm run build
 
 </details>
 
-### 9. Mindset and repetition
-
-<details>
-
-- 9.1. Use Outside-In TDD when starting a new feature
-- 9.2. Use Inside-Out TDD to complete that feature
-
-</details>
-
-### 10. Regression testing
+### 9. Regression testing
 
 > _Regression testing ensures that the application still works as expected after a newly implemented change._
 
 <details>
 
-- 10.1. Re-run all unit and integration tests:
+- 9.1. Re-run all unit and integration tests:
 
-  - 10.1.1. Go to the test runner terminal
-  - 10.1.2. Press `a` to re-run all test suites
+  - 9.1.1. Go to the test runner terminal
+  - 9.1.2. Press `a` to re-run all test suites
 
-- 10.2. Re-run all e2e tests:
+- 9.2. Re-run all e2e tests:
 
-  - 10.2.1. Go to the test runner window
-  - 10.2.2. Click `Run all specs`
+  - 9.2.1. Go to the test runner window
+  - 9.2.2. Click `Run all specs`
 
-- 10.3. Fix any possible failing test(s):
+- 9.3. Fix any possible failing test(s):
 
   All previous tests will fail since the text was changed to `My todos` inside an `h1`.
 
@@ -1768,12 +1759,22 @@ $ npm run build
 
   [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-10-skuw1?file=/src/__tests__/integration/app.spec.js)
 
-- 10.4. Re-run all tests:
+- 9.4. Re-run all tests:
 
   _There should be no more failing tests._
 
 > **NOTE:** <br />
 > Regression test is done after the newly implemented feature has been fully tested.
+
+</details>
+
+### 10. Mindset and repetition
+
+<details>
+
+- 10.1. Use Outside-In TDD when starting a new feature
+- 10.2. Use Inside-Out TDD to complete that feature
+- 10.3. Keep on repeating until it becomes natural
 
 </details>
 
