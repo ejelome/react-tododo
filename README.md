@@ -18,8 +18,8 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
   - [Usage](#usage)
     - [Serve](#serve)
     - [Quality](#quality)
-      - [Format](#format)
       - [Lint](#lint)
+      - [Format](#format)
     - [Test](#test)
       - [Unit and Integration](#unit-and-integration)
       - [End-to-End](#end-to-end)
@@ -27,45 +27,15 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [Build](#build)
   - [Lessons](#lessons)
     - [1. Project management](#1-project-management)
-      - [1.1. Milestones](#11-milestones)
-      - [1.2. Project boards](#12-project-boards)
-      - [1.3. Issues](#13-issues)
-      - [1.4. Labels](#14-labels)
-      - [1.5. Pull requests](#15-pull-requests)
     - [2. Repository settings](#2-repository-settings)
-      - [2.1. Automatically delete head branches](#21-automatically-delete-head-branches)
-      - [2.2. Disable force pushing](#22-disable-force-pushing)
-      - [2.3. Require status checks to pass before merging](#23-require-status-checks-to-pass-before-merging)
-      - [2.4. Receive notifications on push events](#24-receive-notifications-on-push-events)
     - [3. System dependencies](#3-system-dependencies)
-      - [3.1. Version control](#31-version-control)
-      - [3.2. Version manager](#32-version-manager)
-      - [3.3. Package manager](#33-package-manager)
-      - [3.4. Text editor](#34-text-editor)
     - [4. Project dependencies](#4-project-dependencies)
-      - [4.1. Boilerplate](#41-boilerplate)
-      - [4.2. Linter](#42-linter)
-        - [4.2.1. Import Sorter](#421-import-sorter)
-      - [4.3. Code Formatter](#43-code-formatter)
-        - [4.3.1. Autoformatter](#431-autoformatter)
     - [5. Test suite](#5-test-suite)
-      - [5.1. End-to-End testing](#51-end-to-end-testing)
-      - [5.2. Unit testing](#52-unit-testing)
-      - [5.3. Integration testing](#53-integration-testing)
-      - [5.4. Code coverage](#54-code-coverage)
     - [6. Automation](#6-automation)
-      - [6.1. CI](#61-ci)
-      - [6.2. CD](#62-cd)
     - [7. Outside-In TDD](#7-outside-in-tdd)
-      - [7.1. E2E](#71-e2e)
-      - [7.2. Integration](#72-integration)
-      - [7.3. Unit](#73-unit)
     - [8. Inside-Out TDD](#8-inside-out-tdd)
-      - [8.1. Unit](#81-unit)
-      - [8.2. Integration](#82-integration)
-      - [8.3. E2E](#83-e2e)
-    - [9. Repeat](#9-repeat)
-    - [10. Regression testing](#10-regression-testing)
+    - [9. Regression testing](#9-regression-testing)
+    - [10. Mindset and repetition](#10-mindset-and-repetition)
   - [References](#references)
   - [License](#license)
 
@@ -99,16 +69,16 @@ $ npm start
 
 ### Quality
 
-#### Format
-
-```shell
-$ npm run format -- -[w|c] <glob>
-```
-
 #### Lint
 
 ```shell
 $ npm run lint -- --[fix|fix-dry-run] <glob>
+```
+
+#### Format
+
+```shell
+$ npm run format -- -[w|c] <glob>
 ```
 
 ### Test
@@ -148,7 +118,10 @@ $ npm run build
 
 > _Project management helps achieve goals within given constraints._
 
-#### 1.1. Milestones
+####
+
+<details>
+  <summary>1.1. Milestones</summary>
 
 > _[Milestones](https://docs.github.com/en/github/managing-your-work-on-github/tracking-the-progress-of-your-work-with-milestones) help track progress of work._
 
@@ -162,7 +135,10 @@ $ npm run build
 
 - 1.1.4. Click `Create milestone`
 
-#### 1.2. Project boards
+</details>
+
+<details>
+  <summary>1.2. Project boards</summary>
 
 > _[Project boards](https://docs.github.com/en/github/managing-your-work-on-github/about-project-boards) help organize and prioritize work._
 
@@ -179,7 +155,10 @@ $ npm run build
 > **NOTE:** <br />
 > Set `Templates` as `Automated kanban with reviews` if working with other developers.
 
-#### 1.3. Issues
+</details>
+
+<details>
+  <summary>1.3. Issues</summary>
 
 > _[Issues](https://docs.github.com/en/github/managing-your-work-on-github/about-issues) help manage tasks or bug reports._
 
@@ -196,14 +175,20 @@ $ npm run build
 
 - 1.3.4. Click `Submit new issue`
 
-#### 1.4. Labels
+</details>
+
+<details>
+  <summary>1.4. Labels</summary>
 
 > _[Labels](https://docs.github.com/en/github/managing-your-work-on-github/about-labels) help categorize issues and pull requests._
 
 - 1.4.1. Go to [`github.com/<username>/<repo>/issues/<n>`](https://github.com/<username>/<repo>/issues/<n>)
 - 1.4.2. Set `Labels` as e.g. `documentation`
 
-#### 1.5. Pull requests
+</details>
+
+<details>
+  <summary>1.5. Pull requests</summary>
 
 > _[Pull requests](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/about-pull-requests) help discuss and review work with others._
 
@@ -237,18 +222,24 @@ $ npm run build
 > **NOTE:** <br />
 > You can [link an issue](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue) manually or [write keywords](https://docs.github.com/en/github/managing-your-work-on-github/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword) in description.
 
+</details>
+
 ### 2. Repository settings
 
 > _Settings to improve project repo's security and monitoring._
 
-#### 2.1. Automatically delete head branches
+<details>
+  <summary>2.1. Automatically delete head branches</summary>
 
 > _Delete remote branch after merged pull request._
 
 - 2.1.1. Go to [`github.com/<username>/<repo>/settings`](https://github.com/<username>/<repo>/settings)
 - 2.1.2. Under `Merge button` ([`#merge-button-settings`](https://github.com/<username>/<repo>/settings#merge-button-settings)), tick `Automatically delete head branches`
 
-#### 2.2. Disable force pushing
+</details>
+
+<details>
+  <summary>2.2. Disable force pushing</summary>
 
 > _Prevent force pushing commits on protected branch._
 
@@ -263,9 +254,10 @@ $ npm run build
 > **WARNING:** <br />
 > Normal commits can still be pushed directly to protected branch.
 
-#### 2.3. Require status checks to pass before merging
+</details>
 
-> _Prevent normal commits to be pushed directly to protected branch._
+<details>
+  <summary>2.3. Require status checks to pass before merging</summary>
 
 - 2.3.1. Go to [`github.com/<username>/<repo>/settings/branch_protection_rules/<n>`](https://github.com/<username>/<repo>/settings/branch_protection_rules/<n>)
 - 2.3.2. Set fields, e.g.:
@@ -273,12 +265,17 @@ $ npm run build
   Under `Protect matching branches`, tick:
 
   - `Require status checks to pass before merging`
-  - `Require branches to be up to date before merging` (automatically ticked)
+  - `Require branches to be up to date before merging`
   - `Include administrators`
 
 - 2.3.3. Click `Save changes`
 
-#### 2.4. Receive notifications on push events
+> _Prevent normal commits to be pushed directly to protected branch._
+
+</details>
+
+<details>
+  <summary>2.4. Receive notifications on push events</summary>
 
 > _Receive notifications on email when push events are triggered._
 
@@ -290,37 +287,29 @@ $ npm run build
 
 - 2.4.4. Click `Setup notifications`
 
+</details>
+
 ### 3. System dependencies
 
 > _Software packages to create and maintain the project._
 
-#### 3.1. Version control
+<details>
 
-> _Use [Git](https://git-scm.com)&mdash;a free and open source (distributed) version control system._
+| #   | Name                     | Category        | Description                                                  | Reference                 |
+| :-- | :----------------------- | :-------------- | :----------------------------------------------------------- | :------------------------ |
+| 3.1 | [Git]                    | Version control | A free and open source (distributed) version control system. | [Install Git]             |
+| 3.2 | [nvm]                    | Version manager | A version manager for [Node.js].                             | [Installing and Updating] |
+| 3.3 | [npm/cli]                | Package manager | A package manager for [JavaScript].                          | [Usage]                   |
+| 3.4 | [Emacs], [Vim] or [both] | Text editor     | Or **\*any\*** YOU find best (e.g. [VSC])                    |                           |
 
-_See [Install Git](https://github.com/git-guides/install-git) to install._
-
-#### 3.2. Version manager
-
-> _Use [nvm](https://github.com/nvm-sh/nvm)&mdash;a version manager for [Node.js](https://nodejs.org)._
-
-_See [Installing and Updating](https://github.com/nvm-sh/nvm#installing-and-updating) to install with [install script](https://github.com/nvm-sh/nvm/blob/v0.35.3/install.sh)._
-
-#### 3.3. Package manager
-
-> _Use [npm/cli](https://github.com/npm/cli)&mdash;a package manager for [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)._
-
-_See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
-
-#### 3.4. Text editor
-
-> _Use **\*any\*** YOU find best (e.g. [Emacs](https://www.gnu.org/software/emacs), [Vim](https://www.vim.org) or both&mdash;[Spacemacs](https://www.spacemacs.org))._
+</details>
 
 ### 4. Project dependencies
 
 > _[npm](https://npmjs.com) packages to develop the project._
 
-#### 4.1. Boilerplate
+<details>
+  <summary>4.1. Boilerplate</summary>
 
 > _Use [create-react-app](https://github.com/facebook/create-react-app)&mdash;an integrated toolchain without build configuration._
 
@@ -335,23 +324,54 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - [npx](https://github.com/npm/npx) command executes package locally or from [npm](https://npmjs.com) registry
 > - CRA includes four [react-scripts](https://npmjs.com/package/react-scripts) (`start|build|test|eject`)
 
-#### 4.2. Linter
+</details>
+
+<details>
+  <summary>4.2. Linter</summary>
 
 > _Use [ESLint](https://eslint.org)&mdash;a static code analyzer to find and fix problems in JavaScript code._
 
 - 4.2.1. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "scripts": {
-      "…"
-      "lint": "eslint",
-      "…"
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,31 +1,32 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+  +    "lint": "eslint",
+       "test": "react-scripts test",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/package.json)
 
 - 4.2.2. Run:
 
@@ -365,62 +385,151 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `--fix-dry-run` does `--fix` without modifying the files
 > - ESLint is shipped with CRA and parses with [babel-eslint](https://github.com/babel/babel-eslint)
 
-##### 4.2.1. Import Sorter
+</details>
+
+<details>
+  <summary>4.3. Import Sorter</summary>
 
 > _Use [eslint-plugin-simple-import-sort](https://github.com/lydell/eslint-plugin-simple-import-sort)&mdash;an autofixable import sorter for `eslint --fix`._
 
-- 4.2.1.1. Install:
+- 4.3.1.1. Install:
 
   ```shell
   $ npm i -D eslint-plugin-simple-import-sort
   ```
 
-- 4.2.1.2. Script (rc):
+- 4.3.1.2. Script:
 
-  ```json
-  // file: .eslintrc
-  {
-    "parser": "babel-eslint",
-    "plugins": ["simple-import-sort"],
-    "rules": {
-      "import/order": "off",
-      "sort-imports": "off",
-      "simple-import-sort/sort": "error"
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,32 +1,35 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "test": "react-scripts test",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+  +  },
+  +  "devDependencies": {
+  +    "eslint-plugin-simple-import-sort": "^5.0.3"
+     }
+   }
   ```
 
-- 4.2.1.3. Run:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/package.json)
+
+- 4.3.1.3. Script (rc):
+
+  ```diff
+  --- .eslintrc
+  +++ .eslintrc
+  @@ -0,0 +1,9 @@
+  +{
+  +    "parser": "babel-eslint",
+  +    "plugins": ["simple-import-sort"],
+  +    "rules": {
+  +        "import/order": "off",
+  +        "sort-imports": "off",
+  +        "simple-import-sort/sort": "error"
+  +    }
+  +}
+  ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/src/.eslintrc)
+
+- 4.3.1.4. Run:
 
   ```shell
   $ npm run lint -- --fix <glob>
   ```
 
-#### 4.3. Code Formatter
+</details>
+
+<details>
+  <summary>4.4. Code Formatter</summary>
 
 > _Use [Prettier](https://prettier.io)&mdash;a source code formatter with an opinionated but consistent code conventions._
 
-- 4.3.1. Install:
+- 4.4.1. Install:
 
   ```shell
   $ npm i -D prettier
   ```
 
-- 4.3.2. Script:
+- 4.4.2. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "scripts": {
-      "…"
-      "format": "prettier",
-      "…"
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,35 +1,37 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+  +    "format": "prettier",
+       "test": "react-scripts test",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+  -    "eslint-plugin-simple-import-sort": "^5.0.3"
+  +    "eslint-plugin-simple-import-sort": "^5.0.3",
+  +    "prettier": "^2.1.2"
+     }
+   }
   ```
 
-- 4.3.3. Run:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/package.json)
+
+- 4.4.3. Run:
 
   ```shell
   $ npm run format -- -[w|c] <glob>
@@ -431,11 +540,14 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `-w` (or `--write`) modifies the files matched from `<glob>` pattern
 > - `-c` (or `--check`) does `-w` (or `--write`) without modifying the files
 
-##### 4.3.1. Autoformatter
+</details>
+
+<details>
+  <summary>4.5. Autoformatter</summary>
 
 > _Use [husky](https://github.com/typicode/husky) with [lint-staged](https://github.com/okonet/lint-staged)&mdash;to execute [npm-run-script](https://docs.npmjs.com/cli-commands/run-script.html)s from [githooks](https://git-scm.com/docs/githooks)_.
 
-- 4.3.1.1. Install:
+- 4.5.1.1. Install:
 
   ```shell
   $ npm i -D eslint-config-prettier \
@@ -443,37 +555,84 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
              lint-staged
   ```
 
-- 4.3.1.2: Script (rc):
+- 4.5.1.2: Script (rc):
 
-  ```json
-  // file: .eslintrc
-  {
-    "…"
-    "extends": ["prettier"]
-  }
+  ```diff
+  --- .eslintrc
+  +++ .eslintrc
+  @@ -1,9 +1,10 @@
+   {
+  +  "extends": ["prettier"],
+     "parser": "babel-eslint",
+     "plugins": ["simple-import-sort"],
+     "rules": {
+       "import/order": "off",
+       "sort-imports": "off",
+       "simple-import-sort/sort": "error"
+     }
+   }
   ```
 
-- 4.3.1.3. Script:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/src/.eslintrc)
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "husky": {
-      "hooks": {
-        "pre-commit": "lint-staged"
-      }
-    },
-    "lint-staged": {
-      "src/**/*.js": [
-        "npm run lint -- --fix"
-      ],
-      "src/**/*.{md,css,js,json}": [
-        "npm run format -- -w"
-      ]
-    }
-  }
+- 4.5.1.3. Script:
+
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,37 +1,49 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+  +    "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+  +    "husky": "^4.3.0",
+  +    "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+  +  },
+  +  "husky": {
+  +    "hooks": {
+  +      "pre-commit": "lint-staged"
+  +    }
+  +  },
+  +  "lint-staged": {
+  +    "src/**/*.js": ["npm run lint -- --fix"],
+  +    "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-4-09vri?file=/package.json)
 
 > **NOTES:**
 >
@@ -482,11 +641,14 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `prettier` must be put last on `extends` to override other configs
 > - `eslint` should run _before_ `prettier` and not _after_
 
+</details>
+
 ### 5. Test suite
 
 > _Test suite helps validate specific behaviors of the application through tests._
 
-#### 5.1. End-to-End testing
+<details>
+  <summary>5.1. End-to-End testing</summary>
 
 > _Use [Cypress](https://cypress.io)&mdash;an End-to-End testing framework._
 
@@ -498,40 +660,85 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.1.2. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "scripts": {
-      "…"
-      "e2e": "cypress",
-      "…"
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,49 +1,51 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+  +    "e2e": "cypress",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+  +    "cypress": "^5.5.0",
+       "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+       "husky": "^4.3.0",
+       "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+     },
+     "husky": {
+       "hooks": {
+         "pre-commit": "lint-staged"
+       }
+     },
+     "lint-staged": {
+       "src/**/*.js": ["npm run lint -- --fix"],
+       "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+     }
+   }
   ```
 
-- 5.1.3. Remove example files:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/package.json)
 
-  ```shell
-  $ rm -rf cypress/integration/examples/
+- 5.1.3. Specify `baseUrl`:
+
+  ```diff
+  --- cypress.json
+  +++ cypress.json
+  @@ -0,0 +1,3 @@
+  +{
+  +  "baseUrl": "http://localhost:3000"
+  +}
   ```
 
-- 5.1.4. Specify `baseUrl`:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress.json)
 
-  ```json
-  // file: cypress.json
-  {
-    "baseUrl": "http://localhost:3000"
-  }
-  ```
-
-- 5.1.5. Start server:
+- 5.1.4. Start server:
 
   ```shell
   $ npm start
   ```
 
-- 5.1.6. Start test runner:
+- 5.1.5. Start test runner:
 
   Open a new terminal tab, then do:
 
@@ -541,16 +748,23 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
   _This will open Cypress' test runner window._
 
+- 5.1.6. Remove example files:
+
+  ```shell
+  $ rm -rf cypress/integration/examples/
+  ```
+
 - 5.1.7. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
 
-  ```javascript
-  // file: cypress/integration/sample_spec.js
-  describe("Smoke test", () => {
-    it("renders learn react link", () => {
-      expect(true).to.equal(false);
-    });
-  });
+  ```diff
+  --- cypress/integration/sample_spec.js
+  +++ cypress/integration/sample_spec.js
+  @@ -0,0 +1,2 @@
+  +describe("Smoke test", () =>
+  +  it("renders learn react link", () => expect(true).to.equal(false)));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress/integration/sample_spec.js)
 
 - 5.1.8. Click `sample_spec.js` from test runner's window:
 
@@ -558,25 +772,28 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.1.9. Pass the failing test:
 
-  ```javascript
-  // file: cypress/integration/sample_spec.js
-  describe("Smoke test", () => {
-    it("renders learn react link", () => {
-      cy
-        // Arrange (required setup)
-        // or Given (initial state):
-        .visit("/")
-
-        // Act (actual behavior)
-        // or When (action taken):
-        .get("a")
-
-        // Assert (expected behavior)
-        // or Then (desired outcome):
-        .contains("learn react", { matchCase: false });
-    });
-  });
+  ```diff
+  --- cypress/integration/sample_spec.js
+  +++ cypress/integration/sample_spec.js
+  @@ -1,2 +1,14 @@
+   describe("Smoke test", () =>
+  -  it("renders learn react link", () => expect(true).to.equal(false)));
+  +  it("renders learn react link", () =>
+  +    cy
+  +      // Arrange (required setup)
+  +      // or Given (initial state):
+  +      .visit("/")
+  +
+  +      // Act (actual behavior)
+  +      // or When (action taken):
+  +      .get("a")
+  +
+  +      // Assert (expected behavior)
+  +      // or Then (desired outcome):
+  +      .contains("learn react", { matchCase: false })));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress/integration/sample_spec.js)
 
 - 5.1.10. The test runner automatically re-runs the test:
 
@@ -584,16 +801,28 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.1.11. Refactor the passing test:
 
-  ```javascript
-  // file: cypress/integration/sample_spec.js
-  describe("Smoke test", () => {
-    it("renders learn react link", () => {
-      cy.visit("/")
-        .get("a")
-        .contains(/learn react/i);
-    });
-  });
+  ```diff
+  --- cypress/integration/sample_spec.js
+  +++ cypress/integration/sample_spec.js
+  @@ -1,14 +1,6 @@
+   describe("Smoke test", () =>
+     it("renders learn react link", () =>
+       cy
+  -      // Arrange (required setup)
+  -      // or Given (initial state):
+         .visit("/")
+  -
+  -      // Act (actual behavior)
+  -      // or When (action taken):
+         .get("a")
+  -
+  -      // Assert (expected behavior)
+  -      // or Then (desired outcome):
+  -      .contains("learn react", { matchCase: false })));
+  +      .contains(/learn react/i)));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress/integration/sample_spec.js)
 
 - 5.1.12. The test runner automatically re-runs the test:
 
@@ -615,7 +844,10 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - [GWT](https://wikipedia.org/wiki/Given-When-Then) is used as an alternative when using [BDD](https://wikipedia.org/wiki/Behavior-driven_development) instead of classical [TDD](https://wikipedia.org/wiki/Test-driven_development)
 > - The above example used [Red-Green-Refactor](https://www.jamesshore.com/v2/blog/2005/red-green-refactor) as [the TDD cycle](https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html#minute-by-minute-micro-cycle-red-green-refactor)
 
-#### 5.2. Unit testing
+</details>
+
+<details>
+  <summary>5.2. Unit testing</summary>
 
 > _Use [Enzyme](https://enzymejs.github.io/enzyme)&mdash;a JavaScript testing utility for React._
 
@@ -626,33 +858,111 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
              enzyme-adapter-react-16
   ```
 
-- 5.2.2. Setup:
+- 5.2.2. Script:
 
-  ```javascript
-  // file: src/setupTests.js
-  // …
-  import Enzyme from "enzyme";
-  import Adapter from "enzyme-adapter-react-16";
-
-  Enzyme.configure({ adapter: new Adapter() });
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,51 +1,53 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+       "e2e": "cypress",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+       "cypress": "^5.5.0",
+  +    "enzyme": "^3.11.0",
+  +    "enzyme-adapter-react-16": "^1.15.5",
+       "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+       "husky": "^4.3.0",
+       "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+     },
+     "husky": {
+       "hooks": {
+         "pre-commit": "lint-staged"
+       }
+     },
+     "lint-staged": {
+       "src/**/*.js": ["npm run lint -- --fix"],
+       "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+     }
+   }
   ```
 
-- 5.2.3. Create a failing smoke test file:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/package.json)
 
-  ```javascript
-  // file: src/App.test.js
-  import React from "react";
+- 5.2.3. Setup:
 
-  import App from "./App";
-
-  describe("<App />", () => {
-    it("renders without crashing", () => {
-      expect(true).toEqual(false);
-    });
-  });
+  ```diff
+  --- src/setupTests.js
+  +++ src/setupTests.js
+  @@ -1,5 +1,10 @@
+   // jest-dom adds custom jest matchers for asserting on DOM nodes.
+   // allows you to do things like:
+   // expect(element).toHaveTextContent(/react/i)
+   // learn more: https://github.com/testing-library/jest-dom
+  -import '@testing-library/jest-dom';
+  +import "@testing-library/jest-dom";
+  +
+  +import Enzyme from "enzyme";
+  +import Adapter from "enzyme-adapter-react-16";
+  +
+  +Enzyme.configure({ adapter: new Adapter() });
   ```
 
-- 5.2.4. Run the test:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/setupTests.js)
+
+- 5.2.4. Create a failing smoke test file:
+
+  ```diff
+  --- src/App.test.js
+  +++ src/App.test.js
+  @@ -1,8 +1,2 @@
+  -import { render, screen } from '@testing-library/react';
+  -import App from './App';
+  -
+  -test('renders learn react link', () => {
+  -  render(<App />);
+  -  const linkElement = screen.getByText(/learn react/i);
+  -  expect(linkElement).toBeInTheDocument();
+  -});
+  +describe("<App />", () =>
+  +  it("renders without crashing", () => expect(true).toEqual(false)));
+  ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/App.test.js)
+
+- 5.2.5. Run the test:
 
   _This test should **fail**._
 
@@ -660,35 +970,49 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   $ npm t
   ```
 
-- 5.2.5. Pass the failing test:
+- 5.2.6. Pass the failing test:
 
-  ```javascript
-  // file: src/App.test.js
-  import { shallow } from "enzyme";
-  // …
-  describe …
-    it …
-      const wrapper = shallow(<App />);
-      expect(wrapper).toEqual({});
-    // …
+  ```diff
+  --- src/App.test.js
+  +++ src/App.test.js
+  @@ -1,2 +1,7 @@
+  +import { shallow } from "enzyme";
+  +import React from "react";
+  +
+  +import App from "./App";
+  +
+   describe("<App />", () =>
+  -  it("renders without crashing", () => expect(true).toEqual(false)));
+  +  it("renders without crashing", () => expect(shallow(<App />)).toEqual({})));
   ```
 
-- 5.2.6. The test runner automatically re-runs the test:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/App.test.js)
+
+- 5.2.7. The test runner automatically re-runs the test:
 
   _This test should now **pass**._
 
-- 5.2.7. Refactor the passing test:
+- 5.2.8. Refactor the passing test:
 
-  ```javascript
-  // file: src/App.test.js
-  // …
-  describe …
-    it …
-      shallow(<App />);
-    // …
+  ```diff
+  --- src/App.test.js
+  +++ src/App.test.js
+  @@ -1,7 +1,9 @@
+   import { shallow } from "enzyme";
+   import React from "react";
+
+   import App from "./App";
+
+   describe("<App />", () =>
+  -  it("renders without crashing", () => expect(shallow(<App />)).toEqual({})));
+  +  it("renders without crashing", () => {
+  +    shallow(<App />);
+  +  }));
   ```
 
-- 5.2.8. The test runner automatically re-runs the test:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/App.test.js)
+
+- 5.2.9. The test runner automatically re-runs the test:
 
   _This improved test should still **pass**, having the same result from previous test._
 
@@ -702,23 +1026,23 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `creat-react-app` uses [Jest](https://jestjs.io)'s built-in [expect](https://jestjs.io/docs/en/expect) with [js-dom](https://github.com/testing-library/jest-dom)'s [matchers](https://jestjs.io/docs/en/using-matchers) as an alternative to Chai's assertions
 > - CRA uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js to create [test doubles](https://wikipedia.org/wiki/Test_double) (spies, stubs and mocks, etc.)
 
-#### 5.3. Integration testing
+</details>
+
+<details>
+  <summary>5.3. Integration testing</summary>
 
 > _Use [react-testing-library](https://github.com/testing-library/react-testing-library)&mdash;a set of React DOM testing utilities._
 
 - 5.3.1. Create a failing smoke test file:
 
-  ```javascript
-  // file: src/__tests__/integration/app.spec.js
-  import { render } from "@testing-library/react";
-  import React from "react";
-
-  import App from "../../App";
-
-  test("<App /> renders learn react link", () => {
-    expect(true).toEqual(false);
-  });
+  ```diff
+  --- src/__tests__/integration/app.spec.js
+  +++ src/__tests__/integration/app.spec.js
+  @@ -0,0 +1 @@
+  +test("<App /> renders learn react link", () => expect(true).toEqual(false));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/__tests__/integration/app.spec.js)
 
 - 5.3.2. Run the test:
 
@@ -730,18 +1054,23 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.3.3. Pass the failing test:
 
-  ```javascript
-  // file: src/__tests__/integration/app.spec.js
-  import { render } from "@testing-library/react";
-  import React from "react";
-
-  import App from "../../App";
-
-  test("<App /> renders learn react link", () => {
-    const { getByText } = render(<App />);
-    expect(getByText("Learn React", { exact: false })).toBeInTheDocument();
-  });
+  ```diff
+  --- src/__tests__/integration/app.spec.js
+  +++ src/__tests__/integration/app.spec.js
+  @@ -1 +1,9 @@
+  -test("<App /> renders learn react link", () => expect(true).toEqual(false));
+  +import { render } from "@testing-library/react";
+  +import React from "react";
+  +
+  +import App from "../../App";
+  +
+  +test("<App /> renders learn react link", () =>
+  +  expect(
+  +    render(<App />).getByText("Learn React", { exact: false })
+  +  ).toBeInTheDocument());
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/__tests__/integration/app.spec.js)
 
 - 5.3.4. The test runner automatically re-runs the test:
 
@@ -749,15 +1078,23 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 5.3.5. Refactor the passing test:
 
-  ```javascript
-  // file: src/__tests__/integration/app.spec.js
-  // …
-  test …
-    // …
-    const linkElement = getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
-  // …
+  ```diff
+  --- src/__tests__/integration/app.spec.js
+  +++ src/__tests__/integration/app.spec.js
+  @@ -1,9 +1,7 @@
+   import { render } from "@testing-library/react";
+   import React from "react";
+
+   import App from "../../App";
+
+   test("<App /> renders learn react link", () =>
+  -  expect(
+  -    render(<App />).getByText("Learn React", { exact: false })
+  -  ).toBeInTheDocument());
+  +  expect(render(<App />).getByText(/learn react/i)).toBeInTheDocument());
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/__tests__/integration/app.spec.js)
 
 - 5.3.6. The test runner automatically re-runs the test:
 
@@ -782,31 +1119,91 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - We use `.spec.js` here _subjectively_ to distinguish it from unit tests (e.g. `.test.js`)
 > - `getByText` is a combination of [getBy](https://testing-library.com/docs/dom-testing-library/api-queries#getby) and [ByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext) of [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro) [queries](https://testing-library.com/docs/dom-testing-library/api-queries) API
 
-#### 5.4. Code coverage
+</details>
+
+<details>
+  <summary>5.4. Code coverage</summary>
 
 > _Code coverage helps measure the degree to which the source code of the application are executed._
 
 - 5.4.1. Setup:
 
-  ```json
-  // file: package.json
-  {
-    "jest": {
-      "coveragePathIgnorePatterns": [
-        "<rootDir>/src/index.js",
-        "<rootDir>/src/serviceWorker.js"
-      ],
-      "coverageThreshold": {
-        "global": {
-          "branches": 100,
-          "functions": 100,
-          "lines": 100,
-          "statements": 100
-        }
-      }
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,53 +1,69 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+  +    "coverage": "npm t -- --coverage --watchAll=false",
+       "e2e": "cypress",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+       "cypress": "^5.5.0",
+       "enzyme": "^3.11.0",
+       "enzyme-adapter-react-16": "^1.15.5",
+       "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+       "husky": "^4.3.0",
+       "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+     },
+     "husky": {
+       "hooks": {
+         "pre-commit": "lint-staged"
+       }
+     },
+     "lint-staged": {
+       "src/**/*.js": ["npm run lint -- --fix"],
+       "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+  +  },
+  +  "jest": {
+  +    "coveragePathIgnorePatterns": [
+  +      "<rootDir>/src/index.js",
+  +      "<rootDir>/src/serviceWorker.js",
+  +      "<rootDir>/src/reportWebVitals.js"
+  +    ],
+  +    "coverageThreshold": {
+  +      "global": {
+  +        "branches": 100,
+  +        "functions": 100,
+  +        "lines": 100,
+  +        "statements": 100
+  +      }
+  +    }
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/package.json)
 
 - 5.4.2. Run:
 
@@ -827,51 +1224,123 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - There is a bug currently when running with `--coverage` normally&mdash;use `--watchAll` as a temporary fix
 > - Use `--watchAll=false` (disable test watcher) when using on CI/CD platforms (e.g. [GitHub Actions](https://github.com/features/actions))
 
+</details>
+
 ### 6. Automation
 
 > _Automation helps test, build and deploy the application automatically from development to production._
 
-#### 6.1. CI
+<details>
+  <summary>6.1. CI</summary>
 
 > _Use [GitHub Actions](https://github.com/features/actions)&mdash;a workflow automation tool._
 
 - 6.1.1. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "husky": {
-      "hooks": {
-        "…"
-        "pre-push": "npm run e2e -- run && npm run coverage"
-      }
-    },
-    "…"
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,69 +1,70 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+       "coverage": "npm t -- --coverage --watchAll=false",
+       "e2e": "cypress",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+       "cypress": "^5.5.0",
+       "enzyme": "^3.11.0",
+       "enzyme-adapter-react-16": "^1.15.5",
+       "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+       "husky": "^4.3.0",
+       "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+     },
+     "husky": {
+       "hooks": {
+  -      "pre-commit": "lint-staged"
+  +      "pre-commit": "lint-staged",
+  +      "pre-push": "npm run e2e -- run && npm run coverage"
+       }
+     },
+     "lint-staged": {
+       "src/**/*.js": ["npm run lint -- --fix"],
+       "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+     },
+     "jest": {
+       "coveragePathIgnorePatterns": [
+         "<rootDir>/src/index.js",
+         "<rootDir>/src/serviceWorker.js",
+         "<rootDir>/src/reportWebVitals.js"
+       ],
+       "coverageThreshold": {
+         "global": {
+           "branches": 100,
+           "functions": 100,
+           "lines": 100,
+           "statements": 100
+         }
+       }
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-6-2idv0?file=/package.json)
 
 - 6.1.2. Workflow file:
 
-  ```yaml
-  // file: .github/workflows/ci.yml
-  on: pull_request
-  jobs:
-    tests:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-          env:
-            DEFAULT_BRANCH: master
-        - run: npm i
-        - run: npm run lint -- --fix src/
-        - run: npm run format -- -c src/
-        - run: npm run coverage
-        - uses: cypress-io/github-action@v2
-          with:
-            start: npm start
-            wait-on: "http://localhost:3000"
+  ```diff
+  --- .github/workflows/ci.yml
+  +++ .github/workflows/ci.yml
+  @@ -0,0 +1,16 @@
+  +on: pull_request
+  +  jobs:
+  +    tests:
+  +      runs-on: ubuntu-latest
+  +      steps:
+  +        - uses: actions/checkout@v2
+  +          env:
+  +            DEFAULT_BRANCH: master
+  +        - run: npm i
+  +        - run: npm run lint -- --fix src/
+  +        - run: npm run format -- -c src/
+  +        - run: npm run coverage
+  +        - uses: cypress-io/github-action@v2
+  +          with:
+  +            start: npm start
+  +            wait-on: "http://localhost:3000"
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-6-2idv0?file=/.github/workflows/ci.yml)
 
 - 6.1.3. Update `Require status checks to pass before merging`:
 
@@ -893,7 +1362,10 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - `name` is optional but `jobs` key name is required (`tests`)
 > - `eslint` is included in GitHub Actions out of the box
 
-#### 6.2. CD
+</details>
+
+<details>
+  <summary>6.2. CD</summary>
 
 > _Use [Netlify](https://netlify.com)&mdash;a platform for automating modern web projects._
 
@@ -927,13 +1399,16 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 > - The application is only built then deployed if all the CI pipeline requirements were fully met
 > - On Netlify, `Activate builds` is Continuous Deployment while `Stop builds` is Continuous Delivery
 
+</details>
+
 ### 7. Outside-In TDD
 
 > _Outside-In TDD helps focus on primary stakeholders by providing complete but only necessary parts of a feature._
 
 **Example: List todos**
 
-#### 7.1. E2E
+<details>
+  <summary>7.1. E2E</summary>
 
 - 7.1.1. Start server (if it's not running):
 
@@ -956,22 +1431,24 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
   `cypress/integration/todos/list_spec.js`;
 
   ```javascript
-  describe("Todo list", () => {
-    it("display todo list", () => {
-      cy.visit("/");
-
-      cy.get("h1").contains("my todos", { matchCase: false });
-
-      cy.get("li").contains("learn react", { matchCase: false });
-    });
-  });
+  --- cypress/integration/todos/list_spec.js
+  +++ cypress/integration/todos/list_spec.js
+  @@ -0,0 +1,3 @@
+  +describe("Todo list", () =>
+  +  it("display todo list", () =>
+  +    cy.visit("/").get("h1").contains("my todos", { matchCase: false })));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-7-6ylx2?file=/cypress/integration/todos/list_spec.js)
 
 - 7.1.4. Click `list_spec.js` under `todos` from test runner's window:
 
   _This test will **fail** since it's checking a page not yet implemented._
 
-#### 7.2. Integration
+</details>
+
+<details>
+  <summary>7.2. Integration</summary>
 
 - 7.2.1. Start test runner (if it's not running):
 
@@ -981,24 +1458,31 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 7.2.2. Create a failing integration test:
 
-  ```javascript
-  // file: src/__tests__/integration/todos/list.spec.js
-  import { render } from "@testing-library/react";
-  import React from "react";
-
-  import App from "../../../App";
-
-  test("<App /> displays todo list", () => {
-    const { getByText } = render(<App />);
-    expect(getByText("my todos", { exact: false })).toBeInTheDocument();
-  });
+  ```diff
+  --- src/__tests__/integration/todos/list.spec.js
+  +++ src/__tests__/integration/todos/list.spec.js
+  @@ -0,0 +1,9 @@
+  +import { render } from "@testing-library/react";
+  +import React from "react";
+  +
+  +import App from "../../../App";
+  +
+  +test("<App /> renders learn react link", () =>
+  +  expect(
+  +    render(<App />).getByText("my todos", { exact: false })
+  +  ).toBeInTheDocument());
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-7-6ylx2?file=/src/__tests__/integration/todos/list.spec.js)
 
 - 7.2.3. The test runner automatically re-runs the test:
 
   _This test will **fail** since it's checking a content not yet implemented._
 
-#### 7.3. Unit
+</details>
+
+<details>
+  <summary>7.3. Unit</summary>
 
 - 7.3.1. Start test runner (if it's not running):
 
@@ -1008,143 +1492,193 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 7.3.2. Create a failing unit test:
 
-  ```javascript
-  // file: src/components/TodoList.test.js
-  import { shallow } from "enzyme";
-  import React from "react";
-
-  import TodoList from "./TodoList";
-
-  describe("<TodoList />", () => {
-    it("renders without crashing", () => {
-      const wrapper = shallow(<TodoList />);
-      expect(wrapper).toEqual({});
-    });
-  });
+  ```diff
+  --- src/components/TodoList.test.js
+  +++ src/components/TodoList.test.js
+  @@ -0,0 +1,8 @@
+  +import { shallow } from "enzyme";
+  +import React from "react";
+  +
+  +import TodoList from "./TodoList";
+  +
+  +describe("<TodoList />", () =>
+  +  it("renders without crashing", () =>
+  +    expect(shallow(<TodoList />)).toEqual({})));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-7-6ylx2?file=/src/components/TodoList.test.js)
+
+</details>
 
 ### 8. Inside-Out TDD
 
 > _Inside-Out aims to satisfy each of the requirements of E2E tests from the ground up._
 
-#### 8.1. Unit
+<details>
+  <summary>8.1. Unit</summary>
 
 - 8.1.1. Pass the failing unit test:
 
-  ```javascript
-  // file: src/components/TodoList.js
-  import React from "react";
-
-  const TodoList = () => <div></div>;
-
-  export default TodoList;
+  ```diff
+  --- src/components/TodoList.js
+  +++ src/components/TodoList.js
+  @@ -0,0 +1,3 @@
+  +const TodoList = () => null;
+  +
+  +export default TodoList;
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.js)
 
 - 8.1.2. Refactor the passing unit test:
 
-  ```javascript
-  // file: src/components/TodoList.test.js
-  // …
-  describe …
-    it …
-      shallow(<TodoList />);
-    // …
+  ```diff
+  --- src/components/TodoList.test.js
+  +++ src/components/TodoList.test.js
+  @@ -1,8 +1,9 @@
+   import { shallow } from "enzyme";
+   import React from "react";
+
+   import TodoList from "./TodoList";
+
+   describe("<TodoList />", () =>
+  -  it("renders without crashing", () =>
+  -    expect(shallow(<TodoList />)).toEqual({})));
+  +  it("renders without crashing", () => {
+  +    shallow(<TodoList />);
+  +  }));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.test.js)
 
 - 8.1.3. Refactor the tested unit:
 
-  ```javascript
-  // file: src/components/TodoList.js
-  // …
-  … TodoList … => <div />;
-  // …
+  ```diff
+  --- src/components/TodoList.js
+  +++ src/components/TodoList.js
+  @@ -1,3 +1,3 @@
+  -const TodoList = () => null;
+  +const TodoList = () => {};
+
+   export default TodoList;
   ```
 
-#### 8.2. Integration
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.js)
+
+</details>
+
+<details>
+  <summary>8.2. Integration</summary>
 
 - 8.2.1. Pass the failing integration test:
 
-  ```javascript
-  // file: src/components/TodoList.test.js
-  // …
-  describe …
-    it("displays the title", () => {
-      const wrapper = shallow(<TodoList />);
-      expect(wrapper.find("h1").text().toLowerCase()).toBe("my todos");
-    });
-  // …
+  ```diff
+  --- src/components/TodoList.js
+  +++ src/components/TodoList.js
+  @@ -1 +1,5 @@
+  -const TodoList = () => {};
+  +import React from "react";
+  +
+  +const TodoList = () => <h1>My todos</h1>;
+  +
+  +export default TodoList;
   ```
 
-  ```javascript
-  // file: src/components/TodoList.js
-  // …
-  … TodoList … => <h1>My todos</h1>;
-  // …
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.js)
+
+  ```diff
+  --- src/App.js
+  +++ src/App.js
+  @@ -1,26 +1,7 @@
+  -import "./App.css";
+  +import React from "react";
+
+  -import logo from "./logo.svg";
+  +import TodoList from "./components/TodoList";
+
+  -function App() {
+  -  return (
+  -    <div className="App">
+  -      <header className="App-header">
+  -        <img src={logo} className="App-logo" alt="logo" />
+  -        <p>
+  -          Edit <code>src/App.js</code> and save to reload.
+  -        </p>
+  -        <a
+  -          className="App-link"
+  -          href="https://reactjs.org"
+  -          target="_blank"
+  -          rel="noopener noreferrer"
+  -        >
+  -          Learn React
+  -        </a>
+  -      </header>
+  -    </div>
+  -  );
+  -}
+  +const App = () => <TodoList />;
+
+   export default App;
   ```
 
-  ```javascript
-  // file: src/App.js
-  import React from "react";
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/App.js)
 
-  import TodoList from "./components/TodoList";
+- 8.2.3. Refactor the tested units:
 
-  function App() {
-    return <TodoList />;
-  }
+  ```diff
+  --- src/components/TodoList.js
+  +++ src/components/TodoList.js
+  @@ -1,5 +1,5 @@
+   import React from "react";
 
-  export default App;
+  -const TodoList = () => <h1>My todos</h1>;
+  +const TodoList = ({ title }) => <h1>{title}</h1>;
+
+   export default TodoList;
   ```
 
-- 8.2.2. Refactor the passing unit test:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.js)
 
-  ```javascript
-  // file: src/components/TodoList.test.js
-  // …
-  describe …
-    it("displays the title", () => {
-      const [tag, title] = ["h1", "My todos"];
-      const wrapper = shallow(<TodoList title={title} />);
-      const text = wrapper.find(tag).text();
-      expect(text).toBe(title);
-    });
-  // …
+  ```diff
+  --- src/App.js
+  +++ src/App.js
+  @@ -1,7 +1,7 @@
+   import React from "react";
+
+   import TodoList from "./components/TodoList";
+
+  -const App = () => <TodoList />;
+  +const App = () => <TodoList title="My todos" />;
+
+   export default App;
   ```
 
-- 8.2.3. Refactor the tested unit:
-
-  ```javascript
-  // file: src/components/TodoList.js
-  // …
-  const TodoList = ({ title }) => <h1>{title}</h1>;
-
-  TodoList.defaultProps = {
-    title: "My todos",
-  };
-  // …
-  ```
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/App.js)
 
 - 8.2.4. Refactor the passing integration test:
 
-  ```javascript
-  // file: src/__tests__/integration/todos/list.spec.js
-  // …
-  test …
-    // …
-    const title = getByText(/my todos/i);
-    expect(title).toBeInTheDocument();
-  });
+  ```diff
+  --- src/__tests__/integration/todos/list.spec.js
+  +++ src/__tests__/integration/todos/list.spec.js
+  @@ -1,9 +1,7 @@
+   import { render } from "@testing-library/react";
+   import React from "react";
+
+   import App from "../../../App";
+
+   test("<App /> renders learn react link", () =>
+  -  expect(
+  -    render(<App />).getByText("my todos", { exact: false })
+  -  ).toBeInTheDocument());
+  +  expect(render(<App />).getByText(/my todos/i)).toBeInTheDocument());
   ```
 
-- 8.2.5. Refactor the tested integration units:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/__tests__/integration/todos/list.spec.js)
 
-  ```javascript
-  // file: src/App.js
-  // …
-  const App = () => <TodoList />;
-  // …
-  ```
+</details>
 
-#### 8.3. E2E
+<details>
+  <summary>8.3. E2E</summary>
 
 - 8.3.1. Go back to Cypress' test runner window
 
@@ -1152,58 +1686,97 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 
 - 8.3.3. Refactor the e2e test file:
 
-  ```javascript
-  // file: cypress/integration/todos/list_spec.js
-  describe …
-    it …
-      // …
-      cy.get("h1").contains(/my todos/i);
-      // …
+  ```diff
+  --- cypress/integration/todos/list_spec.js
+  +++ cypress/integration/todos/list_spec.js
+  @@ -1,3 +1,6 @@
+   describe("Todo list", () =>
+     it("display todo list", () =>
+  -    cy.visit("/").get("h1").contains("my todos", { matchCase: false })));
+  +    cy
+  +      .visit("/")
+  +      .get("h1")
+  +      .contains(/my todos/i)));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/cypress/integration/todos/list_spec.js)
 
 - 8.3.4. The test runner automatically re-runs the test:
 
   _This improved test should still **pass**, but with a more succinct case insensitivity check with RegExp._
 
-### 9. Repeat
+</details>
 
-- 9.1. Use Outside-In TDD when starting a new feature
-- 9.2. Use Inside-Out TDD to complete that feature
-
-### 10. Regression testing
+### 9. Regression testing
 
 > _Regression testing ensures that the application still works as expected after a newly implemented change._
 
-- 10.1. Re-run all unit and integration tests:
+<details>
 
-  - 10.1.1. Go to the test runner terminal
-  - 10.1.2. Press `a` to re-run all test suites
+- 9.1. Re-run all unit and integration tests:
 
-- 10.2. Re-run all e2e tests:
+  - 9.1.1. Go to the test runner terminal
+  - 9.1.2. Press `a` to re-run all test suites
 
-  - 10.2.1. Go to the test runner window
-  - 10.2.2. Click `Run all specs`
+- 9.2. Re-run all e2e tests:
 
-- 10.3. Fix any possible failing test(s):
+  - 9.2.1. Go to the test runner window
+  - 9.2.2. Click `Run all specs`
 
-  _`sample_spec.js` will fail since the text isn't wrapped anymore to an `a` tag but `li`._
+- 9.3. Fix any possible failing test(s):
 
-  ```javascript
-  // file: cypress/integration/sample_spec.js
-  describe …
-    it …
-      // …
-      cy.visit …
-        .get("li")
-        // …
+  All previous tests will fail since the text was changed to `My todos` inside an `h1`.
+
+  ```diff
+  --- cypress/integration/sample_spec.js
+  +++ cypress/integration/sample_spec.js
+  @@ -1,6 +1,6 @@
+   describe("Smoke test", () =>
+     it("renders learn react link", () =>
+       cy
+         .visit("/")
+  -      .get("a")
+  -      .contains(/learn react/i)));
+  +      .get("h1")
+  +      .contains(/my todos/i)));
   ```
 
-- 10.4. Re-run all tests:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-10-skuw1?file=/cypress/integration/sample_spec.js)
+
+  ```diff
+  --- src/__tests__/integration/app.spec.js
+  +++ src/__tests__/integration/app.spec.js
+  @@ -1,7 +1,7 @@
+   import { render } from "@testing-library/react";
+   import React from "react";
+
+   import App from "../../App";
+
+   test("<App /> renders learn react link", () =>
+  -  expect(render(<App />).getByText(/learn react/i)).toBeInTheDocument());
+  +  expect(render(<App />).getByText(/my todos/i)).toBeInTheDocument());
+  ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-10-skuw1?file=/src/__tests__/integration/app.spec.js)
+
+- 9.4. Re-run all tests:
 
   _There should be no more failing tests._
 
 > **NOTE:** <br />
 > Regression test is done after the newly implemented feature has been fully tested.
+
+</details>
+
+### 10. Mindset and repetition
+
+<details>
+
+- 10.1. Use Outside-In TDD when starting a new feature
+- 10.2. Use Inside-Out TDD to complete that feature
+- 10.3. Keep on repeating until it becomes natural
+
+</details>
 
 ---
 
@@ -1216,3 +1789,16 @@ _See [Usage](https://github.com/nvm-sh/nvm#usage) to install via `nvm`._
 ## License
 
 `react-tododo` is licensed under [MIT](./LICENSE).
+
+[git]: https://git-scm.com
+[nvm]: https://github.com/nvm-sh/nvm
+[npm/cli]: https://github.com/npm/cli
+[emacs]: https://www.gnu.org/software/emacs
+[vim]: https://www.vim.org
+[both]: https://www.spacemacs.org
+[node.js]: https://nodejs.org
+[javascript]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[vsc]: https://code.visualstudio.com
+[install git]: https://github.com/git-guides/install-git
+[installing and updating]: https://github.com/nvm-sh/nvm#installing-and-updating
+[usage]: https://github.com/nvm-sh/nvm#usage

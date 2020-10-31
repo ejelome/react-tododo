@@ -1,7 +1,6 @@
-describe("Smoke test", () => {
-  it("renders learn react link", () => {
-    cy.visit("/")
-      .get("li")
-      .contains(/learn react/i);
-  });
-});
+describe("Smoke test", () =>
+  it("renders learn react link", () =>
+    cy
+      .visit("/")
+      .get("h1")
+      .contains(/my todos/i)));
