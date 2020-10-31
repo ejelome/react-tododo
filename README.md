@@ -293,12 +293,16 @@ $ npm run build
 
 > _Software packages to create and maintain the project._
 
+<details>
+
 | #   | Name                     | Category        | Description                                                  | Reference                 |
 | :-- | :----------------------- | :-------------- | :----------------------------------------------------------- | :------------------------ |
 | 3.1 | [Git]                    | Version control | A free and open source (distributed) version control system. | [Install Git]             |
 | 3.2 | [nvm]                    | Version manager | A version manager for [Node.js].                             | [Installing and Updating] |
 | 3.3 | [npm/cli]                | Package manager | A package manager for [JavaScript].                          | [Usage]                   |
 | 3.4 | [Emacs], [Vim] or [both] | Text editor     | Or **\*any\*** YOU find best (e.g. [VSC])                    |                           |
+
+</details>
 
 ### 4. Project dependencies
 
