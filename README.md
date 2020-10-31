@@ -34,9 +34,6 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [6. Automation](#6-automation)
     - [7. Outside-In TDD](#7-outside-in-tdd)
     - [8. Inside-Out TDD](#8-inside-out-tdd)
-      - [8.1. Unit](#81-unit)
-      - [8.2. Integration](#82-integration)
-      - [8.3. E2E](#83-e2e)
     - [9. Repeat](#9-repeat)
     - [10. Regression testing](#10-regression-testing)
   - [References](#references)
@@ -1428,13 +1425,10 @@ $ npm run build
   ```javascript
   --- cypress/integration/todos/list_spec.js
   +++ cypress/integration/todos/list_spec.js
-  @@ -0,0 +1,6 @@
+  @@ -0,0 +1,3 @@
   +describe("Todo list", () =>
-  +  it("display todo list", () => {
-  +    cy.visit("/");
-  +    cy.get("h1").contains("my todos", { matchCase: false });
-  +    cy.get("li").contains("learn react", { matchCase: false });
-  +  }));
+  +  it("display todo list", () =>
+  +    cy.visit("/").get("h1").contains("my todos", { matchCase: false })));
   ```
 
   [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-7-6ylx2?file=/cypress/integration/todos/list_spec.js)
@@ -1512,124 +1506,171 @@ $ npm run build
 
 > _Inside-Out aims to satisfy each of the requirements of E2E tests from the ground up._
 
-#### 8.1. Unit
+<details>
+  <summary>8.1. Unit</summary>
 
 - 8.1.1. Pass the failing unit test:
 
-  ```javascript
-  // file: src/components/TodoList.js
-  import React from "react";
-
-  const TodoList = () => <div></div>;
-
-  export default TodoList;
+  ```diff
+  --- src/components/TodoList.js
+  +++ src/components/TodoList.js
+  @@ -0,0 +1,3 @@
+  +const TodoList = () => null;
+  +
+  +export default TodoList;
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.js)
 
 - 8.1.2. Refactor the passing unit test:
 
-  ```javascript
-  // file: src/components/TodoList.test.js
-  // …
-  describe …
-    it …
-      shallow(<TodoList />);
-    // …
+  ```diff
+  --- src/components/TodoList.test.js
+  +++ src/components/TodoList.test.js
+  @@ -1,8 +1,9 @@
+   import { shallow } from "enzyme";
+   import React from "react";
+
+   import TodoList from "./TodoList";
+
+   describe("<TodoList />", () =>
+  -  it("renders without crashing", () =>
+  -    expect(shallow(<TodoList />)).toEqual({})));
+  +  it("renders without crashing", () => {
+  +    shallow(<TodoList />);
+  +  }));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.test.js)
 
 - 8.1.3. Refactor the tested unit:
 
-  ```javascript
-  // file: src/components/TodoList.js
-  // …
-  … TodoList … => <div />;
-  // …
+  ```diff
+  --- src/components/TodoList.js
+  +++ src/components/TodoList.js
+  @@ -1,3 +1,3 @@
+  -const TodoList = () => null;
+  +const TodoList = () => {};
+
+   export default TodoList;
   ```
 
-#### 8.2. Integration
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.js)
+
+</details>
+
+<details>
+  <summary>8.2. Integration</summary>
 
 - 8.2.1. Pass the failing integration test:
 
-  ```javascript
-  // file: src/components/TodoList.test.js
-  // …
-  describe …
-    it("displays the title", () => {
-      const wrapper = shallow(<TodoList />);
-      expect(wrapper.find("h1").text().toLowerCase()).toBe("my todos");
-    });
-  // …
+  ```diff
+  --- src/components/TodoList.js
+  +++ src/components/TodoList.js
+  @@ -1 +1,5 @@
+  -const TodoList = () => {};
+  +import React from "react";
+  +
+  +const TodoList = () => <h1>My todos</h1>;
+  +
+  +export default TodoList;
   ```
 
-  ```javascript
-  // file: src/components/TodoList.js
-  // …
-  … TodoList … => <h1>My todos</h1>;
-  // …
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.js)
+
+  ```diff
+  --- src/App.js
+  +++ src/App.js
+  @@ -1,26 +1,7 @@
+  -import "./App.css";
+  +import React from "react";
+
+  -import logo from "./logo.svg";
+  +import TodoList from "./components/TodoList";
+
+  -function App() {
+  -  return (
+  -    <div className="App">
+  -      <header className="App-header">
+  -        <img src={logo} className="App-logo" alt="logo" />
+  -        <p>
+  -          Edit <code>src/App.js</code> and save to reload.
+  -        </p>
+  -        <a
+  -          className="App-link"
+  -          href="https://reactjs.org"
+  -          target="_blank"
+  -          rel="noopener noreferrer"
+  -        >
+  -          Learn React
+  -        </a>
+  -      </header>
+  -    </div>
+  -  );
+  -}
+  +const App = () => <TodoList />;
+
+   export default App;
   ```
 
-  ```javascript
-  // file: src/App.js
-  import React from "react";
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/App.js)
 
-  import TodoList from "./components/TodoList";
+- 8.2.3. Refactor the tested units:
 
-  function App() {
-    return <TodoList />;
-  }
+  ```diff
+  --- src/components/TodoList.js
+  +++ src/components/TodoList.js
+  @@ -1,5 +1,5 @@
+   import React from "react";
 
-  export default App;
+  -const TodoList = () => <h1>My todos</h1>;
+  +const TodoList = ({ title }) => <h1>{title}</h1>;
+
+   export default TodoList;
   ```
 
-- 8.2.2. Refactor the passing unit test:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/components/TodoList.js)
 
-  ```javascript
-  // file: src/components/TodoList.test.js
-  // …
-  describe …
-    it("displays the title", () => {
-      const [tag, title] = ["h1", "My todos"];
-      const wrapper = shallow(<TodoList title={title} />);
-      const text = wrapper.find(tag).text();
-      expect(text).toBe(title);
-    });
-  // …
+  ```diff
+  --- src/App.js
+  +++ src/App.js
+  @@ -1,7 +1,7 @@
+   import React from "react";
+
+   import TodoList from "./components/TodoList";
+
+  -const App = () => <TodoList />;
+  +const App = () => <TodoList title="My todos" />;
+
+   export default App;
   ```
 
-- 8.2.3. Refactor the tested unit:
-
-  ```javascript
-  // file: src/components/TodoList.js
-  // …
-  const TodoList = ({ title }) => <h1>{title}</h1>;
-
-  TodoList.defaultProps = {
-    title: "My todos",
-  };
-  // …
-  ```
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/App.js)
 
 - 8.2.4. Refactor the passing integration test:
 
-  ```javascript
-  // file: src/__tests__/integration/todos/list.spec.js
-  // …
-  test …
-    // …
-    const title = getByText(/my todos/i);
-    expect(title).toBeInTheDocument();
-  });
+  ```diff
+  --- src/__tests__/integration/todos/list.spec.js
+  +++ src/__tests__/integration/todos/list.spec.js
+  @@ -1,9 +1,7 @@
+   import { render } from "@testing-library/react";
+   import React from "react";
+
+   import App from "../../../App";
+
+   test("<App /> renders learn react link", () =>
+  -  expect(
+  -    render(<App />).getByText("my todos", { exact: false })
+  -  ).toBeInTheDocument());
+  +  expect(render(<App />).getByText(/my todos/i)).toBeInTheDocument());
   ```
 
-- 8.2.5. Refactor the tested integration units:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/src/__tests__/integration/todos/list.spec.js)
 
-  ```javascript
-  // file: src/App.js
-  // …
-  const App = () => <TodoList />;
-  // …
-  ```
+</details>
 
-#### 8.3. E2E
+<details>
+  <summary>8.3. E2E</summary>
 
 - 8.3.1. Go back to Cypress' test runner window
 
@@ -1637,18 +1678,26 @@ $ npm run build
 
 - 8.3.3. Refactor the e2e test file:
 
-  ```javascript
-  // file: cypress/integration/todos/list_spec.js
-  describe …
-    it …
-      // …
-      cy.get("h1").contains(/my todos/i);
-      // …
+  ```diff
+  --- cypress/integration/todos/list_spec.js
+  +++ cypress/integration/todos/list_spec.js
+  @@ -1,3 +1,6 @@
+   describe("Todo list", () =>
+     it("display todo list", () =>
+  -    cy.visit("/").get("h1").contains("my todos", { matchCase: false })));
+  +    cy
+  +      .visit("/")
+  +      .get("h1")
+  +      .contains(/my todos/i)));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-8-y737u?file=/cypress/integration/todos/list_spec.js)
 
 - 8.3.4. The test runner automatically re-runs the test:
 
   _This improved test should still **pass**, but with a more succinct case insensitivity check with RegExp._
+
+</details>
 
 ### 9. Repeat
 
