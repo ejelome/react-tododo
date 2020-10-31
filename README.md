@@ -1323,21 +1323,21 @@ $ npm run build
   +++ .github/workflows/ci.yml
   @@ -0,0 +1,16 @@
   +on: pull_request
-  +  jobs:
-  +    tests:
-  +      runs-on: ubuntu-latest
-  +      steps:
-  +        - uses: actions/checkout@v2
-  +          env:
-  +            DEFAULT_BRANCH: master
-  +        - run: npm i
-  +        - run: npm run lint -- --fix src/
-  +        - run: npm run format -- -c src/
-  +        - run: npm run coverage
-  +        - uses: cypress-io/github-action@v2
-  +          with:
-  +            start: npm start
-  +            wait-on: "http://localhost:3000"
+  +jobs:
+  +  tests:
+  +    runs-on: ubuntu-latest
+  +    steps:
+  +      - uses: actions/checkout@v2
+  +        env:
+  +          DEFAULT_BRANCH: master
+  +      - run: npm i
+  +      - run: npm run lint -- --fix src/
+  +      - run: npm run format -- -c src/
+  +      - run: npm run coverage
+  +      - uses: cypress-io/github-action@v2
+  +        with:
+  +          start: npm start
+  +          wait-on: "http://localhost:3000"
   ```
 
   [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-6-2idv0?file=/.github/workflows/ci.yml)
