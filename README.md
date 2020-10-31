@@ -34,7 +34,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [6. Automation](#6-automation)
     - [7. Outside-In TDD](#7-outside-in-tdd)
     - [8. Inside-Out TDD](#8-inside-out-tdd)
-    - [9. Repeat](#9-repeat)
+    - [9. Mindset and repetition](#9-mindset-and-repetition)
     - [10. Regression testing](#10-regression-testing)
   - [References](#references)
   - [License](#license)
@@ -1699,10 +1699,14 @@ $ npm run build
 
 </details>
 
-### 9. Repeat
+### 9. Mindset and repetition
+
+<details>
 
 - 9.1. Use Outside-In TDD when starting a new feature
 - 9.2. Use Inside-Out TDD to complete that feature
+
+</details>
 
 ### 10. Regression testing
 
