@@ -3,11 +3,5 @@ import React from "react";
 
 import App from "../../../App";
 
-test("<App /> displays todo list", () => {
-  const { getByText } = render(<App />);
-  const title = getByText(/my todos/i);
-  expect(title).toBeInTheDocument();
-
-  const listItem = getByText(/learn react/i);
-  expect(listItem).toBeInTheDocument();
-});
+test("<App /> renders learn react link", () =>
+  expect(render(<App />).getByText(/my todos/i)).toBeInTheDocument());
