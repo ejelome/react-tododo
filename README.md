@@ -719,13 +719,7 @@ $ npm run build
 
   [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/package.json)
 
-- 5.1.3. Remove example files:
-
-  ```shell
-  $ rm -rf cypress/integration/examples/
-  ```
-
-- 5.1.4. Specify `baseUrl`:
+- 5.1.3. Specify `baseUrl`:
 
   ```diff
   --- cypress.json
@@ -738,13 +732,13 @@ $ npm run build
 
   [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress.json)
 
-- 5.1.5. Start server:
+- 5.1.4. Start server:
 
   ```shell
   $ npm start
   ```
 
-- 5.1.6. Start test runner:
+- 5.1.5. Start test runner:
 
   Open a new terminal tab, then do:
 
@@ -753,6 +747,12 @@ $ npm run build
   ```
 
   _This will open Cypress' test runner window._
+
+- 5.1.6. Remove example files:
+
+  ```shell
+  $ rm -rf cypress/integration/examples/
+  ```
 
 - 5.1.7. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
 
