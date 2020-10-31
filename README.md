@@ -1131,7 +1131,7 @@ $ npm run build
   ```diff
   --- package.json
   +++ package.json
-  @@ -1,53 +1,68 @@
+  @@ -1,53 +1,69 @@
    {
      "name": "react-tododo",
      "version": "0.1.0",
@@ -1188,7 +1188,8 @@ $ npm run build
   +  "jest": {
   +    "coveragePathIgnorePatterns": [
   +      "<rootDir>/src/index.js",
-  +      "<rootDir>/src/serviceWorker.js"
+  +      "<rootDir>/src/serviceWorker.js",
+  +      "<rootDir>/src/reportWebVitals.js"
   +    ],
   +    "coverageThreshold": {
   +      "global": {
@@ -1239,7 +1240,7 @@ $ npm run build
   ```diff
   --- package.json
   +++ package.json
-  @@ -1,68 +1,69 @@
+  @@ -1,69 +1,70 @@
    {
      "name": "react-tododo",
      "version": "0.1.0",
@@ -1298,7 +1299,8 @@ $ npm run build
      "jest": {
        "coveragePathIgnorePatterns": [
          "<rootDir>/src/index.js",
-         "<rootDir>/src/serviceWorker.js"
+         "<rootDir>/src/serviceWorker.js",
+         "<rootDir>/src/reportWebVitals.js"
        ],
        "coverageThreshold": {
          "global": {
