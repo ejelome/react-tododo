@@ -1712,6 +1712,8 @@ $ npm run build
 
 > _Regression testing ensures that the application still works as expected after a newly implemented change._
 
+<details>
+
 - 10.1. Re-run all unit and integration tests:
 
   - 10.1.1. Go to the test runner terminal
@@ -1724,17 +1726,39 @@ $ npm run build
 
 - 10.3. Fix any possible failing test(s):
 
-  _`sample_spec.js` will fail since the text isn't wrapped anymore to an `a` tag but `li`._
+  All previous tests will fail since the text was changed to `My todos` inside an `h1`.
 
-  ```javascript
-  // file: cypress/integration/sample_spec.js
-  describe …
-    it …
-      // …
-      cy.visit …
-        .get("li")
-        // …
+  ```diff
+  --- cypress/integration/sample_spec.js
+  +++ cypress/integration/sample_spec.js
+  @@ -1,6 +1,6 @@
+   describe("Smoke test", () =>
+     it("renders learn react link", () =>
+       cy
+         .visit("/")
+  -      .get("a")
+  -      .contains(/learn react/i)));
+  +      .get("h1")
+  +      .contains(/my todos/i)));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-10-skuw1?file=/cypress/integration/sample_spec.js)
+
+  ```diff
+  --- src/__tests__/integration/app.spec.js
+  +++ src/__tests__/integration/app.spec.js
+  @@ -1,7 +1,7 @@
+   import { render } from "@testing-library/react";
+   import React from "react";
+
+   import App from "../../App";
+
+   test("<App /> renders learn react link", () =>
+  -  expect(render(<App />).getByText(/learn react/i)).toBeInTheDocument());
+  +  expect(render(<App />).getByText(/my todos/i)).toBeInTheDocument());
+  ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-10-skuw1?file=/src/__tests__/integration/app.spec.js)
 
 - 10.4. Re-run all tests:
 
@@ -1742,6 +1766,8 @@ $ npm run build
 
 > **NOTE:** <br />
 > Regression test is done after the newly implemented feature has been fully tested.
+
+</details>
 
 ---
 
