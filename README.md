@@ -31,10 +31,6 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [3. System dependencies](#3-system-dependencies)
     - [4. Project dependencies](#4-project-dependencies)
     - [5. Test suite](#5-test-suite)
-      - [5.1. End-to-End testing](#51-end-to-end-testing)
-      - [5.2. Unit testing](#52-unit-testing)
-      - [5.3. Integration testing](#53-integration-testing)
-      - [5.4. Code coverage](#54-code-coverage)
     - [6. Automation](#6-automation)
       - [6.1. CI](#61-ci)
       - [6.2. CD](#62-cd)
@@ -655,7 +651,8 @@ $ npm run build
 
 > _Test suite helps validate specific behaviors of the application through tests._
 
-#### 5.1. End-to-End testing
+<details>
+  <summary>5.1. End-to-End testing</summary>
 
 > _Use [Cypress](https://cypress.io)&mdash;an End-to-End testing framework._
 
@@ -667,17 +664,64 @@ $ npm run build
 
 - 5.1.2. Script:
 
-  ```json
-  // file: package.json
-  {
-    "…"
-    "scripts": {
-      "…"
-      "e2e": "cypress",
-      "…"
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,49 +1,51 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+  +    "e2e": "cypress",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+  +    "cypress": "^5.5.0",
+       "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+       "husky": "^4.3.0",
+       "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+     },
+     "husky": {
+       "hooks": {
+         "pre-commit": "lint-staged"
+       }
+     },
+     "lint-staged": {
+       "src/**/*.js": ["npm run lint -- --fix"],
+       "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/package.json)
 
 - 5.1.3. Remove example files:
 
@@ -687,12 +731,16 @@ $ npm run build
 
 - 5.1.4. Specify `baseUrl`:
 
-  ```json
-  // file: cypress.json
-  {
-    "baseUrl": "http://localhost:3000"
-  }
+  ```diff
+  --- cypress.json
+  +++ cypress.json
+  @@ -0,0 +1,3 @@
+  +{
+  +  "baseUrl": "http://localhost:3000"
+  +}
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress.json)
 
 - 5.1.5. Start server:
 
@@ -712,14 +760,15 @@ $ npm run build
 
 - 5.1.7. Create a failing [smoke test](<https://wikipedia.org/wiki/Smoke_testing_(software)>) file:
 
-  ```javascript
-  // file: cypress/integration/sample_spec.js
-  describe("Smoke test", () => {
-    it("renders learn react link", () => {
-      expect(true).to.equal(false);
-    });
-  });
+  ```diff
+  --- cypress/integration/sample_spec.js
+  +++ cypress/integration/sample_spec.js
+  @@ -0,0 +1,2 @@
+  +describe("Smoke test", () =>
+  +  it("renders learn react link", () => expect(true).to.equal(false)));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress/integration/sample_spec.js)
 
 - 5.1.8. Click `sample_spec.js` from test runner's window:
 
@@ -727,25 +776,28 @@ $ npm run build
 
 - 5.1.9. Pass the failing test:
 
-  ```javascript
-  // file: cypress/integration/sample_spec.js
-  describe("Smoke test", () => {
-    it("renders learn react link", () => {
-      cy
-        // Arrange (required setup)
-        // or Given (initial state):
-        .visit("/")
-
-        // Act (actual behavior)
-        // or When (action taken):
-        .get("a")
-
-        // Assert (expected behavior)
-        // or Then (desired outcome):
-        .contains("learn react", { matchCase: false });
-    });
-  });
+  ```diff
+  --- cypress/integration/sample_spec.js
+  +++ cypress/integration/sample_spec.js
+  @@ -1,2 +1,14 @@
+   describe("Smoke test", () =>
+  -  it("renders learn react link", () => expect(true).to.equal(false)));
+  +  it("renders learn react link", () =>
+  +    cy
+  +      // Arrange (required setup)
+  +      // or Given (initial state):
+  +      .visit("/")
+  +
+  +      // Act (actual behavior)
+  +      // or When (action taken):
+  +      .get("a")
+  +
+  +      // Assert (expected behavior)
+  +      // or Then (desired outcome):
+  +      .contains("learn react", { matchCase: false })));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress/integration/sample_spec.js)
 
 - 5.1.10. The test runner automatically re-runs the test:
 
@@ -753,16 +805,28 @@ $ npm run build
 
 - 5.1.11. Refactor the passing test:
 
-  ```javascript
-  // file: cypress/integration/sample_spec.js
-  describe("Smoke test", () => {
-    it("renders learn react link", () => {
-      cy.visit("/")
-        .get("a")
-        .contains(/learn react/i);
-    });
-  });
+  ```diff
+  --- cypress/integration/sample_spec.js
+  +++ cypress/integration/sample_spec.js
+  @@ -1,14 +1,6 @@
+   describe("Smoke test", () =>
+     it("renders learn react link", () =>
+       cy
+  -      // Arrange (required setup)
+  -      // or Given (initial state):
+         .visit("/")
+  -
+  -      // Act (actual behavior)
+  -      // or When (action taken):
+         .get("a")
+  -
+  -      // Assert (expected behavior)
+  -      // or Then (desired outcome):
+  -      .contains("learn react", { matchCase: false })));
+  +      .contains(/learn react/i)));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/cypress/integration/sample_spec.js)
 
 - 5.1.12. The test runner automatically re-runs the test:
 
@@ -784,7 +848,10 @@ $ npm run build
 > - [GWT](https://wikipedia.org/wiki/Given-When-Then) is used as an alternative when using [BDD](https://wikipedia.org/wiki/Behavior-driven_development) instead of classical [TDD](https://wikipedia.org/wiki/Test-driven_development)
 > - The above example used [Red-Green-Refactor](https://www.jamesshore.com/v2/blog/2005/red-green-refactor) as [the TDD cycle](https://blog.cleancoder.com/uncle-bob/2014/12/17/TheCyclesOfTDD.html#minute-by-minute-micro-cycle-red-green-refactor)
 
-#### 5.2. Unit testing
+</details>
+
+<details>
+  <summary>5.2. Unit testing</summary>
 
 > _Use [Enzyme](https://enzymejs.github.io/enzyme)&mdash;a JavaScript testing utility for React._
 
@@ -795,33 +862,111 @@ $ npm run build
              enzyme-adapter-react-16
   ```
 
-- 5.2.2. Setup:
+- 5.2.2. Script:
 
-  ```javascript
-  // file: src/setupTests.js
-  // …
-  import Enzyme from "enzyme";
-  import Adapter from "enzyme-adapter-react-16";
-
-  Enzyme.configure({ adapter: new Adapter() });
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,51 +1,53 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+       "e2e": "cypress",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+       "cypress": "^5.5.0",
+  +    "enzyme": "^3.11.0",
+  +    "enzyme-adapter-react-16": "^1.15.5",
+       "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+       "husky": "^4.3.0",
+       "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+     },
+     "husky": {
+       "hooks": {
+         "pre-commit": "lint-staged"
+       }
+     },
+     "lint-staged": {
+       "src/**/*.js": ["npm run lint -- --fix"],
+       "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+     }
+   }
   ```
 
-- 5.2.3. Create a failing smoke test file:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/package.json)
 
-  ```javascript
-  // file: src/App.test.js
-  import React from "react";
+- 5.2.3. Setup:
 
-  import App from "./App";
-
-  describe("<App />", () => {
-    it("renders without crashing", () => {
-      expect(true).toEqual(false);
-    });
-  });
+  ```diff
+  --- src/setupTests.js
+  +++ src/setupTests.js
+  @@ -1,5 +1,10 @@
+   // jest-dom adds custom jest matchers for asserting on DOM nodes.
+   // allows you to do things like:
+   // expect(element).toHaveTextContent(/react/i)
+   // learn more: https://github.com/testing-library/jest-dom
+  -import '@testing-library/jest-dom';
+  +import "@testing-library/jest-dom";
+  +
+  +import Enzyme from "enzyme";
+  +import Adapter from "enzyme-adapter-react-16";
+  +
+  +Enzyme.configure({ adapter: new Adapter() });
   ```
 
-- 5.2.4. Run the test:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/setupTests.js)
+
+- 5.2.4. Create a failing smoke test file:
+
+  ```diff
+  --- src/App.test.js
+  +++ src/App.test.js
+  @@ -1,8 +1,2 @@
+  -import { render, screen } from '@testing-library/react';
+  -import App from './App';
+  -
+  -test('renders learn react link', () => {
+  -  render(<App />);
+  -  const linkElement = screen.getByText(/learn react/i);
+  -  expect(linkElement).toBeInTheDocument();
+  -});
+  +describe("<App />", () =>
+  +  it("renders without crashing", () => expect(true).toEqual(false)));
+  ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/App.test.js)
+
+- 5.2.5. Run the test:
 
   _This test should **fail**._
 
@@ -829,35 +974,49 @@ $ npm run build
   $ npm t
   ```
 
-- 5.2.5. Pass the failing test:
+- 5.2.6. Pass the failing test:
 
-  ```javascript
-  // file: src/App.test.js
-  import { shallow } from "enzyme";
-  // …
-  describe …
-    it …
-      const wrapper = shallow(<App />);
-      expect(wrapper).toEqual({});
-    // …
+  ```diff
+  --- src/App.test.js
+  +++ src/App.test.js
+  @@ -1,2 +1,7 @@
+  +import { shallow } from "enzyme";
+  +import React from "react";
+  +
+  +import App from "./App";
+  +
+   describe("<App />", () =>
+  -  it("renders without crashing", () => expect(true).toEqual(false)));
+  +  it("renders without crashing", () => expect(shallow(<App />)).toEqual({})));
   ```
 
-- 5.2.6. The test runner automatically re-runs the test:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/App.test.js)
+
+- 5.2.7. The test runner automatically re-runs the test:
 
   _This test should now **pass**._
 
-- 5.2.7. Refactor the passing test:
+- 5.2.8. Refactor the passing test:
 
-  ```javascript
-  // file: src/App.test.js
-  // …
-  describe …
-    it …
-      shallow(<App />);
-    // …
+  ```diff
+  --- src/App.test.js
+  +++ src/App.test.js
+  @@ -1,7 +1,9 @@
+   import { shallow } from "enzyme";
+   import React from "react";
+
+   import App from "./App";
+
+   describe("<App />", () =>
+  -  it("renders without crashing", () => expect(shallow(<App />)).toEqual({})));
+  +  it("renders without crashing", () => {
+  +    shallow(<App />);
+  +  }));
   ```
 
-- 5.2.8. The test runner automatically re-runs the test:
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/App.test.js)
+
+- 5.2.9. The test runner automatically re-runs the test:
 
   _This improved test should still **pass**, having the same result from previous test._
 
@@ -871,23 +1030,23 @@ $ npm run build
 > - `creat-react-app` uses [Jest](https://jestjs.io)'s built-in [expect](https://jestjs.io/docs/en/expect) with [js-dom](https://github.com/testing-library/jest-dom)'s [matchers](https://jestjs.io/docs/en/using-matchers) as an alternative to Chai's assertions
 > - CRA uses [jest.fn()](https://jestjs.io/docs/en/mock-functions) as an alternative to Sinon.js to create [test doubles](https://wikipedia.org/wiki/Test_double) (spies, stubs and mocks, etc.)
 
-#### 5.3. Integration testing
+</details>
+
+<details>
+  <summary>5.3. Integration testing</summary>
 
 > _Use [react-testing-library](https://github.com/testing-library/react-testing-library)&mdash;a set of React DOM testing utilities._
 
 - 5.3.1. Create a failing smoke test file:
 
-  ```javascript
-  // file: src/__tests__/integration/app.spec.js
-  import { render } from "@testing-library/react";
-  import React from "react";
-
-  import App from "../../App";
-
-  test("<App /> renders learn react link", () => {
-    expect(true).toEqual(false);
-  });
+  ```diff
+  --- src/__tests__/integration/app.spec.js
+  +++ src/__tests__/integration/app.spec.js
+  @@ -0,0 +1 @@
+  +test("<App /> renders learn react link", () => expect(true).toEqual(false));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/__tests__/integration/app.spec.js)
 
 - 5.3.2. Run the test:
 
@@ -899,18 +1058,23 @@ $ npm run build
 
 - 5.3.3. Pass the failing test:
 
-  ```javascript
-  // file: src/__tests__/integration/app.spec.js
-  import { render } from "@testing-library/react";
-  import React from "react";
-
-  import App from "../../App";
-
-  test("<App /> renders learn react link", () => {
-    const { getByText } = render(<App />);
-    expect(getByText("Learn React", { exact: false })).toBeInTheDocument();
-  });
+  ```diff
+  --- src/__tests__/integration/app.spec.js
+  +++ src/__tests__/integration/app.spec.js
+  @@ -1 +1,9 @@
+  -test("<App /> renders learn react link", () => expect(true).toEqual(false));
+  +import { render } from "@testing-library/react";
+  +import React from "react";
+  +
+  +import App from "../../App";
+  +
+  +test("<App /> renders learn react link", () =>
+  +  expect(
+  +    render(<App />).getByText("Learn React", { exact: false })
+  +  ).toBeInTheDocument());
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/__tests__/integration/app.spec.js)
 
 - 5.3.4. The test runner automatically re-runs the test:
 
@@ -918,15 +1082,23 @@ $ npm run build
 
 - 5.3.5. Refactor the passing test:
 
-  ```javascript
-  // file: src/__tests__/integration/app.spec.js
-  // …
-  test …
-    // …
-    const linkElement = getByText(/learn react/i);
-    expect(linkElement).toBeInTheDocument();
-  // …
+  ```diff
+  --- src/__tests__/integration/app.spec.js
+  +++ src/__tests__/integration/app.spec.js
+  @@ -1,9 +1,7 @@
+   import { render } from "@testing-library/react";
+   import React from "react";
+
+   import App from "../../App";
+
+   test("<App /> renders learn react link", () =>
+  -  expect(
+  -    render(<App />).getByText("Learn React", { exact: false })
+  -  ).toBeInTheDocument());
+  +  expect(render(<App />).getByText(/learn react/i)).toBeInTheDocument());
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/src/__tests__/integration/app.spec.js)
 
 - 5.3.6. The test runner automatically re-runs the test:
 
@@ -951,31 +1123,89 @@ $ npm run build
 > - We use `.spec.js` here _subjectively_ to distinguish it from unit tests (e.g. `.test.js`)
 > - `getByText` is a combination of [getBy](https://testing-library.com/docs/dom-testing-library/api-queries#getby) and [ByText](https://testing-library.com/docs/dom-testing-library/api-queries#bytext) of [DOM Testing Library](https://testing-library.com/docs/dom-testing-library/intro) [queries](https://testing-library.com/docs/dom-testing-library/api-queries) API
 
-#### 5.4. Code coverage
+</details>
+
+<details>
+  <summary>5.4. Code coverage</summary>
 
 > _Code coverage helps measure the degree to which the source code of the application are executed._
 
 - 5.4.1. Setup:
 
-  ```json
-  // file: package.json
-  {
-    "jest": {
-      "coveragePathIgnorePatterns": [
-        "<rootDir>/src/index.js",
-        "<rootDir>/src/serviceWorker.js"
-      ],
-      "coverageThreshold": {
-        "global": {
-          "branches": 100,
-          "functions": 100,
-          "lines": 100,
-          "statements": 100
-        }
-      }
-    }
-  }
+  ```diff
+  --- package.json
+  +++ package.json
+  @@ -1,53 +1,67 @@
+   {
+     "name": "react-tododo",
+     "version": "0.1.0",
+     "private": true,
+     "dependencies": {
+       "@testing-library/jest-dom": "^5.11.5",
+       "@testing-library/react": "^11.1.0",
+       "@testing-library/user-event": "^12.1.10",
+       "react": "^17.0.1",
+       "react-dom": "^17.0.1",
+       "react-scripts": "4.0.0",
+       "web-vitals": "^0.2.4"
+     },
+     "scripts": {
+       "start": "react-scripts start",
+       "build": "react-scripts build",
+       "lint": "eslint",
+       "format": "prettier",
+       "test": "react-scripts test",
+       "e2e": "cypress",
+       "eject": "react-scripts eject"
+     },
+     "eslintConfig": {
+       "extends": ["react-app", "react-app/jest"]
+     },
+     "browserslist": {
+       "production": [">0.2%", "not dead", "not op_mini all"],
+       "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+       ]
+     },
+     "devDependencies": {
+       "cypress": "^5.5.0",
+       "enzyme": "^3.11.0",
+       "enzyme-adapter-react-16": "^1.15.5",
+       "eslint-config-prettier": "^6.15.0",
+       "eslint-plugin-simple-import-sort": "^5.0.3",
+       "husky": "^4.3.0",
+       "lint-staged": "^10.5.0",
+       "prettier": "^2.1.2"
+     },
+     "husky": {
+       "hooks": {
+         "pre-commit": "lint-staged"
+       }
+     },
+     "lint-staged": {
+       "src/**/*.js": ["npm run lint -- --fix"],
+       "src/**/*.{md,css,js,json}": ["npm run format -- -w"]
+  +  },
+  +  "jest": {
+  +    "coveragePathIgnorePatterns": [
+  +      "<rootDir>/src/index.js",
+  +      "<rootDir>/src/serviceWorker.js"
+  +    ],
+  +    "coverageThreshold": {
+  +      "global": {
+  +        "branches": 100,
+  +        "functions": 100,
+  +        "lines": 100,
+  +        "statements": 100
+  +      }
+  +    }
+     }
+   }
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-5-6jpki?file=/package.json)
 
 - 5.4.2. Run:
 
@@ -995,6 +1225,8 @@ $ npm run build
 > - `--` tells CLI that it is an argument of `test` (not `npm`) (see **Guideline 10** from [Utility Syntax Guidelines](https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap12.html#tag_12_02))
 > - There is a bug currently when running with `--coverage` normally&mdash;use `--watchAll` as a temporary fix
 > - Use `--watchAll=false` (disable test watcher) when using on CI/CD platforms (e.g. [GitHub Actions](https://github.com/features/actions))
+
+</details>
 
 ### 6. Automation
 
