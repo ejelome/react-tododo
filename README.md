@@ -32,11 +32,7 @@ Learn [TDD](https://wikipedia.org/wiki/Test-driven_development) in [React](https
     - [4. Project dependencies](#4-project-dependencies)
     - [5. Test suite](#5-test-suite)
     - [6. Automation](#6-automation)
-      - [6.2. CD](#62-cd)
     - [7. Outside-In TDD](#7-outside-in-tdd)
-      - [7.1. E2E](#71-e2e)
-      - [7.2. Integration](#72-integration)
-      - [7.3. Unit](#73-unit)
     - [8. Inside-Out TDD](#8-inside-out-tdd)
       - [8.1. Unit](#81-unit)
       - [8.2. Integration](#82-integration)
@@ -1406,7 +1402,8 @@ $ npm run build
 
 **Example: List todos**
 
-#### 7.1. E2E
+<details>
+  <summary>7.1. E2E</summary>
 
 - 7.1.1. Start server (if it's not running):
 
@@ -1429,22 +1426,27 @@ $ npm run build
   `cypress/integration/todos/list_spec.js`;
 
   ```javascript
-  describe("Todo list", () => {
-    it("display todo list", () => {
-      cy.visit("/");
-
-      cy.get("h1").contains("my todos", { matchCase: false });
-
-      cy.get("li").contains("learn react", { matchCase: false });
-    });
-  });
+  --- cypress/integration/todos/list_spec.js
+  +++ cypress/integration/todos/list_spec.js
+  @@ -0,0 +1,6 @@
+  +describe("Todo list", () =>
+  +  it("display todo list", () => {
+  +    cy.visit("/");
+  +    cy.get("h1").contains("my todos", { matchCase: false });
+  +    cy.get("li").contains("learn react", { matchCase: false });
+  +  }));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-7-6ylx2?file=/cypress/integration/todos/list_spec.js)
 
 - 7.1.4. Click `list_spec.js` under `todos` from test runner's window:
 
   _This test will **fail** since it's checking a page not yet implemented._
 
-#### 7.2. Integration
+</details>
+
+<details>
+  <summary>7.2. Integration</summary>
 
 - 7.2.1. Start test runner (if it's not running):
 
@@ -1454,24 +1456,31 @@ $ npm run build
 
 - 7.2.2. Create a failing integration test:
 
-  ```javascript
-  // file: src/__tests__/integration/todos/list.spec.js
-  import { render } from "@testing-library/react";
-  import React from "react";
-
-  import App from "../../../App";
-
-  test("<App /> displays todo list", () => {
-    const { getByText } = render(<App />);
-    expect(getByText("my todos", { exact: false })).toBeInTheDocument();
-  });
+  ```diff
+  --- src/__tests__/integration/todos/list.spec.js
+  +++ src/__tests__/integration/todos/list.spec.js
+  @@ -0,0 +1,9 @@
+  +import { render } from "@testing-library/react";
+  +import React from "react";
+  +
+  +import App from "../../../App";
+  +
+  +test("<App /> renders learn react link", () =>
+  +  expect(
+  +    render(<App />).getByText("my todos", { exact: false })
+  +  ).toBeInTheDocument());
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-7-6ylx2?file=/src/__tests__/integration/todos/list.spec.js)
 
 - 7.2.3. The test runner automatically re-runs the test:
 
   _This test will **fail** since it's checking a content not yet implemented._
 
-#### 7.3. Unit
+</details>
+
+<details>
+  <summary>7.3. Unit</summary>
 
 - 7.3.1. Start test runner (if it's not running):
 
@@ -1481,20 +1490,23 @@ $ npm run build
 
 - 7.3.2. Create a failing unit test:
 
-  ```javascript
-  // file: src/components/TodoList.test.js
-  import { shallow } from "enzyme";
-  import React from "react";
-
-  import TodoList from "./TodoList";
-
-  describe("<TodoList />", () => {
-    it("renders without crashing", () => {
-      const wrapper = shallow(<TodoList />);
-      expect(wrapper).toEqual({});
-    });
-  });
+  ```diff
+  --- src/components/TodoList.test.js
+  +++ src/components/TodoList.test.js
+  @@ -0,0 +1,8 @@
+  +import { shallow } from "enzyme";
+  +import React from "react";
+  +
+  +import TodoList from "./TodoList";
+  +
+  +describe("<TodoList />", () =>
+  +  it("renders without crashing", () =>
+  +    expect(shallow(<TodoList />)).toEqual({})));
   ```
+
+  [&#9654; View code &rarr;](https://codesandbox.io/s/react-tododo-lesson-7-6ylx2?file=/src/components/TodoList.test.js)
+
+</details>
 
 ### 8. Inside-Out TDD
 
