@@ -167,7 +167,7 @@ $ npm run build
 - 1.3.3. Set fields, e.g.:
 
   - `Title` as `add-changelog`
-  - `Write` as `Add`CHANGELOG.md``
+  - `Write` as `Add CHANGELOG.md`
   - `Assignees` as `assign yourself`
   - `Labels` as `documentation`
   - `Projects` as `Project setup`
